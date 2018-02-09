@@ -29,7 +29,7 @@
             \gain, 3.dbamp,
             \thresh, -12.dbamp,
             \fx1, ~bus[\jpverb],
-            \fx1lvl, Pwhite(-70.dbamp, -20.dbamp, inf),
+            \fx1lvl, Pwhite(-70.dbamp, -30.dbamp, inf),
             \rel, Pexprand(0.8, 1.5, inf),
             \out, ~bus[\tens],
         )
@@ -62,7 +62,7 @@
             \gain, 0.dbamp,
             \thresh, -12.dbamp,
             \fx1, ~bus[\jpverb],
-            \fx1lvl, Pwhite(-70.dbamp, -20.dbamp, inf),
+            \fx1lvl, Pwhite(-70.dbamp, -30.dbamp, inf),
             // \fx1lvl, Pwhite(0.6, 1.0, inf),
             \rel, Pseq([
                 0.4,
@@ -98,22 +98,11 @@
             \midinote, Pwhite(30, 32, inf),
             \dur, 0.5, 
             \attack, 0.001,
-            // \amp, Pseq([
-            //     1, 
-            //     Pwhite(0.08, 0.1, 2),
-            //     0.5, 
-            //     Pwhite(0.08, 0.1, 2),
-            //     0.4, 
-            //     Pwhite(0.08, 0.1, 3) ] * 0.4, 1
-            // ),
             \db, Pseq([-12, Pwhite(-40, -30, 2), -15, Pwhite(-40, -30, 2), -24, Pwhite(-40, -30, 3)]),
             \rel, 0.5,
             \out, ~bus[\tens],
         )
     );
-
-    // Pdef(\klang).play(~tensclock);
-    // Pdef(\klang).stop(~tensclock);
 
     Pdef(\sine_boom, 
         Pbind(
@@ -124,9 +113,6 @@
             \db, -25,
             \attack, 0.01, 
             \rel, 0.4,
-            // \spread, Pwhite(1.1, 5.0, inf),
-            // \fx1, ~bus[\jpverb],
-            // \fx1lvl, Pexprand(-70.dbamp, -30.dbamp, inf),
             \pan, Pwhite(-1.0, 1.0, inf),
             \out, ~bus[\tens],
         )
@@ -161,17 +147,12 @@
                 1.0,
                 Pshuf((0.5 ! 2), (0.25 ! 4), 1), ], 1
             ),
-            // \amp, Pseq([
-            //     0.07,
-            //     Pwhite(0.001, 0.05, inf)] * 0.7, inf
-            // ),
             \db, Pseq([-30, Pwhite(-50, -40, inf), inf]),
             \attack, 0.03, 
             \pan, Pwhite(-1.0, 1.0, inf),
             \spread, Pwhite(1.1, 5.0, inf),
             \fx1, ~bus[\jpverb],
-            \fx1lvl, Pwhite(-70.dbamp, -20.dbamp, inf),
-            // \fx1lvl, Pexprand(0.001, 1.0, inf),
+            \fx1lvl, Pwhite(-70.dbamp, -30.dbamp, inf),
             \out, ~bus[\tens],
         )
     );
@@ -194,8 +175,7 @@
             ),
             \attack, 0, 
             \fx1, ~bus[\jpverb],
-            \fx1lvl, Pwhite(-70.dbamp, -20.dbamp, inf),
-            // \fx1lvl, Pexprand(0.1, 1.0, inf),
+            \fx1lvl, Pwhite(-70.dbamp, -30.dbamp, inf),
             \out, ~bus[\tens],
         )
     );
@@ -225,8 +205,7 @@
             \attack, 0,
             \pan, Pwhite(-1.0, 1.0, inf),
             \fx1, ~bus[\jpverb],
-            \fx1lvl, Pwhite(-70.dbamp, -20.dbamp, inf),
-            // \fx1lvl, Pexprand(0.001, 1.0, inf),
+            \fx1lvl, Pwhite(-70.dbamp, -30.dbamp, inf),
             \out, ~bus[\tens],
         );	
     );
@@ -256,8 +235,7 @@
             \attack, 0,
             \pan, Pwhite(-1.0, 1.0, inf),
             \fx1, ~bus[\jpverb],
-            \fx1lvl, Pwhite(-70.dbamp, -20.dbamp, inf),
-            // \fx1lvl, Pexprand(0.1, 1.0, inf),
+            \fx1lvl, Pwhite(-70.dbamp, -30.dbamp, inf),
             \out, ~bus[\tens],
         );	
     );
@@ -270,19 +248,15 @@
             \buf, Prand(~buffers[\aliina_laugh], inf),
             \rel, 0.5,
             \amp, Pseq([ 0.25, 0.16, 0.16, 0.25, 0.16, 0.16, 0.25, 0.16, 0.16, 0.16] * 0.8),
-            // \db, -12,
             \pan, Pwhite(-1.0, 1.0, inf),
             \out, ~bus[\tens],
             \fx1, ~bus[\jpverb],
-            \fx1lvl, Pwhite(-70.dbamp, -20.dbamp, inf),
-            // \fx1lvl, Pwhite(0.2, 0.6),
+            \fx1lvl, Pwhite(-70.dbamp, -30.dbamp, inf),
             \fx2, ~bus[\grdelay],
             \fx2lvl, Pwhite(0.2, 0.6),
         );
     );		
 
-    // Pdef(\aliina_laugh).play(~tensclock);
-    // Pdef(\aliina_laugh).stop(~tensclock);
     Pdef(\click_stove, 
         Pbind(
             \instrument, \clean,
@@ -302,12 +276,9 @@
             \pan, Pwhite(-1.0, 1.0, inf),
             \out, ~bus[\tens],
             \fx1, ~bus[\jpverb],
-            \fx1lvl, Pwhite(-70.dbamp, -20.dbamp, inf),
-            // \fx1lvl, Pwhite(0.2, 0.6),
+            \fx1lvl, Pwhite(-70.dbamp, -30.dbamp, inf),
         );
     );		
-    // Pdef(\click_stove).play(~tensclock);
-    // Pdef(\click_stove).stop(~tensclock);
 
     Pdef(\click, 
         Pbind(
@@ -328,8 +299,7 @@
             \pan, Pwhite(-1.0, 1.0, inf),
             \out, ~bus[\tens],
             \fx1, ~bus[\jpverb],
-            \fx1lvl, Pwhite(-70.dbamp, -20.dbamp, inf),
-            // \fx1lvl, Pwhite(0.2, 0.6),
+            \fx1lvl, Pwhite(-70.dbamp, -30.dbamp, inf),
         );
     );		
 
@@ -385,12 +355,10 @@
             \pan, Pwhite(-1.0, 1.0, inf),
             \out, ~bus[\tens],
             \fx1, ~bus[\jpverb],
-            \fx1lvl, -12.dbamp,
-            // \fx1lvl, 0.8,
+            \fx1lvl, Pwhite(-24.dbamp, -12.dbamp),
         );
     );		
 
-    // Pdef(\aliina_laugh_end).play;
     Pdef(\aliina_laugh_end, 
         Pbind(
             \instrument, \cleangate,
@@ -447,27 +415,25 @@
     Pdef(\tens, 
         Psym(
             Pseq([
-                // Pseq([\cello_rise]),
-                Pseq([
-                    Pseq([[\sine_boom, \click, \click_stove]], 1),
-                    Pseq([[\sine_boom, \countinquiet, \click, \click_stove, \aliina_laugh]], 3),
-                    Pseq([[\sine_boom, \countin, \click, \click_stove, \buf]], 4),
-                    Pseq([[\sine_boom, \countin, \click, \buf, \click_stove, \klang]], 4),
-                    Pseq([Prand([[\reso, \buf, \klang], [\reso, \aliina_laugh, \klank, \klang]])], 2), 
-                    Pseq([[\sine_boom, \click, \click_stove]], 1),
-                    Pseq([[\sine_boom, \countinquiet, \click, \click_stove, \aliina_laugh]], 3),
-                    Pseq([[\sine_boom, \countin, \click, \click_stove, \buf]], 4),
-                    Pseq([[\sine_boom, \countin, \click, \buf, \click_stove, \klang]], 4),
-                    Pseq([Prand([[\reso, \buf, \klang], [\reso, \aliina_laugh, \klank, \klang]])], 2), 
-                    Pseq([[\bufquiet, \countin, \reso, \klank, \click, \click_stove, \crashes]], 2),
-                    Pseq([[\sine_boom, \countinquiet, \click, \click_stove, \aliina_laugh]], 3),
-                    Pseq([[\sine_boom, \countin, \click, \click_stove, \buf]], 4),
-                    Pseq([[\countin, \click, \buf, \click_stove, \klang]], 4),
-                    Pseq([Prand([[\reso, \buf, \klang], [\reso, \aliina_laugh, \klank, \klang]])], 2), 
-                    Pseq([[\bufquiet, \countin, \reso, \klank, \click, \click_stove, \crashes]], 2),
-                    Pseq([[\crash, \wind_end, \klang_end]], 1),
-                    Pseq([\aliina_laugh_end], 1),
-                ], 1)
+                Pseq([[\sine_boom, \click, \click_stove]], 1),
+                Pseq([[\sine_boom, \countinquiet, \click, \click_stove, \aliina_laugh]], 3),
+                Pseq([[\sine_boom, \countin, \click, \click_stove, \buf]], 4),
+                Pseq([[\sine_boom, \countin, \click, \buf, \click_stove, \klang]], 4),
+                Pseq([Prand([[\reso, \buf, \klang], [\reso, \aliina_laugh, \klank, \klang]])], 2), 
+                Pseq([[\sine_boom, \click, \click_stove]], 1),
+                Pseq([[\sine_boom, \countinquiet, \click, \click_stove, \aliina_laugh]], 3),
+                Pseq([[\sine_boom, \countin, \click, \click_stove, \buf]], 4),
+                Pseq([[\sine_boom, \countin, \click, \buf, \click_stove, \klang]], 4),
+                Pseq([Prand([[\reso, \buf, \klang], [\reso, \aliina_laugh, \klank, \klang]])], 2), 
+                Pseq([[\bufquiet, \countin, \reso, \klank, \click, \click_stove, \crashes]], 2),
+                Pseq([[\sine_boom, \countinquiet, \click, \click_stove, \aliina_laugh]], 3),
+                Pseq([[\sine_boom, \countin, \click, \click_stove, \buf]], 4),
+                Pseq([[\countin, \click, \buf, \click_stove, \klang]], 4),
+                Pseq([Prand([[\reso, \buf, \klang], [\reso, \aliina_laugh, \klank, \klang]])], 2), 
+                Pseq([[\bufquiet, \countin, \reso, \klank, \click, \click_stove, \crashes]], 2),
+                Pseq([[\crash, \wind_end, \klang_end]], 1),
+                Pseq([\aliina_laugh_end], 1),
+                Pseq([[\breaths, \sine_quiet]], inf)
             ]),
         ),
     );
@@ -668,10 +634,10 @@
             \instrument, \klang,
             \group, ~group[\instr],
             \freq, 87.midicps,
-            \dur, 0.2,
-            \db, Pseries.fromEndpoints(-20, -10, 48),
-            \attack, 0.0, 
-            \rel, Pwhite(1.5, 2.0),
+            \dur, 0.15,
+            \db, Pseries.fromEndpoints(-50, -25, 48),
+            \attack, 0.1, 
+            \rel, 0.0,
             \spread, Pwhite(1.95, 2.05, inf),
             \out, ~bus[\master],
             \fx1, ~bus[\jpverb],
@@ -679,7 +645,6 @@
             \pan, Pwhite(-1.0, 1.0, inf),
         )
     );
-
 
     Pdef(\fast_intro,
         Psym(
@@ -716,6 +681,22 @@
             \fx1lvl, Pwhite(-10.dbamp, -5.dbamp),
             // \fx2, ~bus[\grdelay], 
             // \fx2lvl, Pwhite(-10.dbamp, -5.dbamp),
+        )
+    );
+
+    /******************** sine_quiet ********************/
+    Pdef(\sine_quiet, 
+        Pbind(
+            \instrument, \sine,
+            \group, ~group[\instr],
+            \freq, Pexprand(660, 1200),
+            \amp, Pwhite(-70.dbamp, -60.dbamp),
+            \dur, Pexprand(1.5, 15.0),
+            \pan, Pwhite(-1.0, 1.0),
+            \amfreq, Pwhite(1, 5),
+            \fx1lvl, Pwhite(-60.dbamp, -9.dbamp),
+            \out, ~bus[\master],
+            \rel, Pwhite(3.0, 10.0),
         )
     );
 
@@ -808,19 +789,26 @@
 
     Pdef(\nasa_liftoff, 
         Pbind(
-            \instrument, Pseq([\clean, \clean_circle_pan, \clean, \clean, \clean]), 
+            \instrument, Pseq([\clean, \clean_circle_pan, \clean_circle_pan, \clean, \clean, \clean]), 
             \group, ~group[\instr],
-            \dur, Pseq([30, 10, 20, 20, 20]),
-            \buf, Pseq([~buffers[\nasa][0], ~buffers[\nasa][4], ~buffers[\nasa][6], ~buffers[\nasa][6], ~buffers[\nasa][6]]),
-            \rel, Pseq([120, 80, 90, 90, 90]),
-            \loop, Pseq([0, 0, 1, 1, 1]),
-            \rate, Pseq([1, 1, 0.5, 0.5, 0.5]),
+            \dur, Pseq([30, 10, 10, 20, 20, 20]),
+            \buf, Pseq([
+                ~buffers[\nasa][0], 
+                ~buffers[\nasa][4], 
+                ~buffers[\nasa][4], 
+                ~buffers[\nasa][6], 
+                ~buffers[\nasa][6], 
+                ~buffers[\nasa][6]
+            ]),
+            \rel, Pseq([120, 80, 80, 90, 90, 90]),
+            \loop, Pseq([0, 0, 0, 1, 1, 1]),
+            \rate, Pseq([1, 1, 1, 0.5, 0.5, 0.5]),
             \pan, Pwhite(-1.0, 1.0, inf),
             \panspeed, 0.03,
             \width, ~numSpeakers,
-            \db, Pseq([-15, -6, -12, -12, -12, -12]),
-            \hipassfreq, Pseq([350, 120, 200, 200, 200]),
-            \attack, Pseq([20, 10, 10, 10, 10]),
+            \db, Pseq([-15, -6, -6, -12, -12, -12, -12]),
+            \hipassfreq, Pseq([350, 120, 120, 200, 200, 200]),
+            \attack, Pseq([20, 10, 10, 10, 10, 10]),
             \ratio, 2,    
             \thresh, -12.dbamp,
             \out, ~bus[\master],
@@ -872,23 +860,24 @@
     /******************** breaths ********************/
     Pdef(\breaths, 
         Pbind(
-            \instrument, \clean,
+            \instrument, \clean_circle_pan,
             \group, ~group[\instr],
-            \dur, Pexprand(2, 5),
-            \rate, 0.25,
+            \dur, Pexprand(10, 30),
             \loop, 1,
-            \buf, Prand(~buffers[\breaths], inf),
+            \buf, ~buffers[\breaths][0],
             \rel, 16,
             \attack, 5.0,
             \hipassfreq, 120,
-            // \amp, Pexprand(-20.dbamp, -12.dbamp),
-            \amp, -30.dbamp,
-            \pan, Pwhite(-1.0, 1.0, inf),
+            \db, Pwhite(-25, -20),
+            \panspeed, 0.01,
             \out, ~bus[\master],
             \fx1, ~bus[\jpverb],
-            \fx1lvl, -3.dbamp,
+            \fx1lvl, -9.dbamp,
         );
     );		
+
+    // Pdef(\breaths).play;
+    // Pdef(\breaths).stop;
 
     Pdef(\crashes_1, 
         Pbind(

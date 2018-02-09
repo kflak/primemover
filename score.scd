@@ -40,10 +40,13 @@
 
     ~crunchy_impro = {
         "*Crunchy_impro*".postln;
-        ~chew.value();
-        ~bubbles.value();
-        ~chips.value();
+        ~close_mic1.value();
+        ~chew.value(ids: [10, 11], max_amp: -6.dbamp, threshold: 0.1);
+        ~bubbles.value(ids: [10, 11], max_amp: -3.dbamp, threshold: 0.2);
+        ~chips.value(ids: [10, 11], max_amp: -3.dbamp, threshold: 0.1);
     };
+    
+    // ~crunchy_impro.value();
 
     ~wudan = {
         fork{
@@ -72,7 +75,7 @@
             \out, ~bus[\master],
             \amp, -6.dbamp,
             \fx1, ~bus[\jpverb],
-            \fx1lvl, -3.dbamp,
+            \fx1lvl, -12.dbamp,
             \pan, 0,
             \width, ~numSpeakers
         ], target: ~group[\instr]);
@@ -90,7 +93,7 @@
                     \attack, 20, 
                     \rel, 300, 
                     \loop, 1,
-                    \amp, -20.dbamp, 
+                    \amp, -40.dbamp, 
                     \hipassfreq, 500,
                     \panspeed, 0.01, 
                     \fx1, ~bus[\jpverb], 
@@ -103,10 +106,17 @@
 
     ~swirl = {
         fork {
+            Pdef(\tens).stop;
+            ~crunchy_impro.value();
+            60.wait;
             Pdef(\rain).play;
-            10.wait;
+            40.wait;
             Pdef(\sine).play;
-            100.wait;
+            60.wait;
+            ~chew_free.value();
+            ~bubbles_free.value();
+            ~chips_free.value();
+            40.wait;
             Pdef(\cello).play;
             120.wait;
             Pdef(\em).play;
@@ -132,8 +142,8 @@
             // 9:10
             Pdef(\nasa).stop;
             Pdef(\crashes_1).stop;
-            10.wait;
             Pdef(\fast_klang_liftoff_cue).play;
+            10.wait;
             Pdef(\nasa_liftoff).play;
             25.wait;
             Pdef(\fast_next).stop;
@@ -153,8 +163,19 @@
 )
 
 // ~close_mic1.value();
-// Pdef(\tens).play(~tensclock);
+
+
+// (
+//     fork {
+        // Pdef(\tens).play(~tensclock);
+//         180.wait;
+//         ~open_mic1.value();
+//     }
+// );
 // ~swirl.value();
+
+// Pdef(\tens).stop;
+
 // ~lullaby.value();
 
 // (

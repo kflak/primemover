@@ -394,15 +394,15 @@
             {|outbus, dt, idx, min_amp, max_amp|
                 Synth(\clean, 
                     [
-                        \buf, ~buffers[\dancing_bodies][3],
+                        \buf, ~buffers[\dancing_bodies][2],
                         \amp, dt.linlin(0.0, 1.0, min_amp, max_amp),
                         \rel, dt.linlin(0.0, 1.0, 2.0, 6.0), 
                         \pan, rrand(-1.0, 1.0), 
                         \rate, rrand(0.5, 1.6),
                         \hipassfreq, 150,
                         \out, outbus,
-                        \fx1, ~bus[\jpverb], 
-                        \fx1lvl, rrand(-24, -6).dbamp,
+                        // \fx1, ~bus[\jpverb], 
+                        // \fx1lvl, rrand(-32, -12).dbamp,
                     ], 
                     ~group[\instr]
                 );
@@ -413,14 +413,14 @@
             {|outbus, dt, idx, min_amp, max_amp|
                 Synth(\clean, 
                     [
-                        \buf, ~buffers[\dancing_bodies][2],
+                        \buf, ~buffers[\dancing_bodies][1],
                         \amp, dt.linlin(0.0, 1.0, min_amp, max_amp),
-                        \rel, dt.linlin(0.0, 1.0, 2.0, 10.0), 
+                        \rel, dt.linlin(0.0, 1.0, 2.0, 4.0), 
                         \pan, rrand(-1.0, 1.0), 
                         \rate, rrand(0.9, 1.2),
                         \out, outbus,
                         \fx1, ~bus[\jpverb], 
-                        \fx1lvl, rrand(-12, 0).dbamp,
+                        \fx1lvl, rrand(-32, -12).dbamp,
                     ], 
                     ~group[\instr]
                 );
@@ -444,8 +444,8 @@
                         \ratedur, release,
                         \hipassfreq, 150,
                         \out, outbus,
-                        // \fx1, ~bus[\jpverb], 
-                        // \fx1lvl, rrand(-6, 0).dbamp,
+                        \fx1, ~bus[\jpverb], 
+                        \fx1lvl, rrand(-32, -12).dbamp,
                     ], 
                     ~group[\instr]
                 );

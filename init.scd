@@ -3,7 +3,7 @@
     fork {
 
         ~projectfolder = "/home/kf/sc/primemover/";
-        ~numSpeakers = 2;
+        ~numSpeakers = 4;
 
         //start dsp
         this.executeFile((~projectfolder++"dsp.scd").standardizePath);

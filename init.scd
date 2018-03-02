@@ -1,18 +1,38 @@
 (
-    //initialize project!
-    fork {
+    ~projectfolder = "/home/kf/sc/primemover/";
+    ~numSpeakers = 2;
 
-        ~projectfolder = "/home/kf/sc/primemover/";
-        ~numSpeakers = 4;
+    // s.options.inDevice = "Fireface UC Mac (23309203)";
+    // s.options.outDevice = "Fireface UC Mac (23309203)";
+    // s.options.outDevice = "Built-in Output";
 
-        //start dsp
-        this.executeFile((~projectfolder++"dsp.scd").standardizePath);
-        4.wait;
-        "dsp.scd done".postln;
+    Buffer.freeAll;
+    s.options.numInputBusChannels = 2;
+    s.options.numOutputBusChannels = 18;
+    s.quit;
+    s.waitForBoot({
+        s.meter;
+        s.plotTree;
+
+        //load synthdefs
+        this.executeFile((~projectfolder++"sdefs.scd").standardizePath);
+        s.sync;
+
+        //load buffers
+        this.executeFile((~projectfolder++"buffers.scd").standardizePath);
+
+        //set up groups
+        this.executeFile((~projectfolder++"groups.scd").standardizePath);
+        "groups.scd done".postln;
+        s.sync;
+
+        //create tracks 
+        this.executeFile((~projectfolder++"tracks.scd").standardizePath);
+        "tracks.scd done".postln;
+        s.sync;
 
         //load pdefs
         this.executeFile((~projectfolder++"pdefs.scd").standardizePath);			
-        0.5.wait;
         "pdef.scd done".postln;
 
         //load tdefs
@@ -24,17 +44,24 @@
         "lc.scd done".postln;
 
         // set up mbs
-        this.executeFile((~projectfolder++"mbs.scd").standardizePath);
-        "mbs.scd done".postln;
+        this.executeFile((~projectfolder++"mbGlob.scd").standardizePath);
+        "mbGlob.scd done".postln;
 
-        0.2.wait;
+        // set up mbDeltaTrigs
+        this.executeFile((~projectfolder++"mbDeltaTrigs.scd").standardizePath);
+        "mbDeltaTrigs.scd done".postln;
+
+        // set up mbCCs
+        this.executeFile((~projectfolder++"mbCC.scd").standardizePath);
+        "mbCC.scd done".postln;
+
+        // 
         this.executeFile((~projectfolder++"score.scd").standardizePath);
         "score.scd done".postln;
 
         // cues
         // this.executeFile((~projectfolder++"cues.scd").standardizePath);
         // "cues.scd done".postln;
-    }
+    });
 )
-
 

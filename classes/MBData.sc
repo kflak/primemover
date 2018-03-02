@@ -2,7 +2,7 @@ MBData {
     classvar <>resamplingFreq = 20;
 
     var <>minibeeID;
-    var <delta=0.0, <x, <y, <z;
+    var <delta, <x, <y, <z;
     var data, dataMul=15, dataOffset=7.0;
     var prevData;
     var task;
@@ -19,7 +19,8 @@ MBData {
 
     createOscFunc {
         oscFunc = OSCFunc({|oscdata|
-            data = oscdata[2..] * dataMul - dataOffset.clip(0.0, 1.0);
+            data = oscdata[2..] * dataMul - dataOffset;
+            data = data.clip(0.0, 1.0);
             x = data[0];
             y = data[1];
             z = data[2];

@@ -1,10 +1,9 @@
 MBDeltaTrig {
 
-    // classvar <>availableMinibees;
+    classvar <>mbData;
     classvar <>resamplingFreq = 20;
-    // classvar <>clock;
+    classvar <>numSpeakers = 2;
 
-    // var name;
     var <>speedlim=0.5, <>threshold=0.1;
     var <>minibeeID=10;
     var <>minAmp=0.0, <>maxAmp=0.3;
@@ -14,19 +13,12 @@ MBDeltaTrig {
     var <bus, <task;
     var <deltaFunc, <synth;
 
-    *new { arg speedlim, threshold, minibeeID, minAmp, maxAmp, function, channelParameters;
-        ^super.newCopyArgs( speedlim, threshold, minibeeID, minAmp, maxAmp, function, channelParameters ).init;
+    *new { arg speedlim, threshold, minibeeID, minAmp, maxAmp, function, numSpeakers, channelParameters;
+        ^super.newCopyArgs( speedlim, threshold, minibeeID, minAmp, maxAmp, function, numSpeakers, channelParameters ).init;
     }
 
     init {
     }
-
-    // prepareToPlay { arg deltaValueFunc, numSpeakers, server;
-    //     deltaFunc = deltaValueFunc;
-    //     server = server ? Server.default;
-    //     bus = Bus.audio(server, numSpeakers);
-    //     this.createTask;
-    // }
 
     createTask{
         task = TaskProxy.new( {
@@ -48,8 +40,8 @@ MBDeltaTrig {
         });
     }
 
-    play { arg deltaValueFunc, numSpeakers, server, out, target;
-        deltaFunc = deltaValueFunc;
+    play { arg minAmp, maxAmp, out, target, server;
+        deltaFunc = mbData[minibeeID];
         server = server ? Server.default;
         bus = Bus.audio(server, numSpeakers);
         this.createTask;
@@ -70,6 +62,4 @@ MBDeltaTrig {
         task.stop;
         bus.free;
     }
-
 }
-

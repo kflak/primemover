@@ -8,10 +8,10 @@
     ];
 
     //create audio bus dictionary
-    ~bus = Dictionary();
+    ~bus = IdentityDictionary();
 
     //set up fx channels and channelstrips
-    ~ch = Dictionary();
+    ~ch = IdentityDictionary();
 
     ~tr.do{|item|
         item.postln;	

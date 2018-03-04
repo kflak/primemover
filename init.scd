@@ -16,7 +16,7 @@
 
         //load synthdefs
         this.executeFile((~projectfolder++"sdefs.scd").standardizePath);
-        s.sync;
+        // s.sync;
 
         //load buffers
         this.executeFile((~projectfolder++"buffers.scd").standardizePath);
@@ -24,12 +24,11 @@
         //set up groups
         this.executeFile((~projectfolder++"groups.scd").standardizePath);
         "groups.scd done".postln;
-        s.sync;
+        // s.sync;
 
         //create tracks 
         this.executeFile((~projectfolder++"tracks.scd").standardizePath);
         "tracks.scd done".postln;
-        s.sync;
 
         PathName(~projectfolder++"patterns").filesDo({|file| 
             this.executeFile(file.absolutePath);
@@ -37,10 +36,10 @@
         });
 
         // set up launchcontrol
-        this.executeFile((~projectfolder++"lc.scd").standardizePath);
-        "lc.scd done".postln;
+        // this.executeFile((~projectfolder++"lc.scd").standardizePath);
+        // "lc.scd done".postln;
 
-        // set up mbs
+        // set up mbs global variables
         this.executeFile((~projectfolder++"mbGlob.scd").standardizePath);
         "mbGlob.scd done".postln;
 
@@ -60,5 +59,7 @@
         // this.executeFile((~projectfolder++"cues.scd").standardizePath);
         // "cues.scd done".postln;
     });
+
+
 )
 

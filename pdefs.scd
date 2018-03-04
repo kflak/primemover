@@ -1,5 +1,6 @@
 (
     //******************** tens ********************  	
+    //all of these Pdefs have now been moved to separate files in the patterns/ directory. Keeping the file around for a little while in case something got messed up in the transfer...
     var buf = ~buffers[\brpiano]++~buffers[\cello]++~buffers[\rubberball];
     var bufquiet = ~buffers[\brpiano]++~buffers[\cello];
     ~tensclock = TempoClock.new(2.0);
@@ -19,7 +20,7 @@
                 0.2, 
                 Pwhite(0.08, 0.1, 6) ], 1 
             ),
-            \buf, Prand(buf, inf),
+            \buf, Prand(~buffers[\brpiano]++~buffers[\cello]++~buffers[\rubberball], inf),
             \startpos, Pif(
                 Pkey(\rate).isNegative, 
                 48000, 
@@ -52,7 +53,7 @@
                     Pwhite(0.08, 0.1, 6) 
                 ], 1 
             ),
-            \buf, Prand(bufquiet, inf),
+            \buf, Prand(~buffers[\brpiano]++~buffers[\cello], inf),
             \startpos, Pif(
                 Pkey(\rate).isNegative, 
                 48000, 
@@ -597,7 +598,6 @@
         );
     );
 
-    // Pdef('fast').play;
     Pdef(\fast_kick,
         Pbind(
             \instrument, \sine,

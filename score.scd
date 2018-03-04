@@ -15,7 +15,7 @@
             ~samp_free.value(); //all
             ~klang_klank_free.value(); //11
             5.wait;
-            Pdef(\tens).quant_(0).play(~tensclock);
+            Pdef(\tens).quant_(0).play(TempoClock(2.0));
             ~aliina_free.value();
             30.wait;
             ~water_free.value();

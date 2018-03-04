@@ -31,13 +31,10 @@
         "tracks.scd done".postln;
         s.sync;
 
-        //load pdefs
-        this.executeFile((~projectfolder++"pdefs.scd").standardizePath);			
-        "pdef.scd done".postln;
-
-        //load tdefs
-        this.executeFile((~projectfolder++"tdefs.scd").standardizePath);
-        "tdefs.scd done".postln;
+        PathName(~projectfolder++"patterns").filesDo({|file| 
+            this.executeFile(file.absolutePath);
+            postf("% done\n", file); 
+        });
 
         // set up launchcontrol
         this.executeFile((~projectfolder++"lc.scd").standardizePath);

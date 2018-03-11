@@ -403,6 +403,27 @@
         Out.ar(fx4, sig * fx4lvl);
     }).add;
 
+    SynthDef(\dyn_klang, { arg out=0, freq=440, spread=2, decay=0.3, 
+        attack=0.8, rel=10, gate=1, pan=0, width=2, 
+        fmfreq=0.1, fmdepth=100, amfreq=0.01, amdepth=100,
+        amp = 0.3, fx1lvl=0, fx1=0, fx2lvl=0, fx2=0, fx3, fx3lvl=0, fx4, fx4lvl=0;
+        var sig, harm, amps, env;
+        harm = Array.geom(8, freq, spread);
+        amps = Array.geom(8, 1, decay);
+        env = EnvGen.kr(Env.asr(attack, 1, rel, curve: -4), gate, doneAction: 2);
+        sig = DynKlang.ar(`[harm + SinOsc.kr(fmfreq, mul: fmdepth), amps, nil]);
+        sig = sig * SinOsc.ar(amfreq, amdepth);
+        sig = sig * env * amp;
+        sig = sig * AmpCompA.kr(freq);
+        sig = PanAz.ar(~numSpeakers, sig, pan, width: width);
+        Out.ar(out, sig);
+        Out.ar(fx1, sig * fx1lvl);
+        Out.ar(fx2, sig * fx2lvl);
+        Out.ar(fx3, sig * fx3lvl);
+        Out.ar(fx4, sig * fx4lvl);
+    }).add;
+
+
     SynthDef(\click, {
         arg amp=0.3, pan=0, width=2, rel=0.0001, out=0, fx1=0, fx1lvl=0, fx2=0, fx2lvl=0, fx3, fx3lvl=0, fx4, fx4lvl=0;
         var sig, env;

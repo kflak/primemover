@@ -13,9 +13,7 @@
             \pan, Pwhite(-1.0, 1.0, inf),
             \out, ~bus[\master],
             \fx1, ~bus[\jpverb],
-            \fx1lvl, -24.dbamp,
-            // \fx2, ~bus[\grdelay],
-            // \fx2lvl, Pwhite(-24.dbamp, -12.dbamp),
+            \fx1lvl, -12.dbamp,
         );
     );		
 )

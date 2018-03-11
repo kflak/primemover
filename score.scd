@@ -162,14 +162,15 @@
     };
 )
 
+// ~swirl.value();
 // ~close_mic1.value();
 
 
 // (
 //     fork {
         // Pdef(\tens).play(~tensclock);
-//         180.wait;
-//         ~open_mic1.value();
+//         180.wait;/
+
 //     }
 // );
 // ~swirl.value();
@@ -207,3 +208,24 @@
 // ~metro_free.value();
 // ~nasa.value(threshold: 0.05, min_amp: -60.dbamp, max_amp: -30.dbamp);
 // ~nasa_free.value();
+
+// (
+//     fork{
+//         Pdef(\rain).play;
+//         40.wait;
+//         Pdef(\sine).play;
+//         60.wait;
+//         40.wait;
+//         Pdef(\cello).play;
+//         120.wait;
+//         Pdef(\em).play;
+//         60.wait;
+//         Pdef(\rain).stop;
+//         60.wait;
+//         Pdef(\metro).play;
+//         60.wait;
+//         Pdef(\cello).stop;
+//     }
+// )
+// Pdef(\sine).stop
+//         Pdef(\metro).stop;

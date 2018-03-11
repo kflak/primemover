@@ -4,13 +4,16 @@
             \instrument, \sine,
             \group, ~group[\instr],
             \freq, Pexprand(660, 1200),
-            \amp, Pwhite(-70.dbamp, -40.dbamp),
+            \amp, Pwhite(-70.dbamp, -50.dbamp),
             \dur, Pexprand(1.5, 15.0),
             \pan, Pwhite(-1.0, 1.0),
-            \amfreq, Pwhite(1, 5),
-            \fx1lvl, Pwhite(-60.dbamp, -3.dbamp),
+            \amfreq, Pwhite(0.5, 2),
+            \fx1lvl, Pwhite(-6.dbamp, -3.dbamp),
             \out, ~bus[\master],
-            \rel, Pwhite(3.0, 10.0),
+            \attack, Pwhite(5.0, 8.0),
+            \rel, Pwhite(10.0, 20.0),
         )
     );
 )
+
+// Pdef(\sine).play;

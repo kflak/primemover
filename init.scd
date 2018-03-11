@@ -8,7 +8,7 @@
 
     Buffer.freeAll;
     s.options.numInputBusChannels = 2;
-    s.options.numOutputBusChannels = 18;
+    s.options.numOutputBusChannels = ~numSpeakers;
     s.quit;
     s.waitForBoot({
         s.meter;
@@ -51,15 +51,16 @@
         this.executeFile((~projectfolder++"mbCC.scd").standardizePath);
         "mbCC.scd done".postln;
 
-        // 
+        //various test files and functions
         this.executeFile((~projectfolder++"score.scd").standardizePath);
         "score.scd done".postln;
+
+        //looper
+        this.executeFile((~projectfolder++"looper.scd").standardizePath);
+        "looper.scd done".postln;
 
         // cues
         // this.executeFile((~projectfolder++"cues.scd").standardizePath);
         // "cues.scd done".postln;
     });
-
-
 )
-

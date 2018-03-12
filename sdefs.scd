@@ -304,6 +304,28 @@
         Out.ar(fx4, sig * Lag3UD(fx4lvl, lagup, lagdown));
     }).add;
 
+    SynthDef(\cleanCirclePanGate,{
+        arg buf=0, attack=0.0, rel=10, da=2, amp=0.3, panspeed=0.1, width=2, out=0, gate=1, lagup=0.1, lagdown=0.1, loop=1.0,
+        hishelffreq=500, hishelfdb= -6, hipassfreq=40, lowpassfreq=20000,
+        fx1lvl=0, fx1=0, fx2lvl=0, fx2=0, gain=2, ratio=3, thresh=0.5, rate=1, startpos=0, fx3, fx3lvl=0, fx4, fx4lvl=0;	
+        var sig, env;
+        env = EnvGen.kr(Env.asr(attack, 1, rel, curve: -4), gate, doneAction: da);
+        amp = Lag3UD.kr(amp, lagup, lagdown);
+        rate = Lag3UD.kr(rate, lagup, lagdown);
+        sig = PlayBuf.ar(1, buf, rate: BufRateScale.kr(buf) * rate, startPos: startpos, loop: loop);
+        sig = Compander.ar(sig, sig, thresh: thresh, slopeAbove: 1/ratio, mul: gain);
+        sig = BHiShelf.ar(sig, freq: hishelffreq, db: hishelfdb);
+        sig = BHiPass.ar(sig, freq: Lag3UD.kr(hipassfreq, lagup, lagdown));
+        sig = BLowPass.ar(sig, freq: Lag3UD.kr(lowpassfreq, lagup, lagdown));
+        sig = PanAz.ar(~numSpeakers, sig, LFSaw.kr(panspeed), width: width);
+        sig = sig * amp * env;
+        Out.ar(out, sig);
+        Out.ar(fx1, sig * Lag3UD(fx1lvl, lagup, lagdown));
+        Out.ar(fx2, sig * Lag3UD(fx2lvl, lagup, lagdown));
+        Out.ar(fx3, sig * Lag3UD(fx3lvl, lagup, lagdown));
+        Out.ar(fx4, sig * Lag3UD(fx4lvl, lagup, lagdown));
+    }).add;
+
     SynthDef(\clean_circle_pan,{
         arg buf=0, attack=0.0, rel=10, 
         amp=0.3, panspeed=0.1, width=2, out=0, loop=1.0,

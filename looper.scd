@@ -47,22 +47,36 @@
                     \fx1, ~bus[\jpverb],
                     \fx1lvl, -12.dbamp
                 ], ~group[\instr]);
+                idx.postln;
                 dur.wait;
             }
         });
     );
+    ~looper.put(\play, nil ! ~looper[\numLoops]);
     ~looper.put(\recSeq, 
-        Routine({
+        TaskProxy.new({
+            ~looper[\metronome].play;
+            8.wait;
             ~looper[\numLoops].do{|idx|
                 ~looper[\recStart].value();
                 "Started recording".postln;
                 ~looper[\bufLength].wait;
                 ~looper[\recStop].value(idx);
-                postf("Recorded to buffer %\n", idx)
-            }
-        });
+                postf("Recorded to buffer %\n", idx);
+                ~looper[\play][idx] = Synth(\cleanCirclePanGate, [
+                    \buf, ~looper[\recBuf][idx],
+                    \amp, -12.dbamp,
+                    \fx1, ~bus[\jpverb],
+                    \fx1lvl, -12.dbamp,
+                    \out, ~group[\master],
+                ], ~group[\instr]);
+            };
+            ~looper[\metronome].stop;
+        })
     );
 )
+
 // ~looper[\recSeq].play;
 // ~looper[\metronome].play;
 // ~looper[\metronome].stop;
+// ~looper[\play].do{|synth| synth.release};

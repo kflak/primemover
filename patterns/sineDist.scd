@@ -1,7 +1,7 @@
 (
-    Pdef(\sine, 
+    Pdef(\sineDist, 
         Pbind(
-            \instrument, \sine,
+            \instrument, \sineDist,
             \group, ~group[\instr],
             \freq, Pexprand(660, 1200),
             \amp, Pwhite(-70.dbamp, -50.dbamp),
@@ -17,4 +17,5 @@
     );
 )
 
-// Pdef(\sine).play;
+// Pdef(\sineDist).play;
+// Pdef(\sineDist).stop;

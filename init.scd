@@ -30,6 +30,7 @@
         this.executeFile((~projectfolder++"tracks.scd").standardizePath);
         "tracks.scd done".postln;
 
+        //patterns
         PathName(~projectfolder++"patterns").filesDo({|file| 
             this.executeFile(file.absolutePath);
             postf("% done\n", file); 
@@ -39,16 +40,16 @@
         // this.executeFile((~projectfolder++"lc.scd").standardizePath);
         // "lc.scd done".postln;
 
-        // set up mbs global variables
-        this.executeFile((~projectfolder++"mbGlob.scd").standardizePath);
+        // set up minibee global variables
+        this.executeFile((~projectfolder++"minibee/mbGlob.scd").standardizePath);
         "mbGlob.scd done".postln;
 
         // set up mbDeltaTrigs
-        this.executeFile((~projectfolder++"mbDeltaTrigs.scd").standardizePath);
+        this.executeFile((~projectfolder++"minibee/mbDeltaTrigs.scd").standardizePath);
         "mbDeltaTrigs.scd done".postln;
 
         // set up mbCCs
-        this.executeFile((~projectfolder++"mbCC.scd").standardizePath);
+        this.executeFile((~projectfolder++"minibee/mbCC.scd").standardizePath);
         "mbCC.scd done".postln;
 
         //various test files and functions

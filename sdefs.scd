@@ -504,12 +504,49 @@
     }).add;
 
 
+    SynthDef(\pmEnv, {
+        arg freq=440, modfreq=20, pmindex=0, amp=0.3, pan=0, width=2, amfreq=1, amdepth=0.5, attack=0.5, rel=3, out=0,
+        fx1=0, fx1lvl=0, fx2=0, fx2lvl=0, fx3, fx3lvl=0, fx4, fx4lvl=0;
+        var sig, env, filterenv, amenv;
+        sig = PMOsc.ar(freq, modfreq, pmindex); 
+        env = EnvGen.kr(Env.perc(attack, rel), doneAction: 2);
+        amenv = amfreq * env;
+        sig = sig * env * AmpCompA.kr(freq) * SinOsc.kr(amenv, amdepth);
+        sig = sig * amp;
+        filterenv = freq * 2 * env;
+        filterenv = filterenv.clip(20.0, 20000.0);
+        sig = LPF.ar(sig, filterenv);
+        sig = PanAz.ar(~numSpeakers, sig, pan, width: width);
+        Out.ar(out, sig);
+        Out.ar(fx1, sig * fx1lvl);
+        Out.ar(fx2, sig * fx2lvl);
+        Out.ar(fx3, sig * fx3lvl);
+        Out.ar(fx4, sig * fx4lvl);
+    }).add;
+
     SynthDef(\sine, {
         arg freq=440, amp=0.3, pan=0, width=2, gate=0, amfreq=1, amdepth=0.5, attack=0.5, rel=3, out=0,
         fx1=0, fx1lvl=0, fx2=0, fx2lvl=0, fx3, fx3lvl=0, fx4, fx4lvl=0;
         var sig, env;
         sig = SinOsc.ar(freq); 
         env = EnvGen.kr(Env.perc(attack, rel, -4), doneAction: 2);
+        sig = sig * env * AmpCompA.kr(freq) * SinOsc.kr(amfreq, amdepth);
+        sig = sig * amp;
+        sig = PanAz.ar(~numSpeakers, sig, pan, width: width);
+        Out.ar(out, sig);
+        Out.ar(fx1, sig * fx1lvl);
+        Out.ar(fx2, sig * fx2lvl);
+        Out.ar(fx3, sig * fx3lvl);
+        Out.ar(fx4, sig * fx4lvl);
+    }).add;
+
+    SynthDef(\sineDist, {
+        arg freq=440, amp=0.3, pan=0, width=2, gate=0, amfreq=1, amdepth=0.5, attack=0.5, rel=3, out=0,
+        fx1=0, fx1lvl=0, fx2=0, fx2lvl=0, fx3, fx3lvl=0, fx4, fx4lvl=0;
+        var sig, env;
+        sig = SinOsc.ar(freq); 
+        env = EnvGen.kr(Env.perc(attack, rel, -4), doneAction: 2);
+        sig = sig.tanh.distort.fold2;
         sig = sig * env * AmpCompA.kr(freq) * SinOsc.kr(amfreq, amdepth);
         sig = sig * amp;
         sig = PanAz.ar(~numSpeakers, sig, pan, width: width);

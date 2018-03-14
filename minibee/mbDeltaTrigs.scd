@@ -10,11 +10,11 @@
             minibeeID: 10, 
             minAmp: -70.dbamp, 
             maxAmp: -36.dbamp,
-            function: { |outbus, dt, min_amp, max_amp|
+            function: { |outbus, dt, minAmp, maxAmp|
                 Synth(\click_dust,
                     [
                         \attack, 0,
-                        \amp, dt.linlin(0.0, 1.0, min_amp, max_amp),
+                        \amp, dt.linlin(0.0, 1.0, minAmp, maxAmp),
                         \density, dt.linlin(0.0, 1.0, 1, 20),
                         \rel, dt.linlin(0.0, 1.0, 2.0, 10.0),
                         \decaytime, dt * 5,
@@ -38,11 +38,11 @@
             minibeeID: 12, 
             minAmp: -64.dbamp, 
             maxAmp: -16.dbamp,
-            function: { |outbus, dt, min_amp, max_amp|
+            function: { |outbus, dt, minAmp, maxAmp|
                 Synth(\fmgrain_dust, 
                     [
                         \attack, 0, 
-                        \amp, dt.linlin(0.0, 1.0, min_amp, max_amp),
+                        \amp, dt.linlin(0.0, 1.0, minAmp, maxAmp),
                         \density, dt.linlin(0.0, 1.0, 1, 20), 
                         \rel, dt.linlin(0.0, 1.0, 2.0, 10.0), 
                         \pan, rrand(-1.0, 1.0), 
@@ -67,13 +67,13 @@
                 minibeeID: id, 
                 minAmp: -32.dbamp, 
                 maxAmp: -12.dbamp,
-                function: { |outbus, dt, min_amp, max_amp|
+                function: { |outbus, dt, minAmp, maxAmp|
                     var release = dt.linlin(0.0, 1.0, 3.0, 5.0);
                     var attack = release * 0.3;
                     Synth(\clean, 
                         [
                             \buf, ~buffers[\nasa].choose,
-                            \amp, dt.linlin(0.0, 1.0, min_amp, max_amp),
+                            \amp, dt.linlin(0.0, 1.0, minAmp, maxAmp),
                             \attack, attack,
                             \rel, release,
                             \rate, rrand(0.5, 1.5),
@@ -97,13 +97,13 @@
                 minibeeID: id,
                 minAmp: -32.dbamp, 
                 maxAmp: -12.dbamp,
-                function: { |outbus, dt, min_amp, max_amp|
+                function: { |outbus, dt, minAmp, maxAmp|
                     var release = dt.linlin(0.0, 1.0, 3.0, 5.0);
                     var attack = release * 0.3;
                     Synth(\clean, 
                         [
                             \buf, ~buffers[\metro].choose,
-                            \amp, dt.linlin(0.0, 1.0, min_amp, max_amp),
+                            \amp, dt.linlin(0.0, 1.0, minAmp, maxAmp),
                             \attack, attack,
                             \rel, release,
                             \rate, rrand(0.5, 1.5),
@@ -129,13 +129,13 @@
                 minibeeID: id,
                 minAmp: -32.dbamp, 
                 maxAmp: -6.dbamp,
-                function: { |outbus, dt, min_amp, max_amp|
+                function: { |outbus, dt, minAmp, maxAmp|
                     var release = dt.linlin(0.0, 1.0, 3.0, 5.0);
                     var attack = release * 0.3;
                     Synth(\clean, 
                         [
                             \buf, ~buffers[\em].choose,
-                            \amp, dt.linlin(0.0, 1.0, min_amp, max_amp),
+                            \amp, dt.linlin(0.0, 1.0, minAmp, maxAmp),
                             \attack, attack,
                             \rel, release,
                             \rate, rrand(0.5, 1.5),
@@ -160,13 +160,13 @@
                 minibeeID: id,
                 minAmp: -32.dbamp, 
                 maxAmp: -6.dbamp,
-                function: { |outbus, dt, min_amp, max_amp|
+                function: { |outbus, dt, minAmp, maxAmp|
                     var release = dt.linlin(0.0, 1.0, 3.0, 5.0);
                     var attack = release;
                     Synth(\clean, 
                         [
                             \buf, ~buffers[\nurme_wind].choose,
-                            \amp, dt.linlin(0.0, 1.0, min_amp, max_amp),
+                            \amp, dt.linlin(0.0, 1.0, minAmp, maxAmp),
                             \attack, attack,
                             \rel, release,
                             \rate, rrand(0.5, 1.5),
@@ -191,11 +191,11 @@
                 minibeeID: id, 
                 minAmp: -60.dbamp, 
                 maxAmp: -40.dbamp,
-                function: {|outbus, dt, min_amp, max_amp|
+                function: {|outbus, dt, minAmp, maxAmp|
                     Synth(
                         \sine, [
                             \freq, exprand(660, 1200),
-                            \amp, dt.linlin(0.0, 1.0, min_amp, max_amp),
+                            \amp, dt.linlin(0.0, 1.0, minAmp, maxAmp),
                             \pan, rrand(-1.0, 1.0),
                             \amfreq, rrand(1, 5),
                             \fx1lvl, (dt * 4).clip(0.0, 1.0),
@@ -218,11 +218,11 @@
                 minibeeID: id,
                 minAmp: -32.dbamp, 
                 maxAmp: 0.dbamp,
-                function: {|outbus, dt, min_amp, max_amp|
+                function: {|outbus, dt, minAmp, maxAmp|
                     Synth(\clean, 
                         [
                             \buf, ~buffers[\bubbles][0],
-                            \amp, dt.linlin(0.0, 1.0, min_amp, max_amp),
+                            \amp, dt.linlin(0.0, 1.0, minAmp, maxAmp),
                             \rel, dt.linlin(0.0, 1.0, 2.0, 18.0), 
                             \pan, rrand(-1.0, 1.0), 
                             \rate, rrand(0.5, 2.0),
@@ -247,11 +247,11 @@
                 minibeeID: id,
                 minAmp: -32.dbamp, 
                 maxAmp: -8.dbamp,
-                function: {|outbus, dt, min_amp, max_amp|
+                function: {|outbus, dt, minAmp, maxAmp|
                     Synth(\clean, 
                         [
                             \buf, ~buffers[\home_sounds][0],
-                            \amp, dt.linlin(0.0, 1.0, min_amp, max_amp),
+                            \amp, dt.linlin(0.0, 1.0, minAmp, maxAmp),
                             \rel, dt.linlin(0.0, 1.0, 2.0, 18.0), 
                             \pan, rrand(-1.0, 1.0), 
                             \rate, rrand(0.5, 2.0),
@@ -276,11 +276,11 @@
                 minibeeID: id,
                 minAmp: -32.dbamp, 
                 maxAmp: -12.dbamp,
-                function: {|outbus, dt, min_amp, max_amp|
+                function: {|outbus, dt, minAmp, maxAmp|
                     Synth(\clean, 
                         [
                             \buf, (~buffers[\cello] ++ ~buffers[\brpiano]).choose,
-                            \amp, dt.linlin(0.0, 1.0, min_amp, max_amp),
+                            \amp, dt.linlin(0.0, 1.0, minAmp, maxAmp),
                             \rel, dt.linlin(0.0, 1.0, 2.0, 18.0), 
                             \pan, rrand(-1.0, 1.0), 
                             \rate, rrand(0.5, 2.0),
@@ -303,11 +303,11 @@
                 minibeeID: id,
                 minAmp: -15.dbamp, 
                 maxAmp: 0.dbamp,
-                function: {|outbus, dt, min_amp, max_amp|
+                function: {|outbus, dt, minAmp, maxAmp|
                     Synth(\clean, 
                         [
                             \buf, ~rec_buf[~mbIDs.indexOf[id]],
-                            \amp, dt.linlin(0.0, 1.0, min_amp, max_amp),
+                            \amp, dt.linlin(0.0, 1.0, minAmp, maxAmp),
                             \pan, rrand(-1.0, 1.0), 
                             \rel,  15,
                             \loop, 0,
@@ -331,7 +331,7 @@
                 minibeeID: id,
                 minAmp: -36.dbamp, 
                 maxAmp: 0.dbamp,
-                function: {|outbus, dt, min_amp, max_amp|
+                function: {|outbus, dt, minAmp, maxAmp|
                     Synth(
                         \birdie, [
                             \out, outbus,
@@ -357,11 +357,11 @@
                 minibeeID: id,
                 minAmp: -32.dbamp, 
                 maxAmp: -6.dbamp,
-                function: {|outbus, dt, min_amp, max_amp|
+                function: {|outbus, dt, minAmp, maxAmp|
                     Synth(\clean, 
                         [
                             \buf, ~buffers[\water].choose,
-                            \amp, dt.linlin(0.0, 1.0, min_amp, max_amp),
+                            \amp, dt.linlin(0.0, 1.0, minAmp, maxAmp),
                             \rel, dt.linlin(0.0, 1.0, 2.0, 10.0), 
                             \loop, 0,
                             \pan, rrand(-1.0, 1.0), 
@@ -385,11 +385,11 @@
                 minibeeID: id,
                 minAmp: -32.dbamp, 
                 maxAmp: 6.dbamp, 
-                function: {|outbus, dt, min_amp, max_amp|
+                function: {|outbus, dt, minAmp, maxAmp|
                     Synth(\clean, 
                         [
                             \buf, ~buffers[\dancing_bodies][2],
-                            \amp, dt.linlin(0.0, 1.0, min_amp, max_amp),
+                            \amp, dt.linlin(0.0, 1.0, minAmp, maxAmp),
                             \rel, dt.linlin(0.0, 1.0, 2.0, 6.0), 
                             \pan, rrand(-1.0, 1.0), 
                             \rate, rrand(0.5, 1.6),
@@ -414,11 +414,11 @@
                 minibeeID: id,
                 minAmp: -32.dbamp, 
                 maxAmp: 6.dbamp,
-                function: {|outbus, dt, min_amp, max_amp|
+                function: {|outbus, dt, minAmp, maxAmp|
                     Synth(\clean, 
                         [
                             \buf, ~buffers[\dancing_bodies][1],
-                            \amp, dt.linlin(0.0, 1.0, min_amp, max_amp),
+                            \amp, dt.linlin(0.0, 1.0, minAmp, maxAmp),
                             \rel, dt.linlin(0.0, 1.0, 2.0, 4.0), 
                             \pan, rrand(-1.0, 1.0), 
                             \rate, rrand(0.9, 1.2),
@@ -442,7 +442,7 @@
                 minibeeID: id,
                 minAmp: -32.dbamp, 
                 maxAmp: 6.dbamp,
-                function: {|outbus, dt, min_amp, max_amp|
+                function: {|outbus, dt, minAmp, maxAmp|
                     // fork {
                     // var sustain = dt;
                     var release = dt * 4;
@@ -450,7 +450,7 @@
                     Synth(\varirate_perc, 
                         [
                             \buf, ~buffers[\chipskit].choose,
-                            \amp, dt.linlin(0.0, 1.0, min_amp, max_amp),
+                            \amp, dt.linlin(0.0, 1.0, minAmp, maxAmp),
                             \pan, rrand(-1.0, 1.0), 
                             \rel, release,
                             \ratefrom, rrand(0.9, 1.5),
@@ -477,11 +477,11 @@
                 minibeeID: id,
                 minAmp: -32.dbamp, 
                 maxAmp: -6.dbamp,
-                function: {|outbus, dt, min_amp, max_amp|
+                function: {|outbus, dt, minAmp, maxAmp|
                     Synth(\clean, 
                         [
                             \buf, ~buffers[\aliina_unhappy].choose,
-                            \amp, dt.linlin(0.0, 1.0, min_amp, max_amp),
+                            \amp, dt.linlin(0.0, 1.0, minAmp, maxAmp),
                             \attack, dt.linlin(0.0, 1.0, 1.0, 0.1),
                             \rel, dt.linlin(0.0, 1.0, 2.0, 10.0), 
                             \loop, 0,
@@ -506,11 +506,11 @@
                 minibeeID: id,
                 minAmp: -32.dbamp, 
                 maxAmp: -6.dbamp,
-                function: {|outbus, dt, min_amp, max_amp|
+                function: {|outbus, dt, minAmp, maxAmp|
                     Synth(\clean, 
                         [
                             \buf, (~buffers[\aliina_happy] ++ ~buffers[\aliina_unhappy] ++ ~buffers[\aliina_laugh]).choose,
-                            \amp, dt.linlin(0.0, 1.0, min_amp, max_amp),
+                            \amp, dt.linlin(0.0, 1.0, minAmp, maxAmp),
                             \attack, dt.linlin(0.0, 1.0, 1.0, 0.1),
                             \rel, dt.linlin(0.0, 1.0, 2.0, 10.0), 
                             \pan, rrand(-1.0, 1.0), 
@@ -535,10 +535,10 @@
             minibeeID: 10,
             minAmp: -60.dbamp,
             maxAmp: -24.dbamp,
-            function: {|outbus, dt, min_amp, max_amp|
+            function: {|outbus, dt, minAmp, maxAmp|
                 Synth(\klang, [
                     \freq, exprand(40, 80), 
-                    \amp, dt.linlin(0.0, 1.0, min_amp, max_amp),
+                    \amp, dt.linlin(0.0, 1.0, minAmp, maxAmp),
                     \spread, rrand(1.1, 3.5), 
                     \out, outbus,
                     \fx1, ~bus[\jpverb], 
@@ -560,9 +560,9 @@
             minibeeID: 13,
             minAmp: -60.dbamp,
             maxAmp: -24.dbamp,
-            function: {|outbus, dt, min_amp, max_amp|
+            function: {|outbus, dt, minAmp, maxAmp|
                 Synth(\klank, [
-                    \amp, dt.linlin(0.0, 1.0, min_amp, max_amp),
+                    \amp, dt.linlin(0.0, 1.0, minAmp, maxAmp),
                     \rel, dt * 10,
                     \freq, rrand(200, 1000), 
                     \spread, rrand(1.1, 3.5), 

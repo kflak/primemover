@@ -1,0 +1,3 @@
+(
+    Pdef(\sineGrainTrainEnv).play;
+)

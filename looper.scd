@@ -52,7 +52,7 @@
             }
         });
     );
-    ~looper.put(\play, nil ! ~looper[\numLoops]);
+    ~looper.put(\playbackSynth, nil ! ~looper[\numLoops]);
     ~looper.put(\recSeq, 
         TaskProxy.new({
             ~looper[\metronome].play;
@@ -63,7 +63,7 @@
                 ~looper[\bufLength].wait;
                 ~looper[\recStop].value(idx);
                 postf("Recorded to buffer %\n", idx);
-                ~looper[\play][idx] = Synth(\cleanCirclePanGate, [
+                ~looper[\playbackSynth][idx] = Synth(\cleanCirclePanGate, [
                     \buf, ~looper[\recBuf][idx],
                     \amp, -12.dbamp,
                     \fx1, ~bus[\jpverb],
@@ -79,4 +79,4 @@
 // ~looper[\recSeq].play;
 // ~looper[\metronome].play;
 // ~looper[\metronome].stop;
-// ~looper[\play].do{|synth| synth.release};
+// ~looper[\playbackSynth].do{|synth| synth.release};

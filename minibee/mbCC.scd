@@ -123,5 +123,46 @@
                 };
             )
         };
-    )
+    );
+
+    ~mbCC.put(\songRakesh,
+        {
+            TaskProxy.new({
+                var id = 12;
+                var amp, lowpassfreq, fx1lvl;
+                var synths = ~looper[\playbackSynth];
+                var delta, x, y;
+                inf.do{
+                    synths.do{|synth|
+                        delta = ~mbData[id].delta;
+                        x = ~mbData[id].x;
+                        y = ~mbData[id].y;
+                        amp = (delta * 9.0).clip(0.0, -6.dbamp);
+                        lowpassfreq = x * 10000.0 + 40;
+                        synth.set(\amp, amp, \lowpassfreq, lowpassfreq);
+                    };
+                    ~mbResamplingFreq.reciprocal.wait;
+                };
+            }).play;
+        }
+    );
+
+    ~mbCC.put(\songIsa,
+        {
+            TaskProxy.new({
+                var id = 13;
+                var amp, lowpassfreq, fx1lvl;
+                var synths = ~looper[\playbackSynth];
+                var delta, x, y;
+                inf.do{
+                    synths.do{|synth|
+                        x = ~mbData[id].x;
+                        fx1lvl = (x * 15.0).clip(0.0, -3.dbamp);
+                        synth.set(\fx1lvl, fx1lvl);
+                    };
+                    ~mbResamplingFreq.reciprocal.wait;
+                };
+            }).play;
+        }
+    );
 )

@@ -578,12 +578,16 @@
     SynthDef(\sineGrainTrainEnv, {
         arg freq0=440, freq1=440, grainfreq0=10.0, grainfreq1=2.0, grainsize0=0.1, 
         grainsize1=0.1, amp=0.3, pan0=0, pan1=0, width=2, attack=0.5, rel=3, out=0, 
-        comblvl=0.0, combdelay=0.01, 
+        ratio=1, thresh=1, compgain=1,
+        comblvl0=0.0, comblvl1=0.0, combdelay0=0.01, combdelay1=0.01, combdecay0=1.0, combdecay1=1.0,
         hipassfreq=20, hishelffreq=1000, hishelfdb= -6,
         fx1=0, fx1lvl=0, fx2=0, fx2lvl=0, fx3, fx3lvl=0, fx4, fx4lvl=0;
-        var sig, env, trig, freq, dur, grainsize, comb, pan;
+        var sig, env, trig, freq, dur, grainsize, comb, pan, comblvl, combdelay, combdecay;
         dur = attack + rel;
         pan = Line.kr(pan0, pan1, dur);
+        combdecay = Line.kr(combdecay0, combdecay1, dur);
+        comblvl = Line.kr(comblvl0, comblvl1, dur);
+        combdelay = Line.kr(combdelay0, combdelay1, dur);
         grainsize = Line.kr(grainsize0, grainsize1, dur);
         freq = XLine.kr(freq0, freq1, dur);
         env = EnvGen.kr(Env.perc(attack, rel, -4), doneAction: 2);
@@ -591,10 +595,17 @@
         sig = SinGrain.ar(trig, grainsize, freq); 
         sig = sig * env * AmpCompA.kr(freq) * amp;
         sig = LeakDC.ar(sig);
-        comb = CombC.ar(sig, 0.2, combdelay);
+        comb = CombC.ar(sig, 0.2, combdelay, combdecay);
         comb = comb * comblvl;
         sig = sig * (1-comblvl);
         sig = sig + comb;
+        sig = Compander.ar(sig, sig, 
+            thresh: thresh, 
+            slopeAbove: ratio.reciprocal,
+            clampTime: attack,
+            relaxTime: rel,
+            mul: compgain
+        );
         sig = BHiPass.ar(sig, freq: hipassfreq);
         sig = BHiShelf.ar(sig, hishelffreq, db: hishelfdb);
         sig = PanAz.ar(~numSpeakers, sig, pan, width: width);

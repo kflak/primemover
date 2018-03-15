@@ -3,6 +3,9 @@
     ~numSpeakers = 2;
     ~numMics = 2;
 
+    // address of openFrameworks project
+    ~of = NetAddr.new("127.0.0.1", 12345);
+
     // s.options.inDevice = "Fireface UC Mac (23309203)";
     // s.options.outDevice = "Fireface UC Mac (23309203)";
     // s.options.outDevice = "Built-in Output";

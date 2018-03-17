@@ -4,7 +4,7 @@
             \instrument, \clean,
             \buf, Prand(~buffers[\school_yard], inf),
             ~group[\instr];
-            \amp, Pexprand(-30.dbamp, -20.dbamp),
+            \amp, Pexprand(-20.dbamp, -12.dbamp),
             \dur, Pexprand(2.0, 10.0),
             // \rel, Pkey(\dur) * 1.5,
             \rel, 16,

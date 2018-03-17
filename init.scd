@@ -15,8 +15,8 @@
     s.options.numOutputBusChannels = ~numSpeakers;
     s.quit;
     s.waitForBoot({
-        s.meter;
-        s.plotTree;
+        // s.meter;
+        // s.plotTree;
 
         //load synthdefs
         this.executeFile((~projectfolder++"sdefs.scd").standardizePath);

@@ -2,9 +2,10 @@
     ~mbCC = IdentityDictionary.new();
 
     ~mbCC.put(\wind,
-        {
+        {arg ids = [10];
+            ~mbCC.put(\windIDs, ids);
             ~mbCC.put(\windSynth,
-                ~mbIDs.collect{|id, idx|
+                ~mbCC[\windIDs].collect{|id, idx|
                     Synth(\cleangate, [
                         \buf, ~buffers[\nurme_wind][idx], 
                         \loop, 1, 
@@ -22,7 +23,7 @@
             );
 
             ~mbCC.put(\windCC,
-                ~mbIDs.collect{|id, idx|
+                ~mbCC[\windIDs].collect{|id, idx|
                     TaskProxy.new({
                         var amp, lowpassfreq, fx1lvl;
                         var synth = ~mbCC[\windSynth][idx];
@@ -31,7 +32,7 @@
                             delta = ~mbData[id].delta;
                             x = ~mbData[id].x;
                             y = ~mbData[id].y;
-                            amp = (delta * 9.0).clip(0.0, 1.0);
+                            amp = (delta * 35.0).clip(0.0, 1.0);
                             lowpassfreq = x * 10000.0 + 40;
                             fx1lvl = (delta * 15.0).clip(0.0, 1.0);
                             synth.set(\amp, amp, \lowpassfreq, lowpassfreq, \fx1lvl, fx1lvl);
@@ -44,8 +45,8 @@
     );
 
     ~mbCC.put(\homodeus, 
-        {
-            ~mbCC.put(\homodeusIDs, [10, 11]);
+        {arg ids = [10, 11];
+            ~mbCC.put(\homodeusIDs, ids);
             ~mbCC.put(\homodeusSynth,
                 ~mbCC[\homodeusIDs].collect{|id, idx|
                     Synth(\cleangate, [
@@ -85,8 +86,8 @@
     );
 
     ~mbCC.put(\scrub,
-        {
-            ~mbCC.put(\scrubIDs, [10, 11]);
+        {arg ids = [10, 11];
+            ~mbCC.put(\scrubIDs, ids);
             ~mbCC.put(\scrubSynth, 
                 ~mbCC[\scrubIDs].collect{|id, idx|
                     Synth(\scrub, [

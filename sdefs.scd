@@ -618,14 +618,30 @@
 
     SynthDef(\sineGrainTrain, {
         arg freq=440, grainfreq=10, grainsize=0.1, amp=0.3, pan=0, width=2, attack=0.5, rel=3, out=0, 
+        comblvl=0.0, combdelay=0.01, combdecay=1.0,
+        hipassfreq=20, hishelffreq=1000, hishelfdb= -6,
+        ratio=1, thresh=1, compgain=1,
         fx1=0, fx1lvl=0, fx2=0, fx2lvl=0, fx3, fx3lvl=0, fx4, fx4lvl=0;
-        var sig, env, trig;
+        var sig, env, trig, comb;
         trig = Impulse.ar(grainfreq);
         sig = SinGrain.ar(trig, grainsize, freq); 
         env = EnvGen.kr(Env.perc(attack, rel, -4), doneAction: 2);
         sig = sig * env * AmpCompA.kr(freq);
         sig = sig * amp;
         sig = LeakDC.ar(sig);
+        comb = CombC.ar(sig, 0.2, combdelay, combdecay);
+        comb = comb * comblvl;
+        sig = sig * (1-comblvl);
+        sig = sig + comb;
+        sig = Compander.ar(sig, sig, 
+            thresh: thresh, 
+            slopeAbove: ratio.reciprocal,
+            clampTime: attack,
+            relaxTime: rel,
+            mul: compgain
+        );
+        sig = BHiPass.ar(sig, freq: hipassfreq);
+        sig = BHiShelf.ar(sig, hishelffreq, db: hishelfdb);
         sig = PanAz.ar(~numSpeakers, sig, pan, width: width);
         Out.ar(out, sig);
         Out.ar(fx1, sig * fx1lvl);

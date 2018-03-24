@@ -2,6 +2,7 @@
     //  [track, initial_amplitude, synth, outbus, target_group]
     ~tr = [	
         [\tens, 1.0, \chstrip_multi, \master, \mix], 
+        [\sineGrain, 1.0, \chstrip_multi, \master, \mix], 
         [\jpverb, 1.0, \jpverb,	\master, \fx], 
         [\grdelay, 1.0, \grdelay, \master, \fx], 
         [\master, 1.0, \chstrip_multi, 0, \master], 
@@ -34,6 +35,7 @@
 
     //set additional synth args
     ~ch[\tens].set(\compgain, 2.dbamp, \ratio, 2, \limit, 0.dbamp, \locut, 50);
+    ~ch[\sineGrain].set(\compgain, 0.dbamp, \ratio, 4, \limit, 0.dbamp, \thresh, -12.dbamp, \locut, 80);
     ~ch[\grdelay].set( \lo_cut, 40, \density, 20, \grain_size, 0.001, \grain_size_rand, 0.3, \min_delay, 0.3, \max_delay, 1.5, \fb, 0.05, \mod_freq, 0.05, \mod_depth, 0.1);
-
+    ~ch[\master].set(\compgain, 3.dbamp, \ratio, 2, \limit, -0.3.dbamp, \thresh, -3.dbamp, \locut, 40);
 )

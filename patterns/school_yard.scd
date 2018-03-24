@@ -1,4 +1,22 @@
 (
+    Pdef(\school_yard_fadein, 
+        Pbind(
+            \instrument, \clean,
+            \buf, Prand(~buffers[\school_yard], inf),
+            ~group[\instr];
+            \db, Pseq([Pseries.fromEndpoints(-50, -15, 8), Pseq([-15], inf)]).trace,
+            \dur, 8,
+            \attack, Pkey(\dur) * 2,
+            \rel, Pkey(\dur) * 3,
+            \pan, Pwhite(-1.0, 1.0), 
+            \loop, 1,
+            \hipassfreq, 100,
+            \out, ~bus[\master],
+            \fx1, ~bus[\jpverb], 
+            \fx1lvl, Pwhite(-10.dbamp, -0.dbamp),
+        )
+    );
+
     Pdef(\school_yard, 
         Pbind(
             \instrument, \clean,
@@ -19,3 +37,6 @@
         )
     );
 )
+
+// Pdef(\school_yard_fadein).play;
+// Pdef(\school_yard_fadein).stop;

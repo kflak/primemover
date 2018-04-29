@@ -51,7 +51,7 @@
     }).add;
 
     SynthDef(\soundin, {
-        arg in=0, out=0, gate=1, da=2, lvlin=0.2, lvlout=0.2, pan=0, width=2.0,
+        arg in=0, out=0, gate=0, da=2, lvlin=0.2, lvlout=0.2, pan=0, width=2.0,
         fx1, fx2, fx1lvl=0, fx2lvl=0, fx3, fx3lvl=0, fx4, fx4lvl=0;
         var sig, env;
         env = EnvGen.kr(Env.asr(0.01, 1.0, 0.01), gate, doneAction: da);
@@ -769,8 +769,14 @@
         env = EnvGen.kr(Env.asr(0.01, 1.0, 0.01), gate: gate, doneAction: da);
         pan = TRand.kr(-1.0, 1.0, trig);
         grain_randomizer = TRand.kr(0.0, grain_size_rand, trig);
-        src = In.ar(in, 2);
-        src = GrainIn.ar(2, trig, grain_size + grain_randomizer, (src[0] + src[1]) * 0.5, pan);
+        src = In.ar(in, ~numSpeakers);
+        src = GrainIn.ar(
+            ~numSpeakers, 
+            trig, 
+            grain_size + grain_randomizer, 
+            src.sum / ~numSpeakers, 
+            pan
+        );
         fbNodes = {FbNode(1, delaybuffer_size)} ! n;
         sigs = n.collect {
             arg i;

@@ -411,6 +411,7 @@
     Pdef(\tens,
         Psym(
             Pseq([
+                Pseq([\cello_rise], 1),
                 Pseq([[\sine_boom, \click, \click_stove]], 1),
                 Pseq([[\sine_boom, \countinquiet, \click, \click_stove, \aliina_laugh]], 3),
                 Pseq([[\sine_boom, \countin, \click, \click_stove, \buf]], 4),
@@ -435,3 +436,5 @@
     );
 )
 
+// Pdef(\tens).play(TempoClock(2.0));
+// Pdef(\tens).stop;

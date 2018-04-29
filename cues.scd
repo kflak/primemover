@@ -1,35 +1,19 @@
 (
     var cues = [
-        ~beginning,
-        ~crunchy_impro,
-        ~wudan,
-        ~end,
+        "audienceEnters.scd",
+        "popcornEnds.scd",
+        "micgrab.scd",
+        "fbsong.scd",
+        "crunchyImpro.scd",
+        "swirl.scd",
     ];
 
-    var cue = CuePlayer.new;
+    ~cuelist = CuePlayer.new;
 
-    cues.do{ |item| cue.add(item) };
+    cues.do{ |item| 
+        var file = PathName.new("~/sc/primemover/cues/"++item).fullPath;
+        ~cuelist.add(file);
+        postf("% added to ~cuelist\n", file);
+    };
 
-    cue.gui(
-        monitorInChannels: 2,
-        monitorOutChannels: ~numSpeakers,
-        options:(
-            shortcuts:true,
-            largeDisplay: false,
-            left: 0,
-            top: 0,
-            metronome: false,
-        )
-    );
-
-    //uncomment this chunk if largeDisplay: true to be able to use spacebar when largeDisplay is active
-    // AppClock.sched(0.2,
-    //     {
-    //         cue.guiInstance.cueTrigger.lrgCueWin.view.keyDownAction = { 
-    //             arg view, char, modifiers, unicode, keycode; 
-    //             switch(unicode)
-    //             {32}  { cue.next }
-    //         }; 
-    //     };
-    // );
 )

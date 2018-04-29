@@ -1,0 +1,6 @@
+(
+    {
+        "dummy cue".postln;
+    }
+)
+

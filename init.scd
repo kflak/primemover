@@ -11,12 +11,13 @@
     // s.options.outDevice = "Built-in Output";
 
     Buffer.freeAll;
+    s.quit;
     s.options.numInputBusChannels = ~numMics;
     s.options.numOutputBusChannels = ~numSpeakers;
-    s.quit;
+    s.options.memSize = 65536;
     s.waitForBoot({
         // s.meter;
-        // s.plotTree;
+        s.plotTree;
 
         //load synthdefs
         this.executeFile((~projectfolder++"sdefs.scd").standardizePath);
@@ -61,17 +62,17 @@
         "mic.scd done".postln;
 
         //looper
-        this.executeFile((~projectfolder++"looper.scd").standardizePath);
-        "looper.scd done".postln;
-
-        //cues, testruns, various attempts at cobbling stuff together...
-        // PathName(~projectfolder++"cues").filesDo({|file| 
-        //     this.executeFile(file.absolutePath);
-        //     postf("% done\n", file); 
-        // });
+        // this.executeFile((~projectfolder++"looper.scd").standardizePath);
+        // "looper.scd done".postln;
 
         // in the end, plug them all into cues and pray that it works
-        // this.executeFile((~projectfolder++"cues.scd").standardizePath);
-        // "cues.scd done".postln;
+        this.executeFile((~projectfolder++"cues.scd").standardizePath);
+        "cues.scd done".postln;
+
+        2.wait;
+
+        // in the end, plug them all into cues and pray that it works
+        this.executeFile((~projectfolder++"cuegui.scd").standardizePath);
+        "cuegui.scd done".postln;
     });
 )

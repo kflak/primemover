@@ -57,6 +57,27 @@
         );
     );		
 
+    Pdef(\windPulseSameBuf, 
+        Pbind(
+            \instrument, \clean,
+            \group, ~group[\instr],
+            \dur, Pwhite(2, 3),
+            \rate, 1,
+            \loop, 0,
+            // \buf, ~buffers[\nurme_wind][1],
+            \buf, Prand(~buffers[\nurme_wind], 12),
+            \rel, Pkey(\dur) * 1.2,
+            \attack, Pkey(\dur),
+            \db, Pseries.fromEndpoints(12, -20, 12),
+            \gain, 20,
+            \thresh, -12.dbamp,
+            \ratio, 8,
+            \pan, Pwhite(-1.0, 1.0, inf),
+            \width, ~numSpeakers,
+            \out, ~bus[\master],
+        );
+    );		
+
     Pdef(\windAccents,
         Pbind(
             \instrument, \clean,
@@ -80,12 +101,16 @@
 
     Pdef(\windOmaLaul, 
         Psym(
-            Pseq([[\windPulse, \windAccents]], inf);
+            Pseq([[\windPulse, \windAccents]], 30);
         )
     );
+
 )
 
 // Pdef(\windOmaLaul).play(TempoClock(1.25))
 // Pdef(\windOmaLaul).stop;
+// s.record("~/Desktop/windpulseEnd.aiff"); Pdef(\windPulseSameBuf).play(TempoClock(1));
+// s.stopRecording;
 
-// "mpv ~/Downloads/oma_laul.mp3".unixCmd;
+// Pdef(\windPulseSameBuf).stop;
+// Pdef(\windPulseSameBuf).play(TempoClock(1.0));

@@ -1,13 +1,14 @@
 (
     {
+        s.record("/home/kf/sc/primemover/rehearsalfiles/swirl.wav");
         "Swirl".postln;
 
         ~swirlCue = Routine {
-            // Pdef(\tens).stop;
-            ~crunchy_impro.value();
-            60.wait;
+            Pdef(\tens).stop;
+            // ~crunchy_impro.value();
+            // 60.wait; 
             Pdef(\rain).play;
-            40.wait;
+            // 40.wait;
             Pdef(\sine).play;
             60.wait;
             [10, 11].do{|id, idx| ~deltaTriggers[\chips][idx].release(1)};
@@ -48,13 +49,28 @@
             Pdef(\rain).play;
             Pdef(\sine).stop;
             60.wait;
-            ~lullaby.value();
+            Pdef(\lullaby).play;
             60.wait;
-            ~open_mic1.value();
+            // ~open_mic1.value();
             // 120.wait;
             Pdef(\rain).stop;
+            Pdef(\rainLow).play;
             120.wait;
+            Pdef(\lullaby).stop;
+            Pdef(\lullabyLow).play;
             Pdef(\nasa_liftoff).stop;
+            Pdef(\heartbeat).play(TempoClock(0.8));
         }.play;
     }
 )
+
+// (
+//     ~swirlCue.play;
+//     ~swirlCue.stop;
+//     ~swirlCue.clear;
+//     Pdef(\rain).stop;
+//     Pdef(\rainLow).stop;
+//     Pdef(\sine).stop;
+//     Pdef(\lullabyLow).stop;
+//     Pdef(\heartbeat).stop;
+// )

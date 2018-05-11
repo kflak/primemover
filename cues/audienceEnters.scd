@@ -1,5 +1,6 @@
 (
     {
+
         "audience enters".postln;
         ~audienceEntersCue = Routine {     
 
@@ -62,16 +63,14 @@
             // Pdef(\fastFourth).play; Pdef(\fastThird).stop;
             // 60.wait;
         }.play;
-    }
+    };
 )
 
 
 // (
-    // Pdef(\fastFirst).stop;
-    // Pdef(\fastSecond).stop;
-    // Pdef(\fastThird).stop;
-    // Pdef(\fastFourth).stop;
+//     Pdef(\fastFirst).stop;
+//     Pdef(\fastSecond).stop;
 //     Pdef(\school_yard_fadein).stop;
-//     ~audienceEntersCue.pause;
 //     ~audienceEntersCue.stop;
 // )
+// s.stopRecording;

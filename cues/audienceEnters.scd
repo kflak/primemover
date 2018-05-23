@@ -2,6 +2,7 @@
     {
 
         "audience enters".postln;
+
         ~audienceEntersCue = Routine {     
 
             Pdef(\nasaSaturn).play;
@@ -25,6 +26,7 @@
             Pdef(\aliinaCryBeginning).play;
 
             120.wait;
+
             Pdef(\school_yard_fadein).play;
             Pdef(\celloBegin).stop;
 
@@ -42,35 +44,57 @@
             Pdef(\tibetBellRev).stop;
             Pdef(\sineGrainTrainEnv).stop;
             Pdef(\aliinaCryBeginning).stop;
-
             Pdef(\fastNonRythmical).play;
 
             60.wait;
 
             Pdef(\school_yard_fadein).stop;
             Pdef(\fastNonRythmical).stop;
-
             Pdef(\fastFirst).play;
+
             180.wait;
+
             Pdef(\fastSecond).play; Pdef(\fastFirst).stop;
-            // 60.wait;
-            // Pdef(\fastThird).play; Pdef(\fastSecond).stop;
-            // 60.wait;
-            // Pdef(\fastFourth).play; Pdef(\fastSecond).stop;
-            // 60.wait;
-            // Pdef(\fastThird).play; Pdef(\fastSecond).stop;
-            // 60.wait;
-            // Pdef(\fastFourth).play; Pdef(\fastThird).stop;
-            // 60.wait;
+
+            90.wait;
+
+            ~ch[\mic0].set(\gate, 1, \fx1lvl, -20.dbamp, \f3lvl, -50.dbamp);
+            ~ch[\mic1].set(\gate, 1, \fx1lvl, -20.dbamp, \f3lvl, -50.dbamp);
+
+            75.wait;
+
+            Pdef(\fastSecond).stop;
+
         }.play;
     };
 )
 
 
 // (
-//     Pdef(\fastFirst).stop;
-//     Pdef(\fastSecond).stop;
+// Pdef(\fastFirst).play;
+// Pdef(\fastFirst).stop;
+// Pdef(\fastSecond).stop;
 //     Pdef(\school_yard_fadein).stop;
-//     ~audienceEntersCue.stop;
+    // ~audienceEntersCue.play;
+    // ~audienceEntersCue.stop;
 // )
 // s.stopRecording;
+
+// (
+//     fork{
+//         20.wait;
+//         Pdef(\fastFirst).play;
+//         180.wait;
+//         Pdef(\fastSecond).play;
+//         1.wait;
+//         Pdef(\fastFirst).stop;
+//         179.wait;
+//         Pdef(\fastSecond).stop;
+//         // ~ch[\mic0].set( \gate, 1, \fx1, ~bus[\jpverb], \fx1lvl, -10.dbamp, \fx2, ~bus[\grdelayMedium], \fx3lvl, 0.dbamp, ~bus[\grdelayLong], \fx3lvl, -10.dbamp);
+//         // ~ch[\mic0].set( \gate, 1, \fx1, ~bus[\jpverb], \fx1lvl, -10.dbamp, \fx2, ~bus[\grdelayMedium], \fx2lvl, 0, \fx3, ~bus[\grdelayLong], \fx3lvl, 0);
+//         // ~ch[\mic1].set( \gate, 1, \fx1, ~bus[\jpverb], \fx1lvl, -10.dbamp);
+
+//     }
+// )
+            // ~ch[\mic0].set(\gate, 0);
+            // ~ch[\mic1].set(\gate, 0);

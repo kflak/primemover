@@ -13,6 +13,9 @@
 ~deltaTriggers[\aliinaIDs].do{|id, idx| ~deltaTriggers[\aliina][idx].play(out: ~bus[\master], target: ~group[\mix])};
 ~deltaTriggers[\aliinaIDs].do{|id, idx| ~deltaTriggers[\aliina][idx].release(1)};
 
+~deltaTriggers[\aliinaLaughIDs].do{|id, idx| ~deltaTriggers[\aliinaLaugh][idx].play(out: ~bus[\master], target: ~group[\mix])};
+~deltaTriggers[\aliinaLaughIDs].do{|id, idx| ~deltaTriggers[\aliinaLaugh][idx].release(1)};
+
 ~deltaTriggers[\aliina_cryIDs].do{|id, idx| ~deltaTriggers[\aliina_cry][idx].play(out: ~bus[\master], target: ~group[\mix])};
 ~deltaTriggers[\aliina_cryIDs].do{|id, idx| ~deltaTriggers[\aliina_cry][idx].release(1)};
 

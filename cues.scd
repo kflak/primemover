@@ -1,11 +1,8 @@
 (
     var cues = [
         "audienceEnters.scd",
-        "popcornEnds.scd",
-        "micgrab.scd",
-        "fbsong.scd",
+        "tens.scd",
         "crunchyImpro.scd",
-        "swirl.scd",
     ];
 
     ~cuelist = CuePlayer.new;

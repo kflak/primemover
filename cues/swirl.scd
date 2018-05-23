@@ -1,6 +1,6 @@
 (
     {
-        s.record("/home/kf/sc/primemover/rehearsalfiles/swirl.wav");
+        // s.record("/home/kf/sc/primemover/rehearsalfiles/swirl.wav");
         "Swirl".postln;
 
         ~swirlCue = Routine {
@@ -8,12 +8,14 @@
             // ~crunchy_impro.value();
             // 60.wait; 
             Pdef(\rain).play;
-            // 40.wait;
+            110.wait;
+            // 10.wait;
             Pdef(\sine).play;
             60.wait;
-            [10, 11].do{|id, idx| ~deltaTriggers[\chips][idx].release(1)};
-            [10, 11].do{|id, idx| ~deltaTriggers[\chew][idx].release(1)};
-            [10, 11].do{|id, idx| ~deltaTriggers[\bubbles][idx].release(1)};
+            ~deltaTriggers[\emIDs].do{|id, idx| ~deltaTriggers[\em][idx].release(1)};
+            [10, 11, 12].do{|id, idx| ~deltaTriggers[\chips][idx].release(1)};
+            [10, 11, 12].do{|id, idx| ~deltaTriggers[\chew][idx].release(1)};
+            [10, 11, 12].do{|id, idx| ~deltaTriggers[\bubbles][idx].release(1)};
             40.wait;
             Pdef(\cello).play;
             120.wait;
@@ -25,12 +27,14 @@
             60.wait;
             Pdef(\cello).stop;
             Pdef(\fast_intro).play;
+            Pdef(\chat).play;
             40.wait;
             // 7:30
             Pdef(\fast_intro).stop;
             Pdef(\fast).play;
             40.wait;
             Pdef(\fast).stop;
+            Pdef(\chat).stop;
             Pdef(\fast_next).play;
             Pdef(\nasa).play;
             Pdef(\crashes_1).play;
@@ -65,12 +69,13 @@
 )
 
 // (
-//     ~swirlCue.play;
-//     ~swirlCue.stop;
+//     // ~swirlCue.play;
+    // ~swirlCue.stop;
 //     ~swirlCue.clear;
-//     Pdef(\rain).stop;
-//     Pdef(\rainLow).stop;
-//     Pdef(\sine).stop;
-//     Pdef(\lullabyLow).stop;
-//     Pdef(\heartbeat).stop;
+    // Pdef(\rain).stop;
+    // Pdef(\rainLow).stop;
+    // Pdef(\sine).stop;
+    // Pdef(\lullabyLow).stop;
+    // Pdef(\heartbeat).stop;
+    // s.stopRecording
 // )

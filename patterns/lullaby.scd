@@ -3,6 +3,7 @@
         Pbind (
             \instrument, \clean_circle_pan, 
             \dur, 50,
+            \group, ~group[\instr],
             \buf, ~buffers[\lullaby][0], 
             \attack, 20, 
             \rel, 300, 
@@ -20,6 +21,7 @@
         Pbind (
             \instrument, \clean_circle_pan, 
             \dur, 50,
+            \group, ~group[\instr],
             \buf, ~buffers[\lullaby][0], 
             \attack, 20, 
             \rel, 300, 

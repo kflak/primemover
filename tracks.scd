@@ -49,7 +49,7 @@
         postf("mic% %\n", idx, item);
         //create channel synths...
         ~ch.put(
-            (\mic++idx).asSymbol;
+            (\mic++idx).asSymbol,
             Synth(
                 \soundin, 
                 [ 
@@ -57,6 +57,12 @@
                     \lvlin, item[0],
                     \lvlout, item[1],
                     \out, item[2],
+                    \fx1, ~bus[\jpverb],
+                    \fx1lvl, 0,
+                    \fx2, ~bus[\grdelayMedium],
+                    \fx2lvl, 0,
+                    \fx3, ~bus[\grdelayLong],
+                    \fx3lvl, 0,
                     \gate, 0,
                     \da, 0,
                 ], 
@@ -66,12 +72,70 @@
     };
 
     //set additional synth args
-    ~ch[\tens].set(\compgain, 2.dbamp, \ratio, 2, \limit, 0.dbamp, \locut, 50);
-    ~ch[\fast].set(\compgain, 12.dbamp, \ratio, 8, \thresh, -10.dbamp, \limit, 0.dbamp, \locut, 50);
-    ~ch[\fbsong].set(\compgain, 6.dbamp, \ratio, 4, \limit, 0.dbamp, \locut, 50);
-    ~ch[\sineGrain].set(\compgain, 0.dbamp, \ratio, 4, \limit, 0.dbamp, \thresh, -12.dbamp, \locut, 80);
-    ~ch[\grdelay].set(\lo_cut, 40, \density, 20, \grain_size, 0.001, \grain_size_rand, 0.3, \min_delay, 0.3, \max_delay, 1.5, \fb, 0.05, \mod_freq, 0.05, \mod_depth, 0.1);
-    ~ch[\grdelayMedium].set(\lo_cut, 40, \density, 10, \grain_size, 1.0, \grain_size_rand, 0.3, \min_delay, 1.0, \max_delay, 4.0, \fb, 0.3, \mod_freq, 0.05, \mod_depth, 0.1);
-    ~ch[\grdelayLong].set(\lo_cut, 40, \density, 10, \grain_size, 1.0, \grain_size_rand, 0.3, \min_delay, 1.0, \max_delay, 4.0, \fb, 0.6, \mod_freq, 0.05, \mod_depth, 0.1);
-    ~ch[\master].set(\compgain, 3.dbamp, \ratio, 2, \limit, -0.3.dbamp, \thresh, -3.dbamp, \locut, 40);
+    ~ch[\tens].set(
+        \compgain, 2.dbamp, 
+        \ratio, 2, 
+        \limit, 0.dbamp, 
+        \locut, 50
+    );
+    ~ch[\fast].set(
+        \compgain, 12.dbamp, 
+        \ratio, 8, 
+        \thresh, -10.dbamp, 
+        \limit, 0.dbamp, 
+        \locut, 50
+    );
+    ~ch[\fbsong].set(
+        \compgain, 6.dbamp, 
+        \ratio, 4, 
+        \limit, 0.dbamp, 
+        \locut, 50
+    );
+    ~ch[\sineGrain].set(
+        \compgain, 0.dbamp, 
+        \ratio, 4, 
+        \limit, 0.dbamp, 
+        \thresh, -12.dbamp, 
+        \locut, 80
+    );
+    ~ch[\grdelay].set(
+        \lo_cut, 40, 
+        \density, 20, 
+        \grain_size, 0.001, 
+        \grain_size_rand, 0.3, 
+        \min_delay, 0.3, 
+        \max_delay, 1.5, 
+        \fb, 0.05, 
+        \mod_freq, 0.05, 
+        \mod_depth, 0.1
+    );
+    ~ch[\grdelayMedium].set(
+        \lo_cut, 40, 
+        \density, 10, 
+        \grain_size, 1.0, 
+        \grain_size_rand, 0.3, 
+        \min_delay, 1.0, 
+        \max_delay, 4.0, 
+        \fb, 0.3, 
+        \mod_freq, 0.05, 
+        \mod_depth, 0.1
+    );
+    ~ch[\grdelayLong].set(
+        \lo_cut, 40, 
+        \density, 10, 
+        \grain_size, 1.0, 
+        \grain_size_rand, 0.3, 
+        \min_delay, 1.0, 
+        \max_delay, 4.0, 
+        \fb, 0.5, 
+        \mod_freq, 0.05, 
+        \mod_depth, 0.1
+    );
+    ~ch[\master].set(
+        \compgain, 3.dbamp, 
+        \ratio, 2, 
+        \limit, -0.3.dbamp, 
+        \thresh, -3.dbamp, 
+        \locut, 40
+    );
 )

@@ -3,7 +3,7 @@
         Pbind(
             \instrument, \clean,
             \buf, Prand(~buffers[\metro], inf),
-            ~group[\instr];
+            \group, ~group[\instr],
             // \amp, Pwhite(-40.dbamp, -30.dbamp),
             \db, Pwhite(-15, -9),
             \dur, Pexprand(5.0, 10.0),

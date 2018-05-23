@@ -140,7 +140,7 @@
             \group, ~group[\instr],
             \freq, 75.midicps,
             \dur, Prand([0.1, 0.1, 0.2, 0.4], inf),
-            \db, Pwhite(-60, -30),
+            \db, Pwhite(-70, -40),
             \attack, 0.0, 
             \rel, Pwhite(1.5, 2.0),
             \spread, Pwhite(1.95, 2.05, inf),
@@ -174,7 +174,7 @@
             \group, ~group[\instr],
             \freq, Pexprand(200, 1200),
             \dur, Prand([0.1, 0.1, 0.1, 0.2], inf),
-            \db, Pwhite(-70, -60),
+            \db, Pwhite(-70, -50),
             \attack, 0.01, 
             \rel, 1,
             \spread, Pwhite(1.80, 2.20, inf),
@@ -283,7 +283,7 @@
 
     Pdef(\fastSecond,
         Psym(
-            Pseq([[\fast_klang_delay, \fast_click_water, \fast_click, \fast_kick]]), phrases
+            Pseq([[\aliina_laugh, \fast_klang_delay, \fast_click_water, \fast_click, \fast_kick]]), phrases
         )
     );
 

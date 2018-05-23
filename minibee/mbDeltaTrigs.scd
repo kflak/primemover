@@ -209,15 +209,15 @@
         };
     );
 
-    ~deltaTriggers.put(\emIDs, ~mbIDs);
+    ~deltaTriggers.put(\emIDs, [13, 14]);
     ~deltaTriggers.put(\em,
         ~deltaTriggers[\emIDs].collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
-                threshold: 0.4,
+                threshold: 0.1,
                 minibeeID: id,
                 minAmp: -32.dbamp, 
-                maxAmp: -6.dbamp,
+                maxAmp: 3.dbamp,
                 function: { |outbus, dt, minAmp, maxAmp|
                     var release = dt.linlin(0.0, 1.0, 3.0, 5.0);
                     var attack = release * 0.3;
@@ -231,7 +231,9 @@
                             \pan, rrand(-1.0, 1.0), 
                             \out, outbus,
                             \fx1, ~bus[\jpverb], 
-                            \fx1lvl, rrand(-30, 0).dbamp
+                            \fx1lvl, rrand(-30, 0).dbamp,
+                            \fx2, ~bus[\grdelayMedium], 
+                            \fx2lvl, rrand(-30, 0).dbamp
                         ], 
                         ~group[\instr]
                     );
@@ -301,7 +303,7 @@
         }
     );
 
-    ~deltaTriggers.put(\boilingIDs, ~mbIDs);
+    ~deltaTriggers.put(\boilingIDs, [10, 11]);
     ~deltaTriggers.put(\boiling,
         ~deltaTriggers[\boilingIDs].collect{|id|
             MBDeltaTrig.new(
@@ -445,7 +447,7 @@
         }
     );
 
-    ~deltaTriggers.put(\waterIDs, ~mbIDs); 
+    ~deltaTriggers.put(\waterIDs, [12]); 
     ~deltaTriggers.put(\water, 
         ~deltaTriggers[\waterIDs].collect{|id|
             MBDeltaTrig.new(
@@ -476,10 +478,10 @@
 
     ~deltaTriggers.put(\chewIDs, [10, 11]); 
     ~deltaTriggers.put(\chew, 
-        ~deltaTriggers[\chewIDs].do{|id|
+        ~deltaTriggers[\chewIDs].collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
-                threshold: 0.2, 
+                threshold: 0.1, 
                 minibeeID: id,
                 minAmp: -32.dbamp, 
                 maxAmp: 6.dbamp, 
@@ -493,23 +495,21 @@
                             \rate, rrand(0.5, 1.6),
                             \hipassfreq, 150,
                             \out, outbus,
-                            // \fx1, ~bus[\jpverb], 
-                            // \fx1lvl, rrand(-32, -12).dbamp,
                         ], 
                         ~group[\instr]
                     );
                 }, 
-                channelParameters: [\compgain, 12.dbamp, \ratio, 8, \limit, 0.8, \locut, 40]
+                channelParameters: [\compgain, 25.dbamp, \ratio, 8, \limit, 0.8, \locut, 40]
             )
         }
     );
 
     ~deltaTriggers.put(\bubblesIDs, [10, 11]); 
     ~deltaTriggers.put(\bubbles, 
-        ~deltaTriggers[\bubblesIDs].do{|id|
+        ~deltaTriggers[\bubblesIDs].collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
-                threshold: 0.2, 
+                threshold: 0.1, 
                 minibeeID: id,
                 minAmp: -32.dbamp, 
                 maxAmp: 6.dbamp,
@@ -521,6 +521,7 @@
                             \rel, dt.linlin(0.0, 1.0, 2.0, 4.0), 
                             \pan, rrand(-1.0, 1.0), 
                             \rate, rrand(0.9, 1.2),
+                            \hipassfreq, 150,
                             \out, outbus,
                             \fx1, ~bus[\jpverb], 
                             \fx1lvl, rrand(-32, -12).dbamp,
@@ -528,25 +529,22 @@
                         ~group[\instr]
                     );
                 }, 
-                channelParameters: [\compgain, 12.dbamp, \ratio, 8, \limit, 0.8, \locut, 40]
+                channelParameters: [\compgain, 20.dbamp, \ratio, 8, \limit, 0.8, \locut, 120]
             )
         }
     );
 
     ~deltaTriggers.put(\chipsIDs, [10, 11]);
     ~deltaTriggers.put(\chips, 
-        ~deltaTriggers[\chipsIDs].do{|id|
+        ~deltaTriggers[\chipsIDs].collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
-                threshold: 0.2, 
+                threshold: 0.1, 
                 minibeeID: id,
                 minAmp: -32.dbamp, 
                 maxAmp: 6.dbamp,
                 function: {|outbus, dt, minAmp, maxAmp|
-                    // fork {
-                    // var sustain = dt;
                     var release = dt * 4;
-                    // var duration = sustain + release;
                     Synth(\varirate_perc, 
                         [
                             \buf, ~buffers[\chipskit].choose,
@@ -564,7 +562,7 @@
                         ~group[\instr]
                     );
                 }, 
-                channelParameters: [\compgain, 12.dbamp, \ratio, 8, \limit, 0.8, \locut, 40]
+                channelParameters: [\compgain, 25.dbamp, \ratio, 8, \limit, 0.8, \locut, 40]
             )
         }
     );
@@ -595,6 +593,39 @@
                         ~group[\instr]
                     );
                 },
+            )
+        }
+    );
+
+    ~deltaTriggers.put(\aliinaLaughIDs, [10, 11]);
+    ~deltaTriggers.put(\aliinaLaugh,
+        ~deltaTriggers[\aliinaLaughIDs].collect{|id|
+            MBDeltaTrig.new(
+                speedlim: 0.5, 
+                threshold: 0.2, 
+                minibeeID: id,
+                minAmp: -32.dbamp, 
+                maxAmp: -12.dbamp,
+                function: {|outbus, dt, minAmp, maxAmp|
+                    Synth(\clean, 
+                        [
+                            \buf, (~buffers[\aliina_laugh]).choose,
+                            \amp, dt.linlin(0.0, 1.0, minAmp, maxAmp),
+                            \attack, dt.linlin(0.0, 1.0, 1.0, 0.1),
+                            \rel, dt.linlin(0.0, 1.0, 2.0, 10.0), 
+                            \pan, rrand(-1.0, 1.0), 
+                            \rate, 1,
+                            \out, outbus,
+                            \loop, 0,
+                            \fx1, ~bus[\jpverb], 
+                            \fx1lvl, -20.dbamp,
+                            // \fx1lvl, rrand(-12, 0).dbamp,
+                            // \fx2, ~bus[\grdelay], 
+                            // \fx2lvl, rrand(-12, 0).dbamp,
+                        ], 
+                        ~group[\instr]
+                    );
+                };
             )
         }
     );

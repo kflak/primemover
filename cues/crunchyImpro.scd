@@ -23,16 +23,18 @@
             //Isabell sensor on
             [12].do{|id, idx| ~deltaTriggers[\water][idx].play( out: ~bus[\master], target: ~group[\mix]) };
 
-            60.wait;
-            // 10.wait;
+            // 60.wait; // QUARTET
+            30.wait;
 
             Pdef(\chat).play;
 
-            60.wait;
+            // 60.wait; // QUARTET
+            30.wait;
 
             Pdef(\sine).play;
 
-            60.wait;
+            // 60.wait; // QUARTET
+            30.wait;
 
             [13, 14].do{|id, idx| ~deltaTriggers[\em][idx].release(1)}; //Rakesh off
             [10, 11].do{|id, idx| ~deltaTriggers[\chips][idx].release(1)}; //Külli off 
@@ -108,17 +110,18 @@
             90.wait;
 
             Pdef(\lullaby).stop;
-            Pdef(\lullabyLow).play;
+            // Pdef(\lullabyLow).play;
             Pdef(\nasa_liftoff).stop;
-            Pdef(\heartbeat).play(TempoClock(0.8));
+            Pdef(\heartbeatHi).play(TempoClock(0.8));
+            Pdef(\rainLow).stop;
 
-            10.wait;
+            // 10.wait;
 
-            Pdef(\lullabyLow).stop;
+            // Pdef(\lullabyLow).stop;
 
             240.wait;
             
-            Pdef(\heartbeat).stop;
+            Pdef(\heartbeatHi).stop;
 
         }.play;
     }

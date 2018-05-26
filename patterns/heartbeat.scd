@@ -16,6 +16,20 @@
         )
     );
 
+    Pdef(\heartbeatHi, 
+        Pbind(
+            \instrument, \sine,
+            \group, ~group[\instr],
+            \freq, Pseq([50, 36], inf),
+            \db, Pseq([-25, -30], inf) + 3,
+            \dur, Pseq([0.2, 1], inf),
+            \pan, Pwhite(-1.0, 1.0),
+            \out, ~bus[\master],
+            \attack, 0.01,
+            \rel, 0.3
+        )
+    );
+
     Pdef(\heartbeat10, 
         Pbind(
             \instrument, \sine,

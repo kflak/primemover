@@ -56,12 +56,20 @@
 
             Pdef(\fastSecond).play; Pdef(\fastFirst).stop;
 
-            90.wait;
+            ~ch[\mic0].set(\gate, 1, \fx1lvl, -20.dbamp, \f3lvl, -40.dbamp);
+            ~ch[\mic1].set(\gate, 1, \fx1lvl, -20.dbamp, \f3lvl, -40.dbamp);
 
-            ~ch[\mic0].set(\gate, 1, \fx1lvl, -20.dbamp, \f3lvl, -50.dbamp);
-            ~ch[\mic1].set(\gate, 1, \fx1lvl, -20.dbamp, \f3lvl, -50.dbamp);
+            //DUET
+            60.wait;
+            
+            //QUARTET
+            // 90.wait;
 
-            75.wait;
+            //DUET
+            45.wait;
+            
+            //QUARTET
+            // 75.wait;
 
             Pdef(\fastSecond).stop;
 

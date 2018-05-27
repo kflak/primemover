@@ -134,7 +134,7 @@
         sig = BHiPass.ar(sig, locut);
         sig = BLowPass.ar(sig, hicut);
         sig = BPeakEQ.ar(sig, peakfreq, peakrq, peakdb);
-        sig = Limiter.ar(sig, 0.9);
+        sig = Limiter.ar(sig, limit);
         sig = sig * env * amp;
         Out.ar(out, sig);
         Out.ar(fx1, sig * fx1lvl);
@@ -166,7 +166,7 @@
         sig = BHiPass.ar(sig, locut);
         sig = BLowPass.ar(sig, hicut);
         sig = BPeakEQ.ar(sig, peakfreq, peakrq, peakdb);
-        sig = Limiter.ar(sig, 0.9);
+        sig = Limiter.ar(sig, limit);
         sig = sig * env * amp;
         Out.ar(out, sig);
         Out.ar(fx1, sig * fx1lvl);
@@ -175,24 +175,45 @@
         Out.ar(fx4, sig * fx4lvl);
     }).add;
 
-    SynthDef(\limiter,{
+    SynthDef(\limiter, {
         arg in, attack=0.1, rel=0.1, amp=1, out=0, gate=1,
-        ratio=2, gain=1, thresh=0.7;
+        ratio=2, gain=1, thresh=0.7, limit=0.9;
         var sig, source, env;
         env = EnvGen.kr(Env.asr(attack, 1, rel), gate: gate, doneAction: 2);
         source = In.ar(in, 2);
         sig = Compander.ar(source, source, slopeAbove: 1/ratio, thresh: thresh, mul: gain);
-        sig = Limiter.ar(sig, 0.9);
+        sig = Limiter.ar(sig, limit);
         sig = sig * amp * env;
         Out.ar(out, sig);
     }).add;
 
-    SynthDef(\rec,{
+    SynthDef(\rec, {
         arg in, out, bufnum;
         var sig;
         sig = SoundIn.ar(in);
         RecordBuf.ar(sig, bufnum, doneAction: 2, loop: 0);
     }).add;
+
+    SynthDef(\mixToMono, {
+        arg in, attack=0.1, rel=0.1, amp=1, out=0, gate=1,
+        locut=20, loshelffreq=200, loshelfdb=0, 
+        hishelffreq=1500, hishelfdb=0, hicut=20000, 
+        peakfreq=600, peakrq=1, peakdb=0, limit=0.9;
+        var sig, env;
+        env = EnvGen.kr(Env.asr(attack, 1, rel), gate: gate, doneAction: 2);
+        sig = In.ar(in, ~numSpeakers);
+        sig = sig / ~numSpeakers;
+        sig = Mix.ar(sig);
+        sig = BLowShelf.ar(sig, loshelffreq, db: loshelfdb);
+        sig = BHiShelf.ar(sig, hishelffreq, db: hishelfdb);
+        sig = BHiPass.ar(sig, locut);
+        sig = BLowPass.ar(sig, hicut);
+        sig = BPeakEQ.ar(sig, peakfreq, peakrq, peakdb);
+        sig = Limiter.ar(sig, limit);
+        sig = sig * amp * env;
+        Out.ar(out, sig);
+    }).add;
+
 
     // ******************** instruments ********************
     SynthDef(\reso,{
@@ -761,7 +782,7 @@
 
     SynthDef(\grdelay, {
         arg in, out, amp=0.3, fb=0.2, gate=1, da=2, min_delay=0.4, max_delay=1.0, 
-        mod_freq=0.1, mod_depth=0.0, 
+        mod_freq=0.1, mod_depth=0.0, limit=0.8,
         lo_cut=100, density=10.0, grain_size=0.1, grain_size_rand=0;
         var sigs, env, src, trig, pan, fbNode, fbNodes, n=3, delays, delaybuffer_size=4.0, mod, grain_randomizer;
         trig = Dust.kr(density);
@@ -792,7 +813,7 @@
             fbNodes[i].write(sig);
         };
         sigs = sigs * env * amp;
-        sigs = Limiter.ar(sigs, 0.8);
+        sigs = Limiter.ar(sigs, limit);
         sigs = SplayAz.ar(~numSpeakers, sigs, spread: 1, width:~numSpeakers, center: 0);
         Out.ar(out, sigs);
     }).add;

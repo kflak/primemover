@@ -11,10 +11,10 @@
 
             ~deltaTriggers[\aliinaLaughIDs].do{|id, idx| ~deltaTriggers[\aliinaLaugh][idx].play(out: ~bus[\tens], target: ~group[\mix])};
 
-            60.wait;
+            
+            Pdef(\emLow).play; //DUET
 
-            //DUET
-            Pdef(\emLow).play;
+            60.wait;
 
             //QUARTET
             // "Rakesh solo".postln;

@@ -2,10 +2,10 @@
     Pdef(\chat, 
         Pbind(
             \instrument, \clean,
-            \buf, Prand(~buffers[\chat], inf),
+            \buf, Pxrand(~buffers[\chat], inf),
             \group, ~group[\instr],
             \db, Pwhite(-5, 0),
-            \dur, Pexprand(2.0, 5.0),
+            \dur, Pwhite(2.0, 8.0),
             \rel, Pkey(\dur) * 1.5,
             \attack, Pkey(\dur) * 0.5,
             \ratio, 8,

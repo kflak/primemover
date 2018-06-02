@@ -23,7 +23,7 @@
             \instrument, \clean,
             \buf, Prand(~buffers[\em], inf),
             ~group[\instr];
-            \db, Pwhite(-50, -30),
+            \db, Pwhite(-40, -20),
             \dur, Pexprand(1.0, 7.0),
             \rel, Pkey(\dur),
             \attack, Pkey(\dur) * 0.3,

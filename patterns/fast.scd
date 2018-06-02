@@ -111,7 +111,7 @@
             \midinote, 30,
             \pan, Pwhite(-1.0, 1.0, inf),
             \dur, Prand([0.2, 0.4, 0.6], inf),
-            \db, Pwhite(-30, -25) - 10,
+            \db, Pwhite(-30, -25) - 5,
             \attack, 0.001, 
             \rel, Pwhite(0.4, 0.6),
             \out, ~bus[\fast],

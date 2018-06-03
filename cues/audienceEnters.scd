@@ -48,13 +48,24 @@
 
             60.wait;
 
+            ~ch[\heartbeat].set(\gate, 0);
+
             Pdef(\school_yard_fadein).stop;
             Pdef(\fastNonRythmical).stop;
             Pdef(\fastFirst).play;
 
-            180.wait;
+            100.wait;
+
+            Pdef(\aliinaChat).play;
+
+            80.wait;
 
             Pdef(\fastSecond).play; Pdef(\fastFirst).stop;
+
+            20.wait;
+
+            Pdef(\aliinaChatFaster).play;
+            Pdef(\aliinaChat).stop;
 
             // ~ch[\mic0].set(\gate, 1, \fx1lvl, -20.dbamp, \fx2lvl, -10.dbamp, \f3lvl, -40.dbamp);
             // ~ch[\mic1].set(\gate, 1, \fx1lvl, -20.dbamp, \fx2lvl, -10.dbamp, \f3lvl, -40.dbamp);

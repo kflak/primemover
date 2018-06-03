@@ -3,7 +3,6 @@
     ~numSpeakers = 2;
     ~numMics = 2;
     ~numSubs = 1;
-    ~subOut = ~numSpeakers;
 
     // address of openFrameworks project
     // ~of = NetAddr.new("127.0.0.1", 12345);
@@ -17,7 +16,7 @@
     s.waitForBoot(
         {
             // s.meter;
-            s.plotTree;
+            // s.plotTree;
 
             //load synthdefs
             this.executeFile((~projectfolder++"sdefs.scd").standardizePath);

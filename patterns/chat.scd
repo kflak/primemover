@@ -10,16 +10,16 @@
             \attack, Pkey(\dur) * 0.5,
             \ratio, 8,
             \loop, 0,
-            \gain, 3.dbamp,
+            \gain, 9.dbamp,
             \thresh, -20.dbamp,
             \rate, 1,
             \pan, Pwhite(-1.0, 1.0), 
-            \hipassfreq, 200,
+            \hipassfreq, 600,
             \out, ~bus[\master],
             \fx1, ~bus[\jpverb], 
             \fx1lvl, Pwhite(-10.dbamp, -5.dbamp),
             \fx2, ~bus[\grdelayMedium], 
-            \fx2lvl, Pwhite(-10.dbamp, -5.dbamp),
+            \fx2lvl, Pwhite(-20.dbamp, -15.dbamp),
         )
     );
 )

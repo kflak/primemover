@@ -3,7 +3,8 @@
     ~tr = [	
         [\fast, 1.0, \chstrip_multi, \master, \mix], 
         [\tens, 1.0, \chstrip_multi, \master, \mix], 
-        [\fbsong, 1.0, \chstrip_multi, \master, \mix], 
+        [\crunchy, 1.0, \chstrip_multi, \master, \mix], 
+        [\heartbeat, 1.0, \chstrip_multi, \master, \mix], 
         [\sineGrain, 1.0, \chstrip_multi, \master, \mix], 
         [\jpverb, 1.0, \jpverb,	\master, \fx], 
         [\grdelay, 1.0, \grdelay, \master, \fx], 
@@ -86,11 +87,16 @@
         \limit, 0.dbamp, 
         \locut, 50
     );
-    ~ch[\fbsong].set(
+    ~ch[\crunchy].set(
         \compgain, 6.dbamp, 
-        \ratio, 4, 
+        \ratio, 8, 
+        \thresh, -10.dbamp, 
         \limit, 0.dbamp, 
         \locut, 50
+    );
+    ~ch[\heartbeat].set(
+        \gate, 1,
+        \attack, 60
     );
     ~ch[\sineGrain].set(
         \compgain, 0.dbamp, 

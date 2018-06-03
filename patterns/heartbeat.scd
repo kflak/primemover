@@ -7,10 +7,10 @@
             \instrument, \sine,
             \group, ~group[\instr],
             \freq, Pseq([50, 36], inf),
-            \db, Pseq([-25, -30], inf) - 5,
+            \db, Pseq([-30, -35], inf),
             \dur, Pseq([0.2, 1], inf),
             \pan, Pwhite(-1.0, 1.0),
-            \out, ~bus[\master],
+            \out, ~bus[\heartbeat],
             \attack, 0.01,
             \rel, 0.3
         )
@@ -21,10 +21,10 @@
             \instrument, \sine,
             \group, ~group[\instr],
             \freq, Pseq([50, 36], inf),
-            \db, Pseq([-25, -30], inf) + 3,
+            \db, Pseq([-28, -33], inf),
             \dur, Pseq([0.2, 1], inf),
             \pan, Pwhite(-1.0, 1.0),
-            \out, ~bus[\master],
+            \out, ~bus[\heartbeat],
             \attack, 0.01,
             \rel, 0.3
         )

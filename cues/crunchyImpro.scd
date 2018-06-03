@@ -12,16 +12,16 @@
             ~ch[\mic0].set(\gate, 0);
 
             //Külli sensors on
-            [10, 11].do{|id, idx| ~deltaTriggers[\chew][idx].play( out: ~bus[\master], target: ~group[\mix]) };
-            [10, 11].do{|id, idx| ~deltaTriggers[\chips][idx].play( out: ~bus[\master], target: ~group[\mix]) };
-            [10, 11].do{|id, idx| ~deltaTriggers[\bubbles][idx].play( out: ~bus[\master], target: ~group[\mix]) };
+            [10, 11].do{|id, idx| ~deltaTriggers[\chew][idx].play(out: ~bus[\crunchy], target: ~group[\mix]) };
+            [10, 11].do{|id, idx| ~deltaTriggers[\chips][idx].play(out: ~bus[\crunchy], target: ~group[\mix]) };
+            [10, 11].do{|id, idx| ~deltaTriggers[\bubbles][idx].play(out: ~bus[\crunchy], target: ~group[\mix]) };
 
             90.wait;
 
             Pdef(\rain).play;
 
             //Isabell sensor on
-            [12].do{|id, idx| ~deltaTriggers[\water][idx].play( out: ~bus[\master], target: ~group[\mix]) };
+            [12].do{|id, idx| ~deltaTriggers[\water][idx].play(out: ~bus[\master], target: ~group[\mix]) };
 
             // 60.wait; // QUARTET
             30.wait;
@@ -107,19 +107,25 @@
             Pdef(\rain).stop;
             Pdef(\rainLow).play;
 
-            90.wait;
+            30.wait;
+
+            ~ch[\heartbeat].set(\gate, 0);
+            ~ch[\heartbeat].set(\attack, 60);
+            ~ch[\heartbeat].set(\gate, 1);
+            Pdef(\heartbeatHi).play(TempoClock(0.8));
+
+            60.wait;
 
             Pdef(\lullaby).stop;
             // Pdef(\lullabyLow).play;
             Pdef(\nasa_liftoff).stop;
-            Pdef(\heartbeatHi).play(TempoClock(0.8));
             Pdef(\rainLow).stop;
 
             // 10.wait;
 
             // Pdef(\lullabyLow).stop;
 
-            240.wait;
+            120.wait;
             
             Pdef(\heartbeatHi).stop;
 

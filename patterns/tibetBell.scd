@@ -10,7 +10,7 @@
             \rel, Pwhite(16, 30),
             \attack, Pkey(\rel),
             \hishelfdb, -25,
-            \hipassfreq, 440,
+            \hipassfreq, 660,
             \db, -17,
             \fx1, ~bus[\jpverb],
             \fx1lvl, -0.dbamp,

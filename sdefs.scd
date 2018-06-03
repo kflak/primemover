@@ -87,7 +87,7 @@
         peakfreq=600, peakrq=1, peakdb=0, 
         fx1, fx2, fx1lvl=0, fx2lvl=0, fx3, fx3lvl=0, fx4, fx4lvl=0;
         var sig, env;
-        env = EnvGen.kr(Env.asr(0.01, 1.0, 0.01), gate, doneAction: da);
+        env = EnvGen.kr(Env.asr(attack, 1.0, rel), gate, doneAction: da);
         ratio = ratio.clip(0.0001, 20);
         sig = In.ar(in, 1);
         sig = Compander.ar(sig, sig, 
@@ -119,7 +119,7 @@
         peakfreq=600, peakrq=1, peakdb=0, limit=0.9,
         fx1, fx2, fx1lvl=0, fx2lvl=0, fx3, fx3lvl=0, fx4, fx4lvl=0;
         var sig, env;
-        env = EnvGen.kr(Env.asr(0.01, 1.0, 0.01), gate, doneAction: da);
+        env = EnvGen.kr(Env.asr(attack, 1.0, rel), gate, doneAction: da);
         ratio = ratio.clip(0.0001, 20);
         sig = In.ar(in, 2);
         sig = Compander.ar(sig, sig, 
@@ -151,7 +151,7 @@
         peakfreq=600, peakrq=1, peakdb=0, limit=0.9,
         fx1, fx2, fx1lvl=0, fx2lvl=0, fx3, fx3lvl=0, fx4, fx4lvl=0;
         var sig, env;
-        env = EnvGen.kr(Env.asr(0.01, 1.0, 0.01), gate, doneAction: da);
+        env = EnvGen.kr(Env.asr(attack, 1.0, rel), gate, doneAction: da);
         ratio = ratio.clip(0.0001, 20);
         sig = In.ar(in, ~numSpeakers);
         sig = Compander.ar(sig, sig, 

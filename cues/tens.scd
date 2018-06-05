@@ -1,17 +1,20 @@
 (
     {
-        //switch off mics
-        ~ch[\mic0].set(\gate, 0);
-        ~ch[\mic1].set(\gate, 0);
-
         ~tenscue = Routine{
+
             Pdef(\tens).play(TempoClock(2.0)).quant_(0);
 
-            150.wait;
+            20.wait;
+
+            //switch off mics
+            ~ch[\mic0].set(\gate, 0);
+            ~ch[\mic1].set(\gate, 0);
+
+            130.wait;
 
             ~deltaTriggers[\aliinaLaughIDs].do{|id, idx| ~deltaTriggers[\aliinaLaugh][idx].play(out: ~bus[\tens], target: ~group[\mix])};
 
-            
+
             Pdef(\emLow).play; //DUET
 
             60.wait;

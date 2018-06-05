@@ -87,13 +87,7 @@
         \limit, 0.dbamp, 
         \locut, 50
     );
-    ~ch[\crunchy].set(
-        \compgain, 6.dbamp, 
-        \ratio, 8, 
-        \thresh, -10.dbamp, 
-        \limit, 0.dbamp, 
-        \locut, 50
-    );
+    ~ch[\crunchy].set( \compgain, 7.dbamp, \ratio, 8, \thresh, -5.dbamp, \limit, 0.dbamp, \locut, 100);
     ~ch[\heartbeat].set(
         \gate, 1,
         \attack, 60
@@ -145,7 +139,7 @@
         \thresh, -3.dbamp, 
         \locut, 40,
         \fx1, ~bus[\sub],
-        \fx1lvl, -70.dbamp,
+        \fx1lvl, 0,
     );
     ~ch[\sub].set(
         \in, ~bus[\sub],

@@ -107,14 +107,14 @@
             Pdef(\rain).stop;
             Pdef(\rainLow).play;
 
-            30.wait;
+            100.wait;
 
             ~ch[\heartbeat].set(\gate, 0);
-            ~ch[\heartbeat].set(\attack, 60);
+            ~ch[\heartbeat].set(\attack, 120);
             ~ch[\heartbeat].set(\gate, 1);
             Pdef(\heartbeatHi).play(TempoClock(0.8));
 
-            60.wait;
+            20.wait;
 
             Pdef(\lullaby).stop;
             // Pdef(\lullabyLow).play;
@@ -125,7 +125,7 @@
 
             // Pdef(\lullabyLow).stop;
 
-            120.wait;
+            90.wait;
             
             Pdef(\heartbeatHi).stop;
 

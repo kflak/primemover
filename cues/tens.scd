@@ -33,7 +33,8 @@
 
             "Kenneth starts singing".postln;
 
-            ~ch[\mic0].set( \gate, 1, \lvlout, -6.dbamp, \fx3lvl, 0.dbamp, \fx2lvl, -10.dbamp, \fx1lvl, -20.dbamp);
+            ~ch[\grdelayLong].set(\fb, 0.6);
+            ~ch[\mic0].set( \gate, 1, \lvlout, -6.dbamp, \fx1lvl, -20.dbamp, \fx2lvl, -10.dbamp, \fx3lvl, 0.dbamp);
 
             //DUET
             60.wait;

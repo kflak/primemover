@@ -2,7 +2,7 @@
     ~projectfolder = "/home/kf/sc/primemover/";
     ~numSpeakers = 4;
     ~numMics = 2;
-    ~numSubs = 1;
+    ~numSubs = 0;
 
     // address of openFrameworks project
     // ~of = NetAddr.new("127.0.0.1", 12345);

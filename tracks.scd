@@ -11,7 +11,7 @@
         [\grdelayMedium, -6.dbamp, \grdelay, \master, \fx], 
         [\grdelayLong, -6.dbamp, \grdelay, \master, \fx], 
         [\master, 1.0, \chstrip_multi, 0, \master], 
-        [\sub, 1.0, \mixToMono, ~subOut, \sub],
+        // [\sub, 1.0, \mixToMono, ~subOut, \sub],
     ];
 
     ~mic = [
@@ -138,11 +138,11 @@
         \limit, -0.3.dbamp, 
         \thresh, -3.dbamp, 
         \locut, 40,
-        \fx1, ~bus[\sub],
-        \fx1lvl, 0,
+        // \fx1, ~bus[\sub],
+        // \fx1lvl, 0,
     );
-    ~ch[\sub].set(
-        \in, ~bus[\sub],
-        \hicut, 100,
-    );
+    // ~ch[\sub].set(
+    //     \in, ~bus[\sub],
+    //     \hicut, 100,
+    // );
 )

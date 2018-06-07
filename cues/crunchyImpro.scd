@@ -10,6 +10,8 @@
 
             //mic off
             ~ch[\mic0].set(\gate, 0);
+            //reset graindelay feedback amount
+            ~ch[\grdelayLong].set(\fb, 0.5);
 
             //Külli sensors on
             [10, 11].do{|id, idx| ~deltaTriggers[\chew][idx].play(out: ~bus[\crunchy], target: ~group[\mix]) };

@@ -434,6 +434,32 @@
             ]), phrases
         ),
     );
+
+    Pdef(\tensBirthday,
+        Psym(
+            Pseq([
+                Pseq([[\sine_boom, \click, \click_stove]], 2), 
+                Pseq([[\sine_boom, \countinquiet, \click, \click_stove, \aliina_laugh]], 3),
+                Pseq([[\sine_boom, \countin, \click, \click_stove, \buf]], 4),
+                Pseq([[\sine_boom, \countin, \click, \buf, \click_stove, \klang]], 4),
+                Pseq([Prand([[\reso, \buf, \klang], [\reso, \aliina_laugh, \klank, \klang]])], 2), 
+                Pseq([[\sine_boom, \click, \click_stove]], 1),
+                Pseq([[\sine_boom, \countinquiet, \click, \click_stove, \aliina_laugh]], 3),
+                Pseq([[\sine_boom, \countin, \click, \click_stove, \buf]], 4),
+                Pseq([[\sine_boom, \countin, \click, \buf, \click_stove, \klang]], 4),
+                Pseq([Prand([[\reso, \buf, \klang], [\reso, \aliina_laugh, \klank, \klang]])], 2), 
+                Pseq([[\bufquiet, \countin, \reso, \klank, \click, \click_stove, \crashes]], 2),
+                Pseq([[\sine_boom, \countinquiet, \click, \click_stove, \aliina_laugh]], 3),
+                Pseq([[\sine_boom, \countin, \click, \click_stove, \buf]], 4),
+                Pseq([[\countin, \click, \buf, \click_stove, \klang]], 4),
+                Pseq([Prand([[\reso, \buf, \klang], [\reso, \aliina_laugh, \klank, \klang]])], 2), 
+                Pseq([[\bufquiet, \countin, \reso, \klank, \click, \click_stove, \crashes]], 2),
+                Pseq([[\crash, \wind_end, \klang_end]], 1),
+                Pseq([\aliina_laugh_end], 1),
+                Pseq([[\breaths, \sine_quiet]], inf)
+            ]), phrases
+        ),
+    );
 )
 
 // Pdef(\tens).play(TempoClock(2.0));

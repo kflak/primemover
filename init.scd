@@ -1,6 +1,6 @@
 (
     ~projectfolder = "/home/kf/sc/primemover/";
-    ~numSpeakers = 4;
+    ~numSpeakers = 2;
     ~numMics = 2;
     ~numSubs = 0;
 
@@ -13,6 +13,7 @@
     s.options.numOutputBusChannels = ~numSpeakers;
     //make sure there's enough memory for the delay lines
     s.options.memSize = 65536;
+    s.latency  = 0.01;
     s.waitForBoot(
         {
             // s.meter;
@@ -51,6 +52,10 @@
             // set up mbCCs
             this.executeFile((~projectfolder++"minibee/mbCC.scd").standardizePath);
             "mbCC.scd done".postln;
+
+            // set up light
+            // this.executeFile((~projectfolder++"light.scd").standardizePath);
+            // "mbCC.scd done".postln;
 
             // in the end, plug them all into cues and pray that it works
             this.executeFile((~projectfolder++"cues.scd").standardizePath);

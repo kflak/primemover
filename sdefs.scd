@@ -707,6 +707,26 @@
         Out.ar(fx4, sig * fx4lvl);
     }).add;
 
+    SynthDef(\fm, {
+        arg carfreq=440, modfreq=440, amp=0.3, pan=0, width=2,
+        attack=0.5, rel=3, modattack=0.5, modrel=0.5, moddepth=1, out=0, 
+        fx1=0, fx1lvl=0, fx2=0, fx2lvl=0, fx3, fx3lvl=0, fx4, fx4lvl=0;
+        var sig, carenv, mod, modenv;
+        modenv = EnvGen.kr(Env.perc(modattack, modrel, -4));
+        mod = SinOsc.ar(modfreq);
+        mod = mod * modenv * moddepth;
+        sig = SinOsc.ar(carfreq + mod);
+        carenv = EnvGen.kr(Env.perc(attack, rel, -4), doneAction: 2);
+        sig = sig * carenv * AmpCompA.kr(carfreq);
+        sig = sig * amp;
+        sig = PanAz.ar(~numSpeakers, sig, pan, width: width);
+        Out.ar(out, sig);
+        Out.ar(fx1, sig * fx1lvl);
+        Out.ar(fx2, sig * fx2lvl);
+        Out.ar(fx3, sig * fx3lvl);
+        Out.ar(fx4, sig * fx4lvl);
+    }).add;
+
     SynthDef(\click_dust, {
         arg density=10, amp=0.3, pan=0, width=2, attack=0.5, rel=3, ctrlin=0, out=0, 
         fx1=0, fx1lvl=0, fx2=0, fx2lvl=0, decaytime=1, delaytime=0.1, fx3, fx3lvl=0, fx4, fx4lvl=0;
@@ -747,14 +767,12 @@
     SynthDef(\jpverb, {
         arg in=16, out, amp=1, attack=0.02, rel=0.1, gate=1, da=2, 
         revtime=1, damp=0, size=1, early=0.707;
-        var source, sig, sigL, sigR, env;
-        env = EnvGen.kr(Env.asr(attack, 1, rel), gate: gate, doneAction: da);
-        source = In.ar(in, 2);
+        var source, sig, env;
+        env = EnvGen.kr(Env.asr(attack, amp, rel), gate: gate, doneAction: da);
+        source = In.ar(in, ~numSpeakers);
+        source = Mix.ar(source) * env;
         sig = JPverb.ar(source, revtime, damp, size, early);
-        sigL = SplayAz.ar(~numSpeakers, sig[0], spread: 0.2, width:~numSpeakers, center: 0);
-        sigR = SplayAz.ar(~numSpeakers, sig[1], spread: 0.8, width:~numSpeakers, center: 0);
-        sig = sigL + sigR;
-        sig = sig * amp * env;
+        sig = SplayAz.ar(~numSpeakers, sig, spread: 0.5, width:~numSpeakers);
         Out.ar(out, sig);
     }).add;
 

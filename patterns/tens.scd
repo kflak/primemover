@@ -299,6 +299,52 @@
         );
     );		
 
+    phrases.put(\click_stovequiet, 
+        Pbind(
+            \instrument, \clean,
+            \group, ~group[\instr],
+            \dur, 0.5,
+            \buf, Prand(~buffers[\stoveperc], inf),
+            \rel, Pseq([
+                Pwhite(0.1, 0.2, 1),
+                Pwhite(0.05, 0.1, 2),
+                Pwhite(0.1, 0.2, 1),
+                Pwhite(0.05, 0.1, 2),
+                Pwhite(0.1, 0.1, 1),
+                Pwhite(0.05, 0.1, 3),
+            ], 1),
+            \amp, Pseq([ 0.2, 0.02, 0.02, 0.1, 0.02, 0.02, 0.1, 0.02, 0.02, 0.02] * 0.2),
+            \hishelfdb, -12,
+            \pan, Pwhite(-1.0, 1.0, inf),
+            \out, ~bus[\tens],
+            \fx1, ~bus[\jpverb],
+            \fx1lvl, Pwhite(-70.dbamp, -30.dbamp, inf),
+        );
+    );		
+
+    phrases.put(\clickquiet, 
+        Pbind(
+            \instrument, \clean,
+            \group, ~group[\instr],
+            \dur, 0.5,
+            \buf, Prand(~buffers[\water], inf),
+            \rel, Pseq([
+                Pwhite(0.1, 0.2, 1),
+                Pwhite(0.05, 0.1, 2),
+                Pwhite(0.1, 0.2, 1),
+                Pwhite(0.05, 0.1, 2),
+                Pwhite(0.1, 0.1, 1),
+                Pwhite(0.05, 0.1, 3),
+            ], inf),
+            \amp, Pseq([ 0.2, 0.02, 0.02, 0.1, 0.02, 0.02, 0.1, 0.02, 0.02, 0.02] * 0.2),
+            \hishelfdb, -12,
+            \pan, Pwhite(-1.0, 1.0, inf),
+            \out, ~bus[\tens],
+            \fx1, ~bus[\jpverb],
+            \fx1lvl, Pwhite(-70.dbamp, -30.dbamp, inf),
+        );
+    );		
+
     phrases.put(\cello_rise, 
         Pbind(
             \instrument, \varirate,
@@ -438,6 +484,9 @@
     Pdef(\tensBirthday,
         Psym(
             Pseq([
+                Pseq([[\clickquiet, \click_stovequiet]], 2), 
+                Pseq([[\click, \click_stove]], 2), 
+                // Pseq([[\sine_boom, \countinquiet, \click, \click_stove, \aliina_laugh]], 2),
                 Pseq([[\sine_boom, \click, \click_stove]], 2), 
                 Pseq([[\sine_boom, \countinquiet, \click, \click_stove, \aliina_laugh]], 3),
                 Pseq([[\sine_boom, \countin, \click, \click_stove, \buf]], 4),
@@ -462,5 +511,5 @@
     );
 )
 
-// Pdef(\tens).play(TempoClock(2.0));
-// Pdef(\tens).stop;
+// Pdef(\tensBirthday).play(TempoClock(2.0));
+// Pdef(\tensBirthday).stop;

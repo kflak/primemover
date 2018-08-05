@@ -2,6 +2,7 @@
 
     ~birthdaydance = Routine {     
 
+        s.record("~/birthdaydance.wav");
         Pdef(\nasaSaturn).play;
         Pdef(\heartbeat).play(TempoClock(0.8));
 
@@ -39,6 +40,10 @@
         Pdef(\windBegin).stop;
         Pdef(\tibetBellRev).stop;
         Pdef(\sineGrainTrainEnv).stop;
+
+        120.wait;
+
+        s.stopRecording;
     }.play;
 )
 

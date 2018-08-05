@@ -1,6 +1,6 @@
 (
     ~projectfolder = "/home/kf/sc/primemover/";
-    ~numSpeakers = 2;
+    ~numSpeakers = 6;
     ~numMics = 2;
     ~numSubs = 0;
 
@@ -67,4 +67,18 @@
             "cuegui.scd done".postln;
         }
     );
+
+
 )
+
+s.plotTree;
+
+//speaker test
+// (
+//     Tdef(\speakerTest, { ~numSpeakers.do{|i, idx| 
+//         {Out.ar(idx, SinOsc.ar(440) * XLine.kr(0.2, 0.00001, 1, doneAction: 2))}.play;
+//         1.wait; }}
+//     );
+// )
+
+// Tdef(\speakerTest).play;

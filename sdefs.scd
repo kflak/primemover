@@ -40,6 +40,16 @@
         Out.ar(fx4, sig * fx4lvl);
     }).add;
 
+    SynthDef(\stereoToMono, {
+        arg in, out, gate=1, da=2, gain=1;
+        var sig, env;
+        env = EnvGen.kr(Env.asr(0.01, 1.0, 0.01), gate, doneAction: da);
+        sig = In.ar(in, 2);
+        sig = sig.sum;
+        sig = sig * env * gain;
+        Out.ar(out, sig);
+    }).add;
+
     SynthDef(\mono_to_stereo, {
         arg in, out, gate=1, da=2, gain=1, pan=0, width=2;
         var sig, env;
@@ -202,7 +212,7 @@
         var sig, env;
         env = EnvGen.kr(Env.asr(attack, 1, rel), gate: gate, doneAction: 2);
         sig = In.ar(in, ~numSpeakers);
-        sig = sig / ~numSpeakers;
+        // sig = sig / ~numSpeakers;
         sig = Mix.ar(sig);
         sig = BLowShelf.ar(sig, loshelffreq, db: loshelfdb);
         sig = BHiShelf.ar(sig, hishelffreq, db: hishelfdb);
@@ -214,6 +224,16 @@
         Out.ar(out, sig);
     }).add;
 
+    SynthDef(\amplitudeTracker, {
+        arg in, rate=20, lopass=500, thresh=0.01, slopeBelow=10, slopeAbove=1;
+        var sig, amp, trig;
+        sig = In.ar(in);
+        sig = Compander.ar(sig, sig, thresh: thresh, slopeBelow: slopeBelow, slopeAbove: slopeAbove);
+        sig = BLowPass.ar(sig, lopass);
+        amp = Amplitude.kr(sig);
+        trig = Impulse.kr(rate);
+        SendReply.kr(trig, '/amplitude', [in, amp]);
+    }).add;
 
     // ******************** instruments ********************
     SynthDef(\reso,{
@@ -847,3 +867,4 @@
         Out.ar(out, sig);
     }).add;
 )
+

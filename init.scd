@@ -2,7 +2,7 @@
     ~projectfolder = "/home/kf/sc/primemover/";
     ~numSpeakers = 6;
     ~numMics = 2;
-    ~numSubs = 0;
+    ~numSubs = 2;
 
     // address of openFrameworks project
     // ~of = NetAddr.new("127.0.0.1", 12345);
@@ -10,7 +10,7 @@
     Buffer.freeAll;
     s.quit;
     s.options.numInputBusChannels = ~numMics;
-    s.options.numOutputBusChannels = ~numSpeakers;
+    s.options.numOutputBusChannels = 8;
     //make sure there's enough memory for the delay lines
     s.options.memSize = 65536;
     s.latency  = 0.01;
@@ -71,14 +71,16 @@
 
 )
 
-s.plotTree;
+// speaker test
+(
+    Tdef(\speakerTest, { ~numSpeakers.do{|i, idx| 
+        var dur = 1;
+        {Out.ar(idx, SinOsc.ar(880) * XLine.kr(0.2, 0.00001, dur, doneAction: 2))}.play;
+        dur.wait; }}
+    );
+)
 
-//speaker test
-// (
-//     Tdef(\speakerTest, { ~numSpeakers.do{|i, idx| 
-//         {Out.ar(idx, SinOsc.ar(440) * XLine.kr(0.2, 0.00001, 1, doneAction: 2))}.play;
-//         1.wait; }}
-//     );
-// )
+Tdef(\speakerTest).play;
 
-// Tdef(\speakerTest).play;
+// subs, sum of headphone outputs
+{Out.ar(6, SinOsc.ar(88 ! 2) * XLine.kr(0.3, 0.00001, 4, doneAction: 2))}.play;

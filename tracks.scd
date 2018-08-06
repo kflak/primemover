@@ -20,6 +20,7 @@
         [-6.dbamp, 0.dbamp, \master],
     ];
 
+
     //create audio bus dictionary
     ~bus = IdentityDictionary();
 
@@ -69,6 +70,26 @@
                     \da, 0,
                 ], 
                 target: ~group[\in]
+            )
+        );
+    };
+
+    //subs
+    ~numSubs.do{|item, idx|
+        postf("sub% %\n", idx, item);
+        //create channel synths...
+        ~ch.put(
+            (\sub++idx).asSymbol,
+            Synth(
+                \mixToMono, 
+                [ 
+                    \in, 0,
+                    \amp, -6.dbamp,
+                    \out, 6 + idx,
+                    \gate, 1,
+                    \da, 2,
+                ], 
+                target: ~group[\sub]
             )
         );
     };

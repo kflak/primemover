@@ -5,6 +5,7 @@
         [\tens, 1.0, \chstrip_multi, \master, \mix], 
         [\crunchy, 1.0, \chstrip_multi, \master, \mix], 
         [\heartbeat, 1.0, \chstrip_multi, \master, \mix], 
+        [\fm, 1.0, \chstrip_multi, \master, \mix], 
         [\sineGrain, 1.0, \chstrip_multi, \master, \mix], 
         [\jpverb, 1.0, \jpverb,	\master, \fx], 
         [\grdelay, 1.0, \grdelay, \master, \fx], 
@@ -109,6 +110,13 @@
         \locut, 50
     );
     ~ch[\crunchy].set( \compgain, 7.dbamp, \ratio, 8, \thresh, -5.dbamp, \limit, 0.dbamp, \locut, 100);
+    ~ch[\fm].set(
+        \compgain, 0.dbamp, 
+        \ratio, 8, 
+        \limit, 0.dbamp, 
+        \thresh, -12.dbamp, 
+        \locut, 40
+    );
     ~ch[\heartbeat].set(
         \gate, 1,
         \attack, 60

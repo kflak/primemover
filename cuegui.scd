@@ -1,7 +1,7 @@
 (
     ~cuelist.gui(
         monitorInChannels: ~numMics,
-        monitorOutChannels: ~numSpeakers + ~numSubs,
+        monitorOutChannels: s.options.numOutputBusChannels,
         options:(
             shortcuts:true,
             largeDisplay: false,
@@ -20,3 +20,5 @@
     //     };
     // );
 )
+
+

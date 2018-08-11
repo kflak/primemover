@@ -1,13 +1,12 @@
 (
-    var calcDelta, delta=0, prev=0, amp=0, count=0;
+    var calcDelta, delta=0, prev=0, amp=0, count=0, rate=20;
 
     ~ampAnalysis = Dictionary.new;
     ~ampAnalysis.put(\bus, Bus.audio(s, 1));
     ~ampAnalysis.put(\insynth, 
         Synth(\stereoToMono, 
             [
-                // \in, s.numOutputBusChannels, 
-                \in, 7,
+                \in, s.options.numOutputBusChannels, 
                 \out, ~ampAnalysis[\bus],
             ], target: ~group[\instr]
         );
@@ -16,7 +15,7 @@
         Synth(\amplitudeTracker, 
             [
                 \in, ~ampAnalysis[\bus],
-                \rate, 20
+                \rate, rate
             ], 
             target: ~ampAnalysis[\insynth], 
             addAction: \addAfter
@@ -38,35 +37,45 @@
     };
 
     Tdef(\amplitudePlayer, {
-        var thresh = 0.01, free=true, speedlim=1, dt;
+        var thresh = 0.10, free=true, numFrames, sampleLength, dt, currentBuffer, synth;
         inf.do{
             dt = calcDelta.value();
             if ((free) && (dt > thresh)){
-                Synth(\clean,
-                    [
-                        \out, ~bus[\master],
-                        \buf, ~buffers[\brpiano][count],
-                        \amp, 0.2,
-                        \attack, 0.01,
-                        \rel, speedlim,
-                    ], ~group[\instr]
-                );
+                currentBuffer = ~buffers[\translateEstonian][count];
+                numFrames = currentBuffer.numFrames;
+                sampleLength = numFrames / s.sampleRate;
                 free = false;
-                SystemClock.sched(speedlim, {
+                SystemClock.sched(sampleLength, {
+                    synth = Synth(\cleangate,
+                        [
+                            \out, ~bus[\master],
+                            \buf, ~buffers[\translateEstonian][count],
+                            \amp, -6.dbamp,
+                            \attack, 0.01,
+                            \rel, 0.1,
+                            \pan, 0,
+                            \loop, 0,
+                            \da, 2
+                        ], ~group[\instr]
+                    );
+                });
+                SystemClock.sched(sampleLength * 3, {
+                    // synth.set(\gate, 0);
                     free = true;
                 });
-                if(count < ~buffers[\brpiano].size){
+                if(count < ~buffers[\translateEstonian].size){
                     count = count + 1
                 }{
                     count = 0
                 };
-                count.postln;
+                currentBuffer.postln;
             };
-            20.reciprocal.wait;
+            rate.reciprocal.wait;
         };
     }).play;
-
 )
+
+~buffers[\translateEstonian].do{|i, idx| ~buffers[\translateEstonian][idx].postln;};
 
 (
     OSCdef(\amplistener).free;

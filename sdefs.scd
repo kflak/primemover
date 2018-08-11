@@ -227,7 +227,7 @@
     SynthDef(\amplitudeTracker, {
         arg in, rate=20, lopass=500, thresh=0.01, slopeBelow=10, slopeAbove=1;
         var sig, amp, trig;
-        sig = In.ar(in);
+        sig = In.ar(in, 1);
         sig = Compander.ar(sig, sig, thresh: thresh, slopeBelow: slopeBelow, slopeAbove: slopeAbove);
         sig = BLowPass.ar(sig, lopass);
         amp = Amplitude.kr(sig);
@@ -236,6 +236,20 @@
     }).add;
 
     // ******************** instruments ********************
+
+    SynthDef(\pitchFollower, { 
+        arg in, out, pitchratio=0.5, da=2, pan=0, width=2, amp=0.1, gate=1;
+        var input, freq, hasFreq, sig, env;
+        input = SoundIn.ar(in);
+        # freq, hasFreq = Pitch.kr(input);
+        env = EnvGen.kr(Env.asr(0.1, amp, 0.1), gate: gate, doneAction: da);
+        sig = SinOsc.ar(freq * pitchratio) * input + input;
+        sig = sig * Amplitude.kr(sig);
+        sig = sig * env;
+        sig = PanAz.ar(~numSpeakers, sig, pan, width: width);
+        Out.ar(out, sig);
+    }).add;
+
     SynthDef(\reso,{
         arg decay=0.2, freq=40, spread=2, attack=0.01, rel=0.4, amp=0.1, pan=0, width=2, out=0,
         fx1=0, fx1lvl=0, fx2=0, fx2lvl=0, fx3, fx3lvl=0, fx4, fx4lvl=0;
@@ -616,6 +630,25 @@
         Out.ar(fx4, sig * fx4lvl);
     }).add;
 
+    SynthDef(\sineGrainDustGate, {
+        arg freq=440, density=10, grainsize=0.1, amp=0.3, pan=0,
+        width=2, attack=0.5, rel=3, out=0, gate=1,
+        fx1=0, fx1lvl=0, fx2=0, fx2lvl=0, fx3, fx3lvl=0, fx4, fx4lvl=0;
+        var sig, env, trig;
+        trig = Dust.ar(density);
+        sig = SinGrain.ar(trig, grainsize, freq); 
+        env = EnvGen.kr(Env.asr(attack, amp, rel), gate: gate, doneAction: 2);
+        sig = sig * env * AmpCompA.kr(freq);
+        sig = sig * amp;
+        sig = LeakDC.ar(sig);
+        sig = PanAz.ar(~numSpeakers, sig, pan, width: width);
+        Out.ar(out, sig);
+        Out.ar(fx1, sig * fx1lvl);
+        Out.ar(fx2, sig * fx2lvl);
+        Out.ar(fx3, sig * fx3lvl);
+        Out.ar(fx4, sig * fx4lvl);
+    }).add;
+
     SynthDef(\sineGrainTrainEnv, {
         arg freq0=440, freq1=440, grainfreq0=10.0, grainfreq1=2.0, grainsize0=0.1, 
         grainsize1=0.1, amp=0.3, pan0=0, pan1=0, width=2, attack=0.5, rel=3, out=0, 
@@ -709,8 +742,27 @@
         Out.ar(fx4, sig * fx4lvl);
     }).add;
 
+    SynthDef(\fmgrainDustGate, {
+        arg carfreq=440, modfreq=2, density=10, grainsize=0.1, amp=0.3,
+        pan=0, width=2, attack=0.5, rel=3, ctrlin=0, out=0, gate=1,
+        fx1=0, fx1lvl=0, fx2=0, fx2lvl=0, fx3, fx3lvl=0, fx4, fx4lvl=0;
+        var sig, env, trig;
+        trig = Dust.ar(density);
+        sig = FMGrain.ar(trig, grainsize, carfreq, modfreq); 
+        env = EnvGen.kr(Env.asr(attack, amp, rel), gate: gate, doneAction: 2);
+        sig = sig * env * AmpCompA.kr(carfreq);
+        sig = LeakDC.ar(sig);
+        sig = PanAz.ar(~numSpeakers, sig, pan, width: width);
+        Out.ar(out, sig);
+        Out.ar(fx1, sig * fx1lvl);
+        Out.ar(fx2, sig * fx2lvl);
+        Out.ar(fx3, sig * fx3lvl);
+        Out.ar(fx4, sig * fx4lvl);
+    }).add;
+
     SynthDef(\fmgrain_dust, {
-        arg carfreq=440, modfreq=2, density=10, grainsize=0.1, amp=0.3, pan=0, width=2, attack=0.5, rel=3, ctrlin=0, out=0, 
+        arg carfreq=440, modfreq=2, density=10, grainsize=0.1, amp=0.3,
+        pan=0, width=2, attack=0.5, rel=3, ctrlin=0, out=0, 
         fx1=0, fx1lvl=0, fx2=0, fx2lvl=0, fx3, fx3lvl=0, fx4, fx4lvl=0;
         var sig, env, trig;
         trig = Dust.ar(density);
@@ -739,6 +791,27 @@
         carenv = EnvGen.kr(Env.perc(attack, rel, -4), doneAction: 2);
         sig = sig * carenv * AmpCompA.kr(carfreq);
         sig = sig * amp;
+        sig = PanAz.ar(~numSpeakers, sig, pan, width: width);
+        Out.ar(out, sig);
+        Out.ar(fx1, sig * fx1lvl);
+        Out.ar(fx2, sig * fx2lvl);
+        Out.ar(fx3, sig * fx3lvl);
+        Out.ar(fx4, sig * fx4lvl);
+    }).add;
+
+    SynthDef(\fmGate, {
+        arg carfreq=440, modfreq=440, amp=0.3, pan=0, width=2, gate=1,
+        attack=0.5, rel=3, modattack=0.5, modrel=0.5, moddepth=1, out=0, 
+        amfreq=1, amdepth=1,
+        fx1=0, fx1lvl=0, fx2=0, fx2lvl=0, fx3, fx3lvl=0, fx4, fx4lvl=0;
+        var sig, carenv, mod, modenv, am;
+        am = SinOsc.kr(amfreq) * amdepth;
+        modenv = EnvGen.kr(Env.asr(modattack, 1, modrel), gate: gate);
+        mod = SinOsc.ar(modfreq);
+        mod = mod * modenv * moddepth;
+        sig = SinOsc.ar(carfreq + mod) * am;
+        carenv = EnvGen.kr(Env.asr(attack, amp, rel), gate: gate, doneAction: 2);
+        sig = sig * carenv * AmpCompA.kr(carfreq);
         sig = PanAz.ar(~numSpeakers, sig, pan, width: width);
         Out.ar(out, sig);
         Out.ar(fx1, sig * fx1lvl);

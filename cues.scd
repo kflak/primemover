@@ -1,6 +1,7 @@
 (
     var cues = [
         "audienceEnters.scd",
+        "isasolo.scd",
         "talk.scd",
         "tens.scd",
         "crunchyImpro.scd",

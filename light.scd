@@ -1,4 +1,5 @@
 (
+    //remember to start qmidinet first!
 
     MIDIClient.init;
 

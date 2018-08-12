@@ -1,4 +1,5 @@
 (
+    var hasLaunchpad;
     ~projectfolder = "/home/kf/sc/primemover/";
     ~numSpeakers = 2;
     ~numMics = 2;
@@ -17,10 +18,11 @@
     s.latency  = 0.01;
     MIDIClient.init;
     MIDIIn.connectAll;
-    MIDIdef.noteOn(\test, {arg ...args; args.postln});
-    MIDIdef.cc(\test1, {arg ...args; args.postln});
-    ~launchpadOut = MIDIOut.newByName("Launchpad", "Launchpad MIDI 1");
-
+    hasLaunchpad = MIDIClient.externalDestinations.asString;
+    if(hasLaunchpad.contains("Launchpad")){
+        ~launchpadOut = MIDIOut.newByName("Launchpad", "Launchpad MIDI 1");
+        ~launchpadOut.control(176, 0, 0);
+    };
     s.waitForBoot(
         {
             // s.meter;

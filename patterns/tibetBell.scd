@@ -19,7 +19,26 @@
             \out, ~bus[\master],
         );
     );        
+
+    Pdef(\tibetBellKlank, 
+        Pbind(
+            \instrument, \klankTibet,
+            \group, ~group[\instr],
+            \dur, Pexprand(7, 20),
+            \rel, Pwhite(16, 30),
+            \attack, Pkey(\rel),
+            \freq, Pexprand(400, 1200.0),
+            \db, -25,
+            \fx1, ~bus[\jpverb],
+            \fx1lvl, -20.dbamp,
+            \fx2, ~bus[\grdelayMedium],
+            \fx2lvl, -10.dbamp,
+            \pan, Pwhite(-1.0, 1.0, inf),
+            \width, ~numSpeakers,
+            \out, ~bus[\master],
+        );
+    );        
 )
 
-// Pdef(\tibetBellRev).play;
-// Pdef(\tibetBellRev).stop;
+// Pdef(\tibetBellKlank).play;
+// Pdef(\tibetBellKlank).stop;

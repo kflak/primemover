@@ -10,7 +10,7 @@
 
             60.wait;
 
-            Pdef(\tibetBellRev).play;
+            Pdef(\tibetBellKlank).play;
             Pdef(\celloBegin).play;
 
             60.wait;
@@ -41,7 +41,7 @@
             30.wait;
 
             Pdef(\windBegin).stop;
-            Pdef(\tibetBellRev).stop;
+            Pdef(\tibetBellKlank).stop;
             Pdef(\sineGrainTrainEnv).stop;
             Pdef(\aliinaCryBeginning).stop;
             Pdef(\fastNonRythmical).play;

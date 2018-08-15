@@ -104,7 +104,7 @@
     );
     ~ch[\fast].set(
         \compgain, 12.dbamp, 
-        \ratio, 8, 
+        \ratio, 16, 
         \thresh, -10.dbamp, 
         \limit, 0.dbamp, 
         \locut, 50

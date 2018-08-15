@@ -20,8 +20,8 @@
             60.wait;
 
             //QUARTET
-            // "Rakesh solo".postln;
-            // ~deltaTriggers[\emIDs].do{|id, idx| ~deltaTriggers[\em][idx].play(out: ~bus[\master], target: ~group[\mix])};
+            "Rakesh solo".postln;
+            ~deltaTriggers[\emIDs].do{|id, idx| ~deltaTriggers[\em][idx].play(out: ~bus[\master], target: ~group[\mix])};
 
             60.wait;
 
@@ -29,7 +29,7 @@
             ~deltaTriggers[\aliinaLaughIDs].do{|id, idx| ~deltaTriggers[\aliinaLaugh][idx].release(1)};
 
             //QUARTET
-            // 60.wait;
+            60.wait;
 
             "Kenneth starts singing".postln;
 
@@ -40,8 +40,8 @@
             60.wait;
             Pdef(\emLow).stop;
             //QUARTET
-            // 120.wait;
-            // ~deltaTriggers[\emIDs].do{|id, idx| ~deltaTriggers[\em][idx].release(1)};
+            120.wait;
+            ~deltaTriggers[\emIDs].do{|id, idx| ~deltaTriggers[\em][idx].release(1)};
 
         }.play;
     }

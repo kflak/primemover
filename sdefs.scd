@@ -462,6 +462,24 @@
         Out.ar(fx4, sig * fx4lvl);
     }).add;
 
+    SynthDef(\klankTibet, { arg out=0, freq=440, 
+        harms=#[0.5, 1, 1.677, 3.641, 5.025, 6.347], amps = #[0.1, 0.05, 0.1, 0.07, 0.03, 0.01], 
+        ring=#[8, 4, 0.5, 0.4, 0.4, 0.4], attack=5, rel=10, pan=0, width=2, 
+        amp = 0.3, fx1lvl=0, fx1=0, fx2lvl=0, fx2=0, fx3, fx3lvl=0, fx4, fx4lvl=0;
+        var sig, env, rings;
+        rings = Array.fill(6, ring);
+        env = EnvGen.kr(Env.perc(attack, rel), doneAction: 2);
+        sig = Klank.ar(`[harms, amps, rings], ClipNoise.ar(0.003), freq);
+        sig = sig * env * amp;
+        sig = sig * AmpCompA.kr(freq);
+        sig = PanAz.ar(~numSpeakers, sig, pan, width: width);
+        Out.ar(out, sig);
+        Out.ar(fx1, sig * fx1lvl);
+        Out.ar(fx2, sig * fx2lvl);
+        Out.ar(fx3, sig * fx3lvl);
+        Out.ar(fx4, sig * fx4lvl);
+    }).add;
+
     SynthDef(\klang,{
         arg freq=440, attack=0.8, rel=10, amp=0.3, pan=0, width=2, out=0,
         spread=2, decay=0.3,  fx1lvl=0, fx1=0, fx2lvl=0, fx2=0, fx3, fx3lvl=0, fx4, fx4lvl=0;

@@ -556,19 +556,16 @@
     }).add;
 
     SynthDef(\bpnoise, {
-        arg freq=440, amp=0.3, pan=0, width=2, gate=1, lag=0.5, amfreq=1, amdepth=0, rq=1, attack=0.5, rel=3, out=0, 
+        arg freq=440, amp=0.3, pan=0, width=2, out=0, attack=1, rel=1,
+        rq=1, hipassfreq=20,
         fx1=0, fx1lvl=0, fx2=0, fx2lvl=0, fx3, fx3lvl=0, fx4, fx4lvl=0;
         var sig, env;
         freq = freq.clip(20, 20000);
-        sig = BPF.ar(
-            PinkNoise.ar,
-            Lag3.kr(freq, lag),
-            rq: rq,
-            mul: Lag3.kr(amp, lag)
-        );
-        env = EnvGen.kr(Env.perc(attack, rel, -4), gate, doneAction: 2);
-        sig = sig * env * AmpCompA.kr(freq) * SinOsc.kr(Lag3.kr(amfreq, lag), mul: amdepth);
-        sig = PanAz.ar(~numSpeakers, sig, Lag3.kr(pan, lag), width: width);
+        sig = BPF.ar(PinkNoise.ar, freq, rq: rq);
+        env = EnvGen.kr(Env.perc(attack, rel), doneAction: 2);
+        sig = sig * env * AmpCompA.kr(freq);
+        sig = BHiPass.ar(sig, freq: hipassfreq);
+        sig = PanAz.ar(~numSpeakers, sig, pan, width: width);
         Out.ar(out, sig);
         Out.ar(fx1, sig * fx1lvl);
         Out.ar(fx2, sig * fx2lvl);
@@ -598,11 +595,11 @@
     }).add;
 
     SynthDef(\sine, {
-        arg freq=440, amp=0.3, pan=0, width=2, gate=0, amfreq=1, amdepth=0.5, attack=0.5, rel=3, out=0,
+        arg freq=440, amp=0.3, pan=0, width=2, gate=0, amfreq=1, amdepth=0.5, attack=0.5, rel=3, out=0, da=2,
         fx1=0, fx1lvl=0, fx2=0, fx2lvl=0, fx3, fx3lvl=0, fx4, fx4lvl=0;
         var sig, env;
         sig = SinOsc.ar(freq); 
-        env = EnvGen.kr(Env.perc(attack, rel, -4), doneAction: 2);
+        env = EnvGen.kr(Env.perc(attack, rel, -4), doneAction: da);
         sig = sig * env * AmpCompA.kr(freq) * SinOsc.kr(amfreq, amdepth);
         sig = sig * amp;
         sig = PanAz.ar(~numSpeakers, sig, pan, width: width);

@@ -28,7 +28,7 @@
             \rel, Pwhite(16, 30),
             \attack, Pkey(\rel),
             \freq, Pexprand(400, 1200.0),
-            \db, -25,
+            \db, -30,
             \fx1, ~bus[\jpverb],
             \fx1lvl, -20.dbamp,
             \fx2, ~bus[\grdelayMedium],

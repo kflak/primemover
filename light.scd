@@ -1,8 +1,6 @@
 (
     //remember to start qmidinet first!
 
-    MIDIClient.init;
-
     MBDeltaTrigLight.midiout = MIDIOut.newByName("QmidiNet", "port 0");
     MBDeltaTrigLight.mbData = ~mbData;
     // MBDeltaTrigLight.mbData;
@@ -41,10 +39,10 @@
         note: 60
     ));
 )
-~mbData[10].delta;
+// ~mbData[10].delta;
 
-~light[\testtriggerclass].play;
-~light[\testtriggerclass].dump;
+// ~light[\testtriggerclass].play;
+// ~light[\testtriggerclass].dump;
 
 // ~light[\midiout].noteOn(0, rrand(60, 64), 50);
 // ~light[\midiout].noteOff(0, 61, 50);

@@ -19,6 +19,8 @@
         // lvlin, lvlout, outbus 
         [-6.dbamp, 0.dbamp, \master],
         [-6.dbamp, 0.dbamp, \master],
+        [-6.dbamp, 0.dbamp, \master],
+        [-6.dbamp, 0.dbamp, \master],
     ];
 
 
@@ -54,8 +56,7 @@
         //create channel synths...
         ~ch.put(
             (\mic++idx).asSymbol,
-            Synth(
-                \soundin, 
+            Synth(\soundin, 
                 [ 
                     \in, idx,
                     \lvlin, item[0],
@@ -81,8 +82,7 @@
         //create channel synths...
         ~ch.put(
             (\sub++idx).asSymbol,
-            Synth(
-                \mixToMono, 
+            Synth(\mixToMono, 
                 [ 
                     \in, 0,
                     \amp, -6.dbamp,
@@ -109,7 +109,13 @@
         \limit, 0.dbamp, 
         \locut, 50
     );
-    ~ch[\crunchy].set( \compgain, 7.dbamp, \ratio, 8, \thresh, -5.dbamp, \limit, 0.dbamp, \locut, 100);
+    ~ch[\crunchy].set( 
+        \compgain, 7.dbamp, 
+        \ratio, 8, 
+        \thresh, -5.dbamp, 
+        \limit, 0.dbamp, 
+        \locut, 100
+    );
     ~ch[\fm].set(
         \compgain, 0.dbamp, 
         \ratio, 8, 
@@ -167,11 +173,5 @@
         \limit, -0.3.dbamp, 
         \thresh, -3.dbamp, 
         \locut, 40,
-        // \fx1, ~bus[\sub],
-        // \fx1lvl, 0,
     );
-    // ~ch[\sub].set(
-    //     \in, ~bus[\sub],
-    //     \hicut, 100,
-    // );
 )

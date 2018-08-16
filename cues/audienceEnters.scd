@@ -4,8 +4,10 @@
         "audience enters".postln;
 
         ~audienceEntersCue = Routine {     
+            
+            // s.record("~/sc/primemover/rehearsalfiles/audienceEnters.wav");
 
-            Pdef(\nasaSaturn).play;
+            Pdef(\pinkNoiseBreath).play;
             Pdef(\heartbeat).play(TempoClock(0.8));
 
             60.wait;
@@ -32,7 +34,7 @@
 
             120.wait;
 
-            Pdef(\nasaSaturn).stop;
+            Pdef(\pinkNoiseBreath).stop;
 
             30.wait;
 
@@ -82,38 +84,15 @@
             //QUARTET
             // 75.wait;
 
+            //comment out this after recording!
+            // 120.wait; 
+            // Pdef(\aliinaChatFaster).stop;
             // Pdef(\fastSecond).stop;
+
+            // 15.wait;
+            // s.stopRecording;
 
         }.play;
     };
 )
 
-
-// (
-// Pdef(\fastFirst).play;
-// Pdef(\fastFirst).stop;
-// Pdef(\fastSecond).stop;
-//     Pdef(\school_yard_fadein).stop;
-    // ~audienceEntersCue.play;
-    // ~audienceEntersCue.stop;
-// )
-// s.stopRecording;
-
-// (
-//     fork{
-//         20.wait;
-//         Pdef(\fastFirst).play;
-//         180.wait;
-//         Pdef(\fastSecond).play;
-//         1.wait;
-//         Pdef(\fastFirst).stop;
-//         179.wait;
-//         Pdef(\fastSecond).stop;
-//         // ~ch[\mic0].set( \gate, 1, \fx1, ~bus[\jpverb], \fx1lvl, -10.dbamp, \fx2, ~bus[\grdelayMedium], \fx3lvl, 0.dbamp, ~bus[\grdelayLong], \fx3lvl, -10.dbamp);
-//         // ~ch[\mic0].set( \gate, 1, \fx1, ~bus[\jpverb], \fx1lvl, -10.dbamp, \fx2, ~bus[\grdelayMedium], \fx2lvl, 0, \fx3, ~bus[\grdelayLong], \fx3lvl, 0);
-//         // ~ch[\mic1].set( \gate, 1, \fx1, ~bus[\jpverb], \fx1lvl, -10.dbamp);
-
-//     }
-// )
-            // ~ch[\mic0].set(\gate, 0);
-            // ~ch[\mic1].set(\gate, 0);

@@ -99,8 +99,10 @@
 
             Pdef(\rain).play;
             Pdef(\sine).stop;
+            Pdef(\fmdrone).play; //testing this out, might have to change...
 
-            60.wait;
+            // 60.wait;
+            120.wait;
 
             Pdef(\lullaby).play;
 
@@ -108,6 +110,7 @@
 
             Pdef(\rain).stop;
             Pdef(\rainLow).play;
+            Pdef(\fmdrone).stop;
 
             100.wait;
 
@@ -128,9 +131,10 @@
             // Pdef(\lullabyLow).stop;
 
             90.wait;
-            
+
             Pdef(\heartbeatHi).stop;
 
         }.play;
     }
 )
+

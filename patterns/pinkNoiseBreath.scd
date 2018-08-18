@@ -4,7 +4,7 @@
             \instrument, \bpnoise,
             \freq, [55, 110],
             \rq, [0.1, 0.2],
-            \db, -42,
+            \db, -10,
             \dur, 6,
             \pan, Pwhite(-1.0, 1.0),
             \out, ~bus[\master],
@@ -16,8 +16,11 @@
             \fx1lvl, -20.dbamp,
         )
     );
+
 )
 
-// Pdef(\breath).play;
-// Pdef(\breath).stop;
+// Pdef(\pinkNoiseBreathFadeIn).play;
+// Pdef(\pinkNoiseBreathFadeIn).stop;
 
+// s.meter;
+// s.plotTree;

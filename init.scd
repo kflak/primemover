@@ -17,8 +17,7 @@
     MIDIIn.connectAll;
     hasLaunchpad = MIDIClient.externalDestinations.asString;
     if(hasLaunchpad.contains("Launchpad")){
-        ~launchpadOut = MIDIOut.newByName("Launchpad", "Launchpad MIDI 1");
-        ~launchpadOut.control(176, 0, 0);
+        this.executeFile((~projectfolder++"launchpad/setup.scd").standardizePath);
     };
     s.waitForBoot(
         {
@@ -82,6 +81,11 @@
             // in the end, load the cues and pray that it works
             this.executeFile((~projectfolder++"cues.scd").standardizePath);
             "cues.scd done".postln;
+
+            if(hasLaunchpad.contains("Launchpad")){
+                //turn off launchpad again
+                ~launchpadOut.control(176, 0, 0);
+            }
         }
     );
 )

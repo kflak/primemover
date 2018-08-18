@@ -2,7 +2,24 @@
     {
         ~tenscue = Routine{
 
+            Tdef(\darkness).play;
+
+            200.wait;
+
             Pdef(\tens).play(TempoClock(2.0)).quant_(0);
+            
+            30.wait;
+
+            Tdef(\darkness).stop;
+            Tdef(\darkness).reset;
+            Pdef(\darknessBlips).stop;
+            Pdef(\darknessBlipsFaster).stop;
+            Pdef(\darknessBreathFadeIn).stop;
+            Pdef(\darknessSub).stop;
+            Pdef(\darknessVanaema).stop;
+            Pdef(\darknessTibet).stop;
+
+
 
             20.wait;
 

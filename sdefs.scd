@@ -563,7 +563,7 @@
         freq = freq.clip(20, 20000);
         sig = BPF.ar(PinkNoise.ar, freq, rq: rq);
         env = EnvGen.kr(Env.perc(attack, rel), doneAction: 2);
-        sig = sig * env * AmpCompA.kr(freq);
+        sig = sig * env * amp * AmpCompA.kr(freq);
         sig = BHiPass.ar(sig, freq: hipassfreq);
         sig = PanAz.ar(~numSpeakers, sig, pan, width: width);
         Out.ar(out, sig);

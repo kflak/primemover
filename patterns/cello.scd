@@ -13,7 +13,7 @@
             \hipassfreq, 400,
             \db, Pseq([Pseries.fromEndpoints(-35, -20, 30), Pwhite(-25, -20, inf)]),
             \pan, Pwhite(-1.0, 1.0, inf),
-            \out, ~bus[\master],
+            \out, ~bus[\cello],
             \fx1, ~bus[\jpverb],
             \fx1lvl, -12.dbamp,
         );
@@ -34,11 +34,9 @@
             \hishelfdb, 0,
             \hipassfreq, 400,
             \pan, Pwhite(-1.0, 1.0, inf),
-            \out, ~bus[\master],
+            \out, ~bus[\cello],
             \fx1, ~bus[\jpverb],
             \fx1lvl, -6.dbamp,
-            \fx2, ~bus[\grdelayMedium],
-            \fx2lvl, 0.dbamp,
         );
     );		
 )

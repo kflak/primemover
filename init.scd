@@ -1,5 +1,5 @@
 (
-    var hasLaunchpad;
+    ~hasLaunchpad = false;
     ~projectfolder = "/home/kf/sc/primemover/";
     ~numSpeakers = 2;
     ~numMics = 4;
@@ -15,8 +15,8 @@
     s.latency  = 0.01;
     MIDIClient.init;
     MIDIIn.connectAll;
-    hasLaunchpad = MIDIClient.externalDestinations.asString;
-    if(hasLaunchpad.contains("Launchpad")){
+    if(MIDIClient.externalDestinations.asString.contains("Launchpad")){~hasLaunchpad = true};
+    if(~hasLaunchpad){
         this.executeFile((~projectfolder++"launchpad/setup.scd").standardizePath);
     };
     s.waitForBoot(
@@ -82,7 +82,7 @@
             this.executeFile((~projectfolder++"cues.scd").standardizePath);
             "cues.scd done".postln;
 
-            if(hasLaunchpad.contains("Launchpad")){
+            if(~hasLaunchpad){
                 //turn off launchpad again
                 ~launchpadOut.control(176, 0, 0);
             }

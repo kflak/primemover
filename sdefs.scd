@@ -161,7 +161,7 @@
         peakfreq=600, peakrq=1, peakdb=0, limit=0.9,
         fx1, fx2, fx1lvl=0, fx2lvl=0, fx3, fx3lvl=0, fx4, fx4lvl=0;
         var sig, env;
-        env = EnvGen.kr(Env.asr(attack, 1.0, rel), gate, doneAction: da);
+        env = EnvGen.kr(Env.asr(attack, 1.0, rel), gate: gate, doneAction: da);
         ratio = ratio.clip(0.0001, 20);
         sig = In.ar(in, ~numSpeakers);
         sig = Compander.ar(sig, sig, 
@@ -535,19 +535,17 @@
     }).add;
 
     SynthDef(\bpnoise_gate, {
-        arg freq=440, amp=0.3, pan=0, width=2, gate=1, lag=0.5, amfreq=1, amdepth=0, rq=1, attack=0.5, rel=3, out=0, 
+        arg freq=440, amp=0.3, pan=0, width=2, gate=1,
+        amfreq=1, amdepth=0, attack=0.5, rel=3, out=0, 
+        rq=1, hipassfreq=20, da=2,
         fx1=0, fx1lvl=0, fx2=0, fx2lvl=0, fx3, fx3lvl=0, fx4, fx4lvl=0;
         var sig, env;
         freq = freq.clip(20, 20000);
-        sig = BPF.ar(
-            PinkNoise.ar,
-            Lag3.kr(freq, lag),
-            rq: rq,
-            mul: Lag3.kr(amp, lag)
-        );
-        env = EnvGen.kr(Env.asr(attack, 1, rel, -4), gate, doneAction: 2);
-        sig = sig * env * AmpCompA.kr(freq) * SinOsc.kr(Lag3.kr(amfreq, lag), mul: amdepth);
-        sig = PanAz.ar(~numSpeakers, sig, Lag3.kr(pan, lag), width: width);
+        sig = BPF.ar(PinkNoise.ar, freq, rq: rq);
+        env = EnvGen.kr(Env.asr(attack, amp, rel), gate, doneAction: da);
+        sig = sig * env * AmpCompA.kr(freq);
+        sig = BHiPass.ar(sig, freq: hipassfreq);
+        sig = PanAz.ar(~numSpeakers, sig, pan, width: width);
         Out.ar(out, sig);
         Out.ar(fx1, sig * fx1lvl);
         Out.ar(fx2, sig * fx2lvl);
@@ -586,6 +584,22 @@
         filterenv = freq * 2 * env;
         filterenv = filterenv.clip(20.0, 20000.0);
         sig = LPF.ar(sig, filterenv);
+        sig = PanAz.ar(~numSpeakers, sig, pan, width: width);
+        Out.ar(out, sig);
+        Out.ar(fx1, sig * fx1lvl);
+        Out.ar(fx2, sig * fx2lvl);
+        Out.ar(fx3, sig * fx3lvl);
+        Out.ar(fx4, sig * fx4lvl);
+    }).add;
+
+    SynthDef(\sineGate, {
+        arg freq=440, amp=0.3, pan=0, width=2, gate=1, amfreq=1, amdepth=0.5, 
+        attack=0.5, rel=3, out=0, da=2,
+        fx1=0, fx1lvl=0, fx2=0, fx2lvl=0, fx3, fx3lvl=0, fx4, fx4lvl=0;
+        var sig, env;
+        sig = SinOsc.ar(freq); 
+        env = EnvGen.kr(Env.asr(attack, amp, rel), gate: gate, doneAction: da);
+        sig = sig * env * AmpCompA.kr(freq) * SinOsc.kr(amfreq, amdepth);
         sig = PanAz.ar(~numSpeakers, sig, pan, width: width);
         Out.ar(out, sig);
         Out.ar(fx1, sig * fx1lvl);

@@ -5,6 +5,8 @@
         [\tens, 1.0, \chstrip_multi, \master, \mix], 
         [\crunchy, 1.0, \chstrip_multi, \master, \mix], 
         [\heartbeat, 1.0, \chstrip_multi, \master, \mix], 
+        [\breath, 1.0, \chstrip_multi, \master, \mix], 
+        [\cello, 1.0, \chstrip_multi, \master, \mix], 
         [\fm, 1.0, \chstrip_multi, \master, \mix], 
         [\sineGrain, 1.0, \chstrip_multi, \master, \mix], 
         [\jpverb, 1.0, \jpverb,	\master, \fx], 
@@ -123,9 +125,17 @@
         \thresh, -12.dbamp, 
         \locut, 40
     );
+    ~ch[\cello].set( 
+        \peakfreq, 600, 
+        \peakdb, -6
+    );
     ~ch[\heartbeat].set(
         \gate, 1,
-        \attack, 60
+        \attack, 90
+    );
+    ~ch[\breath].set(
+        \gate, 1,
+        \attack, 90
     );
     ~ch[\sineGrain].set(
         \compgain, 0.dbamp, 

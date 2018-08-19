@@ -2,7 +2,9 @@
     {
         ~isasolocue = Routine {
 
-            this.executeFile((~projectfolder++"launchpad/isasolo.scd").standardizePath);
+            if(~hasLaunchpad){
+                this.executeFile((~projectfolder++"launchpad/isasolo.scd").standardizePath);
+            };
 
             30.wait;
 

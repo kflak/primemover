@@ -9,13 +9,10 @@
 
             Pdef(\pinkNoiseBreath).play;
             Pdef(\heartbeat).play(TempoClock(0.8));
-
-            60.wait;
-
             Pdef(\tibetBellKlank).play;
             Pdef(\celloBegin).play;
 
-            60.wait;
+            120.wait;
 
             Pdef(\windBegin).play;
 

@@ -1,6 +1,6 @@
 (
     {
-        ~tenscue = Routine{
+        ~darknesscue = Routine{
 
             Tdef(\darkness).play;
 

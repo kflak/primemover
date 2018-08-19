@@ -7,7 +7,9 @@
             ~ch[\mic2].set(\gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \f3lvl, -40.dbamp);
             ~ch[\mic3].set(\gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \f3lvl, -40.dbamp);
 
-            this.executeFile((~projectfolder++"launchpad/translate.scd").standardizePath);
+            if(~hasLaunchpad){
+                this.executeFile((~projectfolder++"launchpad/translate.scd").standardizePath);
+            };
 
             100.wait;
 

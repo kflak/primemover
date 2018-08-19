@@ -87,7 +87,7 @@
             \instrument, \sineGrainTrain,
             \group, ~group[\instr],
             \freq, Pexprand(260, 800),
-            \db, Pwhite(-50, -30),
+            \db, Pseq([Pseries.fromEndpoints(-80, -50, 10), Pwhite(-50, -30)]),
             \comblvl, -10.dbamp,
             \combdelay, Pwhite(0.001, 0.1),
             \grainfreq, Pwhite(1, 10),
@@ -126,8 +126,8 @@
     );
 
     Tdef(\darkness, {
-        Pdef(\darknessBlips).play;
         Pdef(\darknessBreathFadeIn).play;
+        Pdef(\darknessBlips).play;
         60.wait;
         Pdef(\darknessSub).play;
         40.wait;
@@ -148,6 +148,9 @@
 //     Pdef(\darknessVanaema).stop;
 //     Pdef(\darknessTibet).stop;
 // )
+
+// Tdef(\darkness).play;
+// s.meter;
 
 // Pdef(\darknessTibet).play;
 // Pdef(\darknessTibet).stop;

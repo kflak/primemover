@@ -7,7 +7,7 @@
             \db, Pseq([Pseries.fromEndpoints(-50, -5, 24), Pseq([-5], inf)]),
             \dur, 8,
             \attack, Pkey(\dur) * 2,
-            \rel, Pkey(\dur) * 3,
+            \rel, Pkey(\dur) * 3.5,
             \pan, Pwhite(-1.0, 1.0), 
             \rate, 1,
             \loop, 1,

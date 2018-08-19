@@ -1,26 +1,23 @@
 (
+    var pan = 0;
+    var panspeed = 0.1;
+
     Pdef(\pinkNoiseBreath, 
         Pbind(
-            \instrument, \bpnoise,
+            \instrument, \bpnoise_gate,
             \freq, [55, 110],
-            \rq, [0.1, 0.2],
-            \db, -10,
-            \dur, 6,
-            \pan, Pwhite(-1.0, 1.0),
-            \out, ~bus[\master],
+            \rq, 0.3,
+            \db, [0, -10],
+            \dur, 5.5,
+            \pan, Pfunc({pan = pan + panspeed % 1.0}),
+            \out, ~bus[\breath],
             \group, ~group[\instr],
-            \hipassfreq, 40,
-            \attack, Pkey(\dur) * 0.7,
-            \rel, Pkey(\dur) * 0.8,
-            \fx1, ~bus[\jpverb],
-            \fx1lvl, -20.dbamp,
+            \hipassfreq, 60,
+            \attack, Pkey(\dur) * 0.3,
+            \rel, Pkey(\dur) * 0.1,
+            // \fx1, ~bus[\jpverb],
+            // \fx1lvl, -15.dbamp,
         )
     );
 
 )
-
-// Pdef(\pinkNoiseBreathFadeIn).play;
-// Pdef(\pinkNoiseBreathFadeIn).stop;
-
-// s.meter;
-// s.plotTree;

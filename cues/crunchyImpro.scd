@@ -99,14 +99,14 @@
 
             Pdef(\rain).play;
             Pdef(\sine).stop;
-            Pdef(\fmdrone).play; //testing this out, might have to change...
+            Pdef(\fmdrone).play;
 
             // 60.wait;
             120.wait;
 
             Pdef(\lullaby).play;
 
-            60.wait; //QUARTET
+            60.wait;
 
             Pdef(\rain).stop;
             Pdef(\rainLow).play;
@@ -115,6 +115,7 @@
             100.wait;
 
             ~ch[\heartbeat].set(\gate, 0);
+            1.wait;
             ~ch[\heartbeat].set(\attack, 120);
             ~ch[\heartbeat].set(\gate, 1);
             Pdef(\heartbeatHi).play(TempoClock(0.8));
@@ -130,11 +131,10 @@
 
             // Pdef(\lullabyLow).stop;
 
-            90.wait;
+            120.wait;
 
             Pdef(\heartbeatHi).stop;
 
         }.play;
     }
 )
-

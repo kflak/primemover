@@ -2,16 +2,14 @@
     var cues = [
         "audienceEnters.scd",
         "isaSolo.scd",
-        "talk.scd",
         "darkness.scd",
         "crunchyImpro.scd",
     ];
 
     var titles = [
         "Audience enters.scd",
-        "Kenneth brings launchpad to the space",
+        "Isa puts launchpad down",
         "Talking starts",
-        "Find text cue",
         "Külli puts Kenneth down after singing",
         "Post-performance beer"
     ];

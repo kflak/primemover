@@ -19,10 +19,8 @@
 
     ~mic = [
         // lvlin, lvlout, outbus 
-        [-6.dbamp, 0.dbamp, \master],
-        [-6.dbamp, 0.dbamp, \master],
-        [-6.dbamp, 0.dbamp, \master],
-        [-6.dbamp, 0.dbamp, \master],
+        [-6.dbamp, -6.dbamp, \master],
+        [-6.dbamp, -6.dbamp, \master],
     ];
 
 

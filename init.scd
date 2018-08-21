@@ -1,9 +1,9 @@
 (
-    ~hasLaunchpad = false;
     ~projectfolder = "/home/kf/sc/primemover/";
-    ~numSpeakers = 2;
-    ~numMics = 4;
+    ~numSpeakers = 6;
+    ~numMics = 2;
     ~numSubs = 2;
+    ~hasLaunchpad = false;
 
     Buffer.freeAll;
     s.quit;
@@ -11,27 +11,30 @@
     s.options.numOutputBusChannels = 8;
     //make sure there's enough memory for the delay lines
     s.options.memSize = 65536;
+    //make sure there's enough buffers
     s.options.numBuffers = 2048;
+    //make sure there's enough internal buffers
+    s.options.numWireBufs = 256;
     s.latency  = 0.01;
-    MIDIClient.init;
-    MIDIIn.connectAll;
-    if(MIDIClient.externalDestinations.asString.contains("Launchpad")){~hasLaunchpad = true};
-    if(~hasLaunchpad){
-        this.executeFile((~projectfolder++"launchpad/setup.scd").standardizePath);
-    };
     s.waitForBoot(
+        MIDIClient.init;
+        MIDIIn.connectAll;
+        if(MIDIClient.externalDestinations.asString.contains("Launchpad")){~hasLaunchpad = true};
+        if(~hasLaunchpad){
+            this.executeFile((~projectfolder++"launchpad/setup.scd").standardizePath);
+            "Launchpad set up".postln;
+        };
         {
             // s.meter;
             //test the speakers
-            fork{
-                var dur = 1;
-                ~numSpeakers.do{|i, idx| 
-                    {Out.ar(idx, SinOsc.ar(880) * XLine.kr(0.2, 0.00001, dur, doneAction: 2))}.play;
-                    dur.wait
-                };
-                // test subs, sum of headphone outputs. Hardwired to bus 6+7
-                {Out.ar(6, SinOsc.ar(88 ! 2) * XLine.kr(0.3, 0.00001, 4, doneAction: 2))}.play;
-            };
+            // fork{ var dur = 1;
+            //     ~numSpeakers.do{|i, idx| 
+            //         {Out.ar(idx, SinOsc.ar(880) * XLine.kr(0.1, 0.00001, dur, doneAction: 2))}.play;
+            //         dur.wait
+            //     };
+            //     // test subs, sum of headphone outputs. Hardwired to bus 6+7
+            //     {Out.ar(6, SinOsc.ar(88 ! 2) * XLine.kr(0.3, 0.00001, 4, doneAction: 2))}.play;
+            // };
 
             //load synthdefs
             this.executeFile((~projectfolder++"sdefs.scd").standardizePath);
@@ -75,8 +78,8 @@
             "mbCC.scd done".postln;
 
             // set up light
-            this.executeFile((~projectfolder++"light.scd").standardizePath);
-            "light.scd done".postln;
+            // this.executeFile((~projectfolder++"light.scd").standardizePath);
+            // "light.scd done".postln;
 
             // in the end, load the cues and pray that it works
             this.executeFile((~projectfolder++"cues.scd").standardizePath);
@@ -89,3 +92,16 @@
         }
     );
 )
+
+
+
+// (
+//     fork{ var dur = 1;
+//         ~numSpeakers.do{|i, idx| 
+//             {Out.ar(idx, SinOsc.ar(880) * XLine.kr(0.2, 0.00001, dur, doneAction: 2))}.play;
+//             dur.wait
+//         };
+//         // test subs, sum of headphone outputs. Hardwired to bus 6+7
+//         {Out.ar(6, SinOsc.ar(88 ! 2) * XLine.kr(0.3, 0.00001, 4, doneAction: 2))}.play;
+//     };
+// )

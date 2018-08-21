@@ -44,7 +44,7 @@
             \instrument, \clean,
             \buf, Pxrand(~buffers[\vanaemaStory], inf),
             \group, ~group[\instr],
-            \db, -25,
+            \db, -15,
             \dur, Pfunc({|ev| ev.buf.duration}),
             \rel, Pkey(\dur) * 1.5,
             \attack, Pkey(\dur) * 0.5,

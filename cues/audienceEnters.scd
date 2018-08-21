@@ -7,9 +7,13 @@
             
             // s.record("~/sc/primemover/rehearsalfiles/audienceEnters.wav");
 
+            Pdef(\nasaSaturn).play;
             Pdef(\pinkNoiseBreath).play;
             Pdef(\heartbeat).play(TempoClock(0.8));
-            Pdef(\tibetBellKlank).play;
+
+            60.wait;
+
+            Pdef(\tibetBellRev).play;
             Pdef(\celloBegin).play;
 
             120.wait;
@@ -31,6 +35,7 @@
 
             120.wait;
 
+            Pdef(\nasaSaturn).stop;
             Pdef(\pinkNoiseBreath).stop;
 
             30.wait;
@@ -40,7 +45,7 @@
             30.wait;
 
             Pdef(\windBegin).stop;
-            Pdef(\tibetBellKlank).stop;
+            Pdef(\tibetBellRev).stop;
             Pdef(\sineGrainTrainEnv).stop;
             Pdef(\aliinaCryBeginning).stop;
             Pdef(\fastNonRythmical).play;

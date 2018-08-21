@@ -6,6 +6,8 @@
 
             ~ch[\mic0].set(\lvlout, -3.dbamp, \gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \f3lvl, -40.dbamp);
             ~ch[\mic1].set(\lvlout, -3.dbamp, \gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \f3lvl, -40.dbamp);
+            ~ch[\mic2].set(\lvlout, -3.dbamp, \gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \f3lvl, -40.dbamp);
+            ~ch[\mic3].set(\lvlout, -3.dbamp, \gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \f3lvl, -40.dbamp);
 
             45.wait;
 
@@ -18,12 +20,14 @@
 
             ~ch[\mic0].set(\fx2lvl, -15.dbamp);
             ~ch[\mic1].set(\fx2lvl, -15.dbamp);
+            ~ch[\mic2].set(\fx2lvl, -15.dbamp);
+            ~ch[\mic3].set(\fx2lvl, -15.dbamp);
 
-            55.wait;
+            50.wait;
 
             Tdef(\writetext).play;
 
-            100.wait;
+            105.wait;
 
             Tdef(\writetext).stop;
             Pdef(\tens).play(TempoClock(2.0)).quant_(0);
@@ -47,6 +51,8 @@
             //switch off mics
             ~ch[\mic0].set(\gate, 0);
             ~ch[\mic1].set(\gate, 0);
+            ~ch[\mic2].set(\gate, 0);
+            ~ch[\mic3].set(\gate, 0);
 
             130.wait;
 
@@ -72,7 +78,7 @@
             "Kenneth starts singing".postln;
 
             ~ch[\grdelayLong].set(\fb, 0.6);
-            ~ch[\mic0].set( \gate, 1, \lvlout, -6.dbamp, \fx1lvl, -20.dbamp, \fx2lvl, -10.dbamp, \fx3lvl, 0.dbamp);
+            ~ch[\mic2].set( \gate, 1, \lvlout, -6.dbamp, \fx1lvl, -20.dbamp, \fx2lvl, -10.dbamp, \fx3lvl, 0.dbamp);
 
             //DUET
             60.wait;

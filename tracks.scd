@@ -178,8 +178,8 @@
         \mod_depth, 0.1
     );
     ~ch[\master].set(
-        \compgain, 3.dbamp, 
-        \ratio, 2, 
+        \compgain, 8.dbamp, 
+        \ratio, 4, 
         \limit, -0.3.dbamp, 
         \thresh, -3.dbamp, 
         \locut, 40,

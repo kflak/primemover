@@ -7,6 +7,8 @@
             
             // s.record("~/sc/primemover/rehearsalfiles/audienceEnters.wav");
 
+            ~ch[\mic2].set(\lvlout, 0.dbamp, \gate, 1, \fx1lvl, -20.dbamp, \fx2lvl, -20.dbamp, \f3lvl, -30.dbamp);
+            
             Pdef(\nasaSaturn).play;
             Pdef(\pinkNoiseBreath).play;
             Pdef(\heartbeat).play(TempoClock(0.8));

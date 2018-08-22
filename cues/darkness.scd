@@ -6,12 +6,18 @@
 
             ~ch[\mic0].set(\lvlout, -3.dbamp, \gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \f3lvl, -40.dbamp);
             ~ch[\mic1].set(\lvlout, -3.dbamp, \gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \f3lvl, -40.dbamp);
-            ~ch[\mic2].set(\lvlout, -3.dbamp, \gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \f3lvl, -40.dbamp);
-            ~ch[\mic3].set(\lvlout, -3.dbamp, \gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \f3lvl, -40.dbamp);
+            ~ch[\mic2].set(\lvlin, 6.dbamp, \lvlout, 6.dbamp, \gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \f3lvl, -40.dbamp);
+            ~ch[\mic3].set(\lvlin, 6.dbamp, \lvlout, 6.dbamp, \gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \f3lvl, -40.dbamp);
 
-            45.wait;
+            60.wait;
 
-            MIDIdef.noteOn(\launchpad, {});
+            MIDIdef.noteOn(\launchpad, {
+                arg val, note, channel, src;
+                if(channel==0){
+                    Tdef(\writetext).play;
+                    MIDIdef.noteOn(\launchpad, {});
+                };
+            });
             MIDIdef.noteOff(\launchpadOff, {});
 
             Tdef(\darkness).play;
@@ -25,7 +31,6 @@
 
             50.wait;
 
-            Tdef(\writetext).play;
 
             105.wait;
 
@@ -34,7 +39,7 @@
             if(~hasLaunchpad){
                 ~launchpadOut.control(176, 0, 0);
             };
-            
+
             30.wait;
 
             Tdef(\darkness).stop;

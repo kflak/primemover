@@ -17,6 +17,7 @@
     s.options.numWireBufs = 256;
     s.latency  = 0.01;
     s.waitForBoot(
+        {
         MIDIClient.init;
         MIDIIn.connectAll;
         if(MIDIClient.externalDestinations.asString.contains("Launchpad")){~hasLaunchpad = true};
@@ -24,7 +25,6 @@
             this.executeFile((~projectfolder++"launchpad/setup.scd").standardizePath);
             "Launchpad set up".postln;
         };
-        {
             // s.meter;
             //test the speakers
             // fork{ var dur = 1;

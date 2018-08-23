@@ -4,94 +4,89 @@
 
             "darkness".postln;
 
-            ~ch[\mic0].set(\lvlout, -3.dbamp, \gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \f3lvl, -40.dbamp);
-            ~ch[\mic1].set(\lvlout, -3.dbamp, \gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \f3lvl, -40.dbamp);
-            ~ch[\mic2].set(\lvlin, 6.dbamp, \lvlout, 6.dbamp, \gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \f3lvl, -40.dbamp);
-            ~ch[\mic3].set(\lvlin, 6.dbamp, \lvlout, 6.dbamp, \gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \f3lvl, -40.dbamp);
+            ~ch[\mic0].set(\lvlout, -3.dbamp, \gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \f3lvl, -40.dbamp, \locut, 350);
+            ~ch[\mic1].set(\lvlout, -3.dbamp, \gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \f3lvl, -40.dbamp, \locut, 350);
+            ~ch[\mic2].set(\lvlin, 6.dbamp, \lvlout, 6.dbamp, \gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \f3lvl, -40.dbamp, \locut, 350);
+            ~ch[\mic3].set(\lvlin, 6.dbamp, \lvlout, 6.dbamp, \gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \f3lvl, -40.dbamp, \locut, 350);
 
-            60.wait;
+            10.wait;
 
-            MIDIdef.noteOn(\launchpad, {
+            ~whispersynth = Synth(\cleanCirclePanGate, [\out, ~bus[\master], \buf, ~buffers[\translateEstonian][0], \amp, -12.dbamp, \da, 2]);
+
+            80.wait;
+
+            MIDIdef.noteOn(\text, {
                 arg val, note, channel, src;
                 if(channel==0){
-                    Tdef(\writetext).play;
-                    MIDIdef.noteOn(\launchpad, {});
+                    fork{
+                        Tdef(\writetext).play;
+                        Tdef(\darkness).play;
+                        MIDIdef.noteOn(\launchpad, {});
+                        MIDIdef.noteOff(\launchpadOff, {});
+                        MIDIdef.noteOn(\text, {});
+
+                        150.wait;
+
+                        //switch off mics
+                        ~ch[\mic0].set(\gate, 0);
+                        ~ch[\mic1].set(\gate, 0);
+                        ~ch[\mic2].set(\gate, 0);
+                        ~ch[\mic3].set(\gate, 0);
+
+                        Tdef(\writetext).stop;
+                        Pdef(\tens).play(TempoClock(2.0)).quant_(0);
+                        if(~hasLaunchpad){
+                            ~launchpadOut.control(176, 0, 0);
+                        };
+
+                        30.wait;
+
+                        Tdef(\darkness).stop;
+                        Tdef(\darkness).reset;
+                        Pdef(\darknessBlips).stop;
+                        Pdef(\darknessBlipsFaster).stop;
+                        Pdef(\darknessBreathFadeIn).stop;
+                        Pdef(\darknessSub).stop;
+                        Pdef(\darknessVanaema).stop;
+                        Pdef(\darknessTibet).stop;
+
+                        150.wait;
+
+                        ~deltaTriggers[\aliinaLaughIDs].do{|id, idx| ~deltaTriggers[\aliinaLaugh][idx].play(out: ~bus[\tens], target: ~group[\mix])};
+
+
+                        Pdef(\emLow).play; //DUET
+
+                        60.wait;
+
+                        //QUARTET
+                        "Rakesh solo".postln;
+                        ~deltaTriggers[\emIDs].do{|id, idx| ~deltaTriggers[\em][idx].play(out: ~bus[\master], target: ~group[\mix])};
+
+                        60.wait;
+
+                        ~whispersynth.set(\gate, 0);
+
+                        //kill Külli's sensors
+                        ~deltaTriggers[\aliinaLaughIDs].do{|id, idx| ~deltaTriggers[\aliinaLaugh][idx].release(1)};
+
+                        //QUARTET
+                        60.wait;
+
+                        "Kenneth starts singing".postln;
+
+                        ~ch[\grdelayLong].set(\fb, 0.6);
+                        ~ch[\mic2].set( \gate, 1, \lvlout, -6.dbamp, \fx1lvl, -20.dbamp, \fx2lvl, -10.dbamp, \fx3lvl, 0.dbamp);
+
+                        //DUET
+                        60.wait;
+                        Pdef(\emLow).stop;
+                        //QUARTET
+                        120.wait;
+                        ~deltaTriggers[\emIDs].do{|id, idx| ~deltaTriggers[\em][idx].release(1)};
+                    }                
                 };
             });
-            MIDIdef.noteOff(\launchpadOff, {});
-
-            Tdef(\darkness).play;
-
-            45.wait;
-
-            ~ch[\mic0].set(\fx2lvl, -15.dbamp);
-            ~ch[\mic1].set(\fx2lvl, -15.dbamp);
-            ~ch[\mic2].set(\fx2lvl, -15.dbamp);
-            ~ch[\mic3].set(\fx2lvl, -15.dbamp);
-
-            50.wait;
-
-
-            105.wait;
-
-            Tdef(\writetext).stop;
-            Pdef(\tens).play(TempoClock(2.0)).quant_(0);
-            if(~hasLaunchpad){
-                ~launchpadOut.control(176, 0, 0);
-            };
-
-            30.wait;
-
-            Tdef(\darkness).stop;
-            Tdef(\darkness).reset;
-            Pdef(\darknessBlips).stop;
-            Pdef(\darknessBlipsFaster).stop;
-            Pdef(\darknessBreathFadeIn).stop;
-            Pdef(\darknessSub).stop;
-            Pdef(\darknessVanaema).stop;
-            Pdef(\darknessTibet).stop;
-
-            20.wait;
-
-            //switch off mics
-            ~ch[\mic0].set(\gate, 0);
-            ~ch[\mic1].set(\gate, 0);
-            ~ch[\mic2].set(\gate, 0);
-            ~ch[\mic3].set(\gate, 0);
-
-            130.wait;
-
-            ~deltaTriggers[\aliinaLaughIDs].do{|id, idx| ~deltaTriggers[\aliinaLaugh][idx].play(out: ~bus[\tens], target: ~group[\mix])};
-
-
-            Pdef(\emLow).play; //DUET
-
-            60.wait;
-
-            //QUARTET
-            "Rakesh solo".postln;
-            ~deltaTriggers[\emIDs].do{|id, idx| ~deltaTriggers[\em][idx].play(out: ~bus[\master], target: ~group[\mix])};
-
-            60.wait;
-
-            //kill Külli's sensors
-            ~deltaTriggers[\aliinaLaughIDs].do{|id, idx| ~deltaTriggers[\aliinaLaugh][idx].release(1)};
-
-            //QUARTET
-            60.wait;
-
-            "Kenneth starts singing".postln;
-
-            ~ch[\grdelayLong].set(\fb, 0.6);
-            ~ch[\mic2].set( \gate, 1, \lvlout, -6.dbamp, \fx1lvl, -20.dbamp, \fx2lvl, -10.dbamp, \fx3lvl, 0.dbamp);
-
-            //DUET
-            60.wait;
-            Pdef(\emLow).stop;
-            //QUARTET
-            120.wait;
-            ~deltaTriggers[\emIDs].do{|id, idx| ~deltaTriggers[\em][idx].release(1)};
-
         }.play;
     }
 )

@@ -5,9 +5,7 @@
             \group, ~group[\instr],
             \freq0, Pxrand([0, 3, 7, 9, 12] + 84, inf).midicps,
             \freq1, Pkey(\freq0),
-            // \db, Pwhite(-30, -20),
-            // \db, Pwhite(-50, -40),
-            \db, Pwhite(-40, -30),
+            \db, Pwhite(-50, -36),
             \grainfreq0, Pwhite(1.0, 10.0),
             \grainfreq1, Pwhite(1.0, 10.0),
             \grainsize0, Pexprand(0.0001, 0.001),
@@ -35,8 +33,6 @@
             \out, ~bus[\sineGrain],
             \attack, Pwhite(5, 15),
             \rel, Pkey(\attack) * 0.7,
-            // \attack, Pkey(\dur) * 1.5,
-            // \rel, Pkey(\dur) * 0.8,
         )
     );
 )

@@ -114,6 +114,7 @@
     ~ch[\crunchy].set( 
         \compgain, 7.dbamp, 
         \ratio, 8, 
+        \hishelfdb, -6,
         \thresh, -5.dbamp, 
         \limit, 0.dbamp, 
         \locut, 100

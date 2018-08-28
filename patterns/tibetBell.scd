@@ -11,7 +11,7 @@
             \attack, Pkey(\rel),
             \hishelfdb, -25,
             \hipassfreq, 660,
-            \db, -17,
+            \db, -24,
             \fx1, ~bus[\jpverb],
             \fx1lvl, -0.dbamp,
             \pan, Pwhite(-1.0, 1.0, inf),

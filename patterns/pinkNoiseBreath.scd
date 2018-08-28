@@ -4,7 +4,7 @@
             \instrument, \bpnoise_gate,
             \freq, [55, 110],
             \rq, 0.3,
-            \db, [0, -10],
+            \db, [-6, -16],
             \dur, 5.5,
             \pan, Pwhite(-1.0, 1.0),
             \out, ~bus[\breath],

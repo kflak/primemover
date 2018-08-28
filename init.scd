@@ -4,6 +4,7 @@
     ~numMics = 4;
     ~numSubs = 2;
     ~hasLaunchpad = false;
+    ~hasQmidiNet = false;
 
     Buffer.freeAll;
     s.quit;
@@ -18,13 +19,14 @@
     s.latency  = 0.01;
     s.waitForBoot(
         {
-        MIDIClient.init;
-        MIDIIn.connectAll;
-        if(MIDIClient.externalDestinations.asString.contains("Launchpad")){~hasLaunchpad = true};
-        if(~hasLaunchpad){
-            this.executeFile((~projectfolder++"launchpad/setup.scd").standardizePath);
-            "Launchpad set up".postln;
-        };
+            MIDIClient.init;
+            MIDIIn.connectAll;
+            if(MIDIClient.externalDestinations.asString.contains("Launchpad")){~hasLaunchpad = true};
+            if(MIDIClient.externalDestinations.asString.contains("QmidiNet")){~hasQmidiNet = true};
+            if(~hasLaunchpad){
+                this.executeFile((~projectfolder++"launchpad/setup.scd").standardizePath);
+                "Launchpad set up".postln;
+            };
             // s.meter;
             //test the speakers
             // fork{ var dur = 1;
@@ -78,8 +80,10 @@
             "mbCC.scd done".postln;
 
             // set up light
-            // this.executeFile((~projectfolder++"light.scd").standardizePath);
-            // "light.scd done".postln;
+            if(~hasQmidiNet){
+                this.executeFile((~projectfolder++"light.scd").standardizePath);
+                "light.scd done".postln;
+            };
 
             // in the end, load the cues and pray that it works
             this.executeFile((~projectfolder++"cues.scd").standardizePath);

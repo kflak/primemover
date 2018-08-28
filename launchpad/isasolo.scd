@@ -15,10 +15,10 @@
             {i < 24} {~launchpadOut.noteOn(0, i, ~launchpadColor[\greenlo])}
             {i < 40} {~launchpadOut.noteOn(0, i, ~launchpadColor[\redlo])}
             {i < 56} {~launchpadOut.noteOn(0, i, ~launchpadColor[\amberlo])}
-            {i < 72} {~launchpadOut.noteOn(0, i, ~launchpadColor[\greenlo])};
+            {i < 72} {~launchpadOut.noteOn(0, i, ~launchpadColor[\greenlo])}
             {i < 88} {~launchpadOut.noteOn(0, i, ~launchpadColor[\redlo])}
             {i < 104} {~launchpadOut.noteOn(0, i, ~launchpadColor[\amberlo])}
-            {i < 120} {~launchpadOut.noteOn(0, i, ~launchpadColor[\greenlo])};
+            {i < 120} {~launchpadOut.noteOn(0, i, ~launchpadColor[\greenlo])}
         };
     };
 
@@ -93,9 +93,9 @@
                             \out, ~bus[\fm],
                             \attack, attack,
                             \rel, rel,
-                            \amp, -26.dbamp,
+                            \amp, -32.dbamp,
                             \fx1, ~bus[\jpverb],
-                            \fx1lvl, -12.dbamp,
+                            \fx1lvl, -24.dbamp,
                             \fx2, ~bus[\grdelayMedium],
                             \fx2lvl, -12.dbamp,
                         ], target: ~group[\instr]
@@ -116,7 +116,7 @@
                             \out, ~bus[\fm],
                             \attack, attack,
                             \rel, rel,
-                            \amp, -20.dbamp,
+                            \amp, -26.dbamp,
                             \fx1, ~bus[\jpverb],
                             \fx1lvl, -12.dbamp,
                             \fx2, ~bus[\grdelayMedium],
@@ -135,6 +135,7 @@
                             \attack, attack,
                             \rel, rel,
                             \amp, -30.dbamp,
+                            \hipassfreq, 200,
                             \fx1, ~bus[\jpverb],
                             \fx1lvl, -12.dbamp,
                             \fx2, ~bus[\grdelayMedium],
@@ -142,17 +143,18 @@
                         ], target: ~group[\instr]
                     );
                 }
-                //sixth row, stoveperc
+                //sixth row, treeperc
                 {note < 88}{
                     var attack = 0, rel = 0.1;
                     ~lpsynth[note] = Synth(\clean,
                         [
-                            \buf, ~buffers[\stoveperc].choose,
+                            \buf, ~buffers[\treeperc].choose,
                             \pan, rrand(0.0, 1.0),
                             \out, ~bus[\fm],
                             \attack, attack,
                             \rel, rel,
-                            \amp, -30.dbamp,
+                            \amp, -20.dbamp,
+                            \hipassfreq, 200,
                             \fx1, ~bus[\jpverb],
                             \fx1lvl, -12.dbamp,
                             \fx2, ~bus[\grdelayMedium],
@@ -162,33 +164,38 @@
                 }
                 //seventh row, broken piano
                 {note < 104}{
-                    var attack = 0, rel = 0.1;
+                    var attack = 0;
+                    var buf = ~buffers[\brpiano].choose;
+                    var rel = buf.duration;
                     ~lpsynth[note] = Synth(\clean,
                         [
-                            \buf, ~buffers[\brpiano].choose,
+                            \buf, buf,
                             \pan, rrand(0.0, 1.0),
                             \out, ~bus[\fm],
                             \attack, attack,
                             \rel, rel,
-                            \amp, -30.dbamp,
+                            \amp, -20.dbamp,
                             \fx1, ~bus[\jpverb],
-                            \fx1lvl, -12.dbamp,
+                            \fx1lvl, 0.dbamp,
                             \fx2, ~bus[\grdelayMedium],
                             \fx2lvl, rrand(-24, 0).dbamp,
                         ], target: ~group[\instr]
                     );
                 }
-                //eight row, treeperc
+                //eight row, cello
                 {note < 120}{
-                    var attack = 0, rel = 0.1;
+                    var attack = 0;
+                    var buf = ~buffers[\cello].choose;
+                    var rel = buf.duration / 2;
                     ~lpsynth[note] = Synth(\clean,
                         [
-                            \buf, ~buffers[\treeperc].choose,
+                            \buf, buf,
                             \pan, rrand(0.0, 1.0),
                             \out, ~bus[\fm],
                             \attack, attack,
                             \rel, rel,
-                            \amp, -30.dbamp,
+                            \amp, -25.dbamp,
+                            \hipassfreq, 200,
                             \fx1, ~bus[\jpverb],
                             \fx1lvl, -12.dbamp,
                             \fx2, ~bus[\grdelayMedium],
@@ -212,10 +219,10 @@
                 {note < 24} {~launchpadOut.noteOn(0, note, ~launchpadColor[\greenlo])}
                 {note < 40} {~launchpadOut.noteOn(0, note, ~launchpadColor[\redlo])}
                 {note < 56} {~launchpadOut.noteOn(0, note, ~launchpadColor[\amberlo])}
-                {note < 72} {~launchpadOut.noteOn(0, note, ~launchpadColor[\greenlo])};
+                {note < 72} {~launchpadOut.noteOn(0, note, ~launchpadColor[\greenlo])}
                 {note < 88} {~launchpadOut.noteOn(0, note, ~launchpadColor[\redlo])}
                 {note < 104} {~launchpadOut.noteOn(0, note, ~launchpadColor[\amberlo])}
-                {note < 120} {~launchpadOut.noteOn(0, note, ~launchpadColor[\greenlo])};
+                {note < 120} {~launchpadOut.noteOn(0, note, ~launchpadColor[\greenlo])}
             };
         }
     });

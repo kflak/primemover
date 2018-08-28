@@ -3,19 +3,19 @@
     MBDeltaTrig.mbData = ~mbData;
     MBDeltaTrig.numSpeakers = ~numSpeakers;
 
-    ~deltaTriggers.put(\sineGrainIDs, [10, 11, 12]);
+    ~deltaTriggers.put(\sineGrainIDs, [10, 11]);
     ~deltaTriggers.put(\sineGrain,
         ~deltaTriggers[\sineGrainIDs].collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
-                threshold: 0.2, 
+                threshold: 0.07, 
                 minibeeID: id, 
                 minAmp: -70.dbamp, 
-                maxAmp: -36.dbamp,
+                maxAmp: -46.dbamp,
                 function: { |outbus, dt, minAmp, maxAmp|
                     Synth(\sineGrainTrain,
                         [
-                            \freq, exprand(110, 1100),
+                            \freq, exprand(660, 1100),
                             \amp, dt.linlin(0.0, 1.0, minAmp, maxAmp),
                             \grainfreq, rrand(1.0, 10.0),
                             \grainsize, rrand(0.0001, 0.1),
@@ -452,10 +452,10 @@
         ~deltaTriggers[\waterIDs].collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
-                threshold: 0.2, 
+                threshold: 0.1, 
                 minibeeID: id,
-                minAmp: -32.dbamp, 
-                maxAmp: -6.dbamp,
+                minAmp: -44.dbamp, 
+                maxAmp: -18.dbamp,
                 function: {|outbus, dt, minAmp, maxAmp|
                     Synth(\clean, 
                         [
@@ -465,9 +465,15 @@
                             \loop, 0,
                             \pan, rrand(-1.0, 1.0), 
                             \rate, rrand(0.9, 1.2),
+                            \ratio, 4,
+                            \hishelfdb, -6,
                             \out, outbus,
                             \fx1, ~bus[\jpverb], 
                             \fx1lvl, rrand(-12, 0).dbamp,
+                            \fx2, ~bus[\grdelayMedium], 
+                            \fx2lvl, rrand(-24, -12).dbamp,
+                            \fx3, ~bus[\grdelayLong], 
+                            \fx3lvl, rrand(-24, -12).dbamp,
                         ], 
                         ~group[\instr]
                     );
@@ -481,15 +487,16 @@
         ~deltaTriggers[\chewIDs].collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
-                threshold: 0.1, 
+                threshold: 0.07, 
                 minibeeID: id,
                 minAmp: -32.dbamp, 
-                maxAmp: 6.dbamp, 
+                maxAmp: 9.dbamp, 
                 function: {|outbus, dt, minAmp, maxAmp|
                     Synth(\clean, 
                         [
                             \buf, ~buffers[\dancing_bodies][2],
                             \amp, dt.linlin(0.0, 1.0, minAmp, maxAmp),
+                            \gain, 9.dbamp,
                             \rel, dt.linlin(0.0, 1.0, 2.0, 6.0), 
                             \pan, rrand(-1.0, 1.0), 
                             \rate, rrand(0.5, 1.6),
@@ -509,15 +516,16 @@
         ~deltaTriggers[\bubblesIDs].collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
-                threshold: 0.1, 
+                threshold: 0.07, 
                 minibeeID: id,
                 minAmp: -32.dbamp, 
-                maxAmp: 6.dbamp,
+                maxAmp: 9.dbamp,
                 function: {|outbus, dt, minAmp, maxAmp|
                     Synth(\clean, 
                         [
                             \buf, ~buffers[\dancing_bodies][1],
                             \amp, dt.linlin(0.0, 1.0, minAmp, maxAmp),
+                            \gain, 6.dbamp,
                             \rel, dt.linlin(0.0, 1.0, 2.0, 4.0), 
                             \pan, rrand(-1.0, 1.0), 
                             \rate, rrand(0.9, 1.2),
@@ -539,16 +547,17 @@
         ~deltaTriggers[\chipsIDs].collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
-                threshold: 0.1, 
+                threshold: 0.07, 
                 minibeeID: id,
                 minAmp: -32.dbamp, 
-                maxAmp: 6.dbamp,
+                maxAmp: 9.dbamp,
                 function: {|outbus, dt, minAmp, maxAmp|
                     var release = dt * 4;
                     Synth(\varirate_perc, 
                         [
                             \buf, ~buffers[\chipskit].choose,
                             \amp, dt.linlin(0.0, 1.0, minAmp, maxAmp),
+                            \gain, 9.dbamp,
                             \pan, rrand(-1.0, 1.0), 
                             \rel, release,
                             \ratefrom, rrand(0.9, 1.5),
@@ -602,7 +611,7 @@
         ~deltaTriggers[\aliinaLaughIDs].collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
-                threshold: 0.2, 
+                threshold: 0.1, 
                 minibeeID: id,
                 minAmp: -32.dbamp, 
                 maxAmp: -12.dbamp,

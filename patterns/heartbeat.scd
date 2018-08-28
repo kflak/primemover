@@ -4,29 +4,29 @@
 
     Pdef(\heartbeat, 
         Pbind(
-            \instrument, \sineGate,
+            \instrument, \sine,
             \group, ~group[\instr],
-            \freq, Pseq([50, 36], inf),
+            \freq, Pseq([50, 50], inf),
             \db, Pseq([-30, -35], inf),
             \dur, Pseq([0.2, 1], inf),
             \pan, Pwhite(-1.0, 1.0),
             \out, ~bus[\heartbeat],
             \attack, 0.01,
-            \rel, 0.3,
+            \rel, 0.2,
             \da, 2,
         )
     );
 
     Pdef(\heartbeatHi, 
         Pbind(
-            \instrument, \sineGate,
+            \instrument, \sine,
             \group, ~group[\instr],
-            \freq, Pseq([50, 36], inf),
-            \db, Pseq([-28, -33], inf),
+            \freq, Pseq([50, 50], inf),
+            \db, Pseq([-28, -33] - 3, inf),
             \dur, Pseq([0.2, 1], inf),
             \pan, Pwhite(-1.0, 1.0),
             \out, ~bus[\heartbeat],
-            \attack, 0.01,
+            \attack, 0.1,
             \rel, 0.3,
             \da, 2,
         )

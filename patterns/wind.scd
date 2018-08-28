@@ -27,7 +27,7 @@
             \buf, Prand(~buffers[\nurme_wind], inf),
             \attack, Pkey(\dur) * 0.8,
             \rel, Pkey(\dur) * 0.8,
-            \db, Pseq((-70, -60..-2), Pseq([-2], inf), 1),
+            \db, -22,
             \hipassfreq, 200,
             \fx1, ~bus[\jpverb],
             \fx1lvl, 0.dbamp,

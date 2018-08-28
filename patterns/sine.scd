@@ -4,7 +4,7 @@
             \instrument, \sine,
             \group, ~group[\instr],
             \freq, Pexprand(660, 1200),
-            \amp, Pwhite(-70.dbamp, -50.dbamp),
+            \db, Pwhite(-70, -60),
             \dur, Pexprand(1.5, 15.0),
             \pan, Pwhite(-1.0, 1.0),
             \amfreq, Pwhite(0.5, 2),

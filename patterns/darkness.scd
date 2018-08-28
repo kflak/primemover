@@ -128,9 +128,9 @@
     Tdef(\darkness, {
         Pdef(\darknessBreathFadeIn).play;
         Pdef(\darknessBlips).play;
-        20.wait;
-        Pdef(\darknessSub).play;
         40.wait;
+        Pdef(\darknessSub).play;
+        // 40.wait;
         Pdef(\darknessVanaema).play;
         60.wait;
         Pdef(\darknessBlipsFaster).play;
@@ -150,7 +150,7 @@
 // )
 
 // Tdef(\darkness).play;
-// s.meter;
+// // s.meter;
 
 // Pdef(\darknessTibet).play;
 // Pdef(\darknessTibet).stop;

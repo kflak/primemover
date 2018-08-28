@@ -7,24 +7,28 @@
             
             // s.record("~/sc/primemover/rehearsalfiles/audienceEnters.wav");
 
-            ~ch[\mic2].set(\lvlout, 0.dbamp, \gate, 1, \fx1lvl, -20.dbamp, \fx2lvl, -20.dbamp, \f3lvl, -30.dbamp);
+            ~ch[\mic2].set(\lvlout, 6.dbamp, \gate, 1, \fx1lvl, -20.dbamp, \fx2lvl, -20.dbamp, \f3lvl, -30.dbamp);
+            ~ch[\mic3].set(\lvlout, 6.dbamp, \gate, 1, \fx1lvl, -20.dbamp, \fx2lvl, -20.dbamp, \f3lvl, -30.dbamp);
             
-            Pdef(\nasaSaturn).play;
-            Pdef(\pinkNoiseBreath).play;
             Pdef(\heartbeat).play(TempoClock(0.8));
-
-            60.wait;
-
-            Pdef(\tibetBellRev).play;
-            Pdef(\celloBegin).play;
 
             120.wait;
 
-            Pdef(\windBegin).play;
+            Pdef(\tibetBellRev).play;
+
+            60.wait;
+
+            Pdef(\nasaSaturn).play;
+            Pdef(\celloBegin).play;
 
             60.wait;
 
             Pdef(\sineGrainTrainEnv).play;
+
+            60.wait;
+
+            Pdef(\pinkNoiseBreath).play;
+            Pdef(\windBegin).play;
 
             60.wait;
 
@@ -73,20 +77,6 @@
             Pdef(\aliinaChatFaster).play;
             Pdef(\aliinaChat).stop;
 
-            // ~ch[\mic0].set(\gate, 1, \fx1lvl, -20.dbamp, \fx2lvl, -10.dbamp, \f3lvl, -40.dbamp);
-            // ~ch[\mic1].set(\gate, 1, \fx1lvl, -20.dbamp, \fx2lvl, -10.dbamp, \f3lvl, -40.dbamp);
-
-            //DUET
-            // 60.wait;
-            
-            //QUARTET
-            // 90.wait;
-
-            //DUET
-            // 45.wait;
-            
-            //QUARTET
-            // 75.wait;
 
             //comment out this after recording!
             // 120.wait; 

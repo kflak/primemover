@@ -2,13 +2,15 @@
     var cues = [
         "audienceEnters.scd",
         "isaSolo.scd",
+        "isaSensorOn.scd",
         "darkness.scd",
         "crunchyImpro.scd",
     ];
 
     var titles = [
         "Audience enters.scd",
-        "Isa puts launchpad down",
+        "Isa gives launchpad to Kenneth",
+        "Isa finishes putting sensor on",
         "Talking starts",
         "Külli puts Kenneth down after singing",
         "Post-performance beer"
@@ -43,6 +45,8 @@
             metronome: false,
         )
     );
+
+    cuelist.midiTrigger(note: 60, channel: 50);
 
     //uncomment this chunk if largeDisplay: true to be able to use spacebar when largeDisplay is active
     // AppClock.sched(0.2,

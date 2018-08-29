@@ -15,34 +15,30 @@
             ~ch[\mic2].set(\gate, 0);
             //reset graindelay feedback amount
             ~ch[\grdelayLong].set(\fb, 0.5);
-
-            //Külli sensors on
-            // [10, 11].do{|id, idx| ~deltaTriggers[\chew][idx].play(out: ~bus[\crunchy], target: ~group[\mix]) };
-            // [10, 11].do{|id, idx| ~deltaTriggers[\chips][idx].play(out: ~bus[\crunchy], target: ~group[\mix]) };
-            // [10, 11].do{|id, idx| ~deltaTriggers[\bubbles][idx].play(out: ~bus[\crunchy], target: ~group[\mix]) };
-
             [10, 11].do{|id, idx| ~deltaTriggers[\sineGrain][idx].play( out: ~bus[\master], target: ~group[\mix] )}; //Külli sensors on
             [13, 14].do{|id, idx| ~deltaTriggers[\em][idx].release(1)}; //rakesh off
             120.wait;
 
-            Pdef(\rain).play;
+            Pdef(\rainFaraway).play;
+
+            90.wait; // QUARTET
+
+            Pdef(\chatLow).play;
 
             60.wait; // QUARTET
-            // 30.wait;
-
-            Pdef(\chat).play;
-
-            60.wait; // QUARTET
-            // 30.wait;
 
             Pdef(\sine).play;
 
             60.wait; // QUARTET
-            // 90.wait; //DUET
+
+            Pdef(\rainFaraway).stop;
+            Pdef(\rain).play;
 
             40.wait;
 
             Pdef(\cello).play;
+            Pdef(\chat).play;
+            Pdef(\chatLow).stop;
 
             20.wait;
 
@@ -131,11 +127,14 @@
             Pdef(\rainLow).stop;
             Pdef(\lullaby).stop;
             
-            ~ch[\heartbeat].set(\gate, 0);
 
             10.wait;
 
             Pdef(\nasa_liftoff).stop;
+
+            50.wait;
+
+            ~ch[\heartbeat].set(\gate, 0);
 
             120.wait;
 

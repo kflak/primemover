@@ -7,6 +7,11 @@
             
             // s.record("~/sc/primemover/rehearsalfiles/audienceEnters.wav");
 
+            ~ch[\heartbeat].set(\gate, 0);
+
+            1.wait;
+
+            ~ch[\heartbeat].set(\attack, 240, \gate, 1);
             ~ch[\mic2].set(\lvlout, 6.dbamp, \gate, 1, \fx1lvl, -20.dbamp, \fx2lvl, -20.dbamp, \f3lvl, -30.dbamp);
             ~ch[\mic3].set(\lvlout, 6.dbamp, \gate, 1, \fx1lvl, -20.dbamp, \fx2lvl, -20.dbamp, \f3lvl, -30.dbamp);
             

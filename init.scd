@@ -6,6 +6,11 @@
     ~hasLaunchpad = false;
     ~hasQmidiNet = false;
 
+    MIDIClient.init;
+    MIDIIn.connectAll;
+    if(MIDIClient.externalDestinations.asString.contains("Launchpad")){~hasLaunchpad = true};
+    if(MIDIClient.externalDestinations.asString.contains("QmidiNet")){~hasQmidiNet = true};
+
     Buffer.freeAll;
     s.quit;
     s.options.numInputBusChannels = ~numMics;
@@ -19,10 +24,6 @@
     s.latency  = 0.01;
     s.waitForBoot(
         {
-            MIDIClient.init;
-            MIDIIn.connectAll;
-            if(MIDIClient.externalDestinations.asString.contains("Launchpad")){~hasLaunchpad = true};
-            if(MIDIClient.externalDestinations.asString.contains("QmidiNet")){~hasQmidiNet = true};
             if(~hasLaunchpad){
                 this.executeFile((~projectfolder++"launchpad/setup.scd").standardizePath);
                 "Launchpad set up".postln;

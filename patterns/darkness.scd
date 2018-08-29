@@ -130,7 +130,7 @@
         Pdef(\darknessBlips).play;
         40.wait;
         Pdef(\darknessSub).play;
-        // 40.wait;
+        5.wait;
         Pdef(\darknessVanaema).play;
         60.wait;
         Pdef(\darknessBlipsFaster).play;

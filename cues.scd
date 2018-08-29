@@ -17,18 +17,18 @@
     ];
 
     var cuelist = CuePlayer.new;
-    var info = Window.new("Cueinfo", border:true);
-    var text = StaticText(info, Rect(10, 10, 400, 60));
-    var font = Font("DejaVu Sans Mono", 32);
-    info.view.background = Color(0.0, 0.0, 0.0);
-    text.string = titles[0];
-    text.background = Color(0.0, 0.0, 0.0);
-    text.stringColor = Color(1.0, 1.0, 1.0);
-    text.font(font);
-    info.front;
+    // var info = Window.new("Cueinfo", border:true);
+    // var text = StaticText(info, Rect(10, 10, 400, 60));
+    // var font = Font("DejaVu Sans Mono", 32);
+    // info.view.background = Color(0.0, 0.0, 0.0);
+    // text.string = titles[0];
+    // text.background = Color(0.0, 0.0, 0.0);
+    // text.stringColor = Color(1.0, 1.0, 1.0);
+    // text.font(font);
+    // info.front;
 
 
-    cuelist.hook = {|c| text.string = "Next cue:\n"++titles[c.current+1]};
+    // cuelist.hook = {|c| text.string = "Next cue:\n"++titles[c.current+1]};
 
     cues.do{ |item| 
         var file = PathName.new("~/sc/primemover/cues/"++item).fullPath;

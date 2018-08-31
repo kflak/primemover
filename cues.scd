@@ -46,8 +46,11 @@
         )
     );
 
-    cuelist.midiTrigger(note: 60, channel: 50);
+    MIDIdef.noteOn(\triggercue, {|note|
+        cuelist.trigger(note)
+    }, chan: 15);
 
+        
     //uncomment this chunk if largeDisplay: true to be able to use spacebar when largeDisplay is active
     // AppClock.sched(0.2,
     //     {

@@ -464,7 +464,7 @@
                             \rel, dt.linlin(0.0, 1.0, 2.0, 10.0), 
                             \loop, 0,
                             \pan, rrand(-1.0, 1.0), 
-                            \rate, rrand(0.9, 1.2),
+                            \rate, rrand(0.5, 1.2),
                             \ratio, 4,
                             \hishelfdb, -6,
                             \out, outbus,

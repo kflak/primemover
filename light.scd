@@ -50,6 +50,18 @@
 
 // ~light[\testtriggerclass].dump;
 
-// ~light[\midiout].noteOn(10, 0, 127);
+// m = MIDIOut.newByName("QmidiNet", "port 0");
+// m.noteOn(10, 0, 127);
 // MIDIdef.noteOn(\testing, {arg ...args; args.postln});
-// MIDIdef.noteOn(\testing, {});
+// // MIDIdef.noteOn(\testing, {});
+
+// OSCdef(\test, {|msg, time, addr, recvPort| msg.postln}, '/test/hello', n); // def style
+
+// OSCdef(\test).free;
+
+// NetAddr.langPort;
+
+// n = NetAddr("192.168.0.101");
+// n = NetAddr("localhost", 57120);
+// n.sendMsg("/chat", "Hello!");
+// NetAddr.langPort;

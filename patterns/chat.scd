@@ -27,10 +27,10 @@
             \instrument, \clean,
             \buf, Pxrand(~buffers[\chat], inf),
             \group, ~group[\instr],
-            \db, Pwhite(-5, 0) - 10,
+            \db, Pwhite(-5, 0) - 16,
             \dur, Pwhite(2.0, 8.0),
             \rel, Pkey(\dur) * 1.5,
-            \attack, Pkey(\dur) * 0.9,
+            \attack, Pkey(\dur) * 0.4,
             \ratio, 8,
             \loop, 0,
             \thresh, -20.dbamp,
@@ -47,5 +47,5 @@
     );
 )
 
-// Pdef(\chat).play;
-// Pdef(\chat).stop;
+// Pdef(\chatLow).play;
+// Pdef(\chatLow).stop;

@@ -23,7 +23,6 @@
 
             60.wait;
 
-            Pdef(\nasaSaturn).play;
             Pdef(\celloBegin).play;
 
             60.wait;
@@ -32,10 +31,13 @@
 
             60.wait;
 
+            Pdef(\nasaSaturn).play;
+
+            30.wait;
             Pdef(\pinkNoiseBreath).play;
             Pdef(\windBegin).play;
 
-            60.wait;
+            30.wait;
 
             Pdef(\aliinaCryBeginning).play;
 

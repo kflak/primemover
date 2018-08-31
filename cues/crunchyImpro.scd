@@ -7,7 +7,7 @@
             Pdef(\tens).stop;
             ~tenscue.stop;
 
-            ~ch[\heartbeat].set(\gate, 0, \attack, 240, \rel, 120);
+            ~ch[\heartbeat].set(\gate, 0, \attack, 120, \rel, 120);
 
             "Kenneth stops singing, Crunchy impro starts".postln;
 
@@ -15,24 +15,28 @@
             ~ch[\mic2].set(\gate, 0);
             //reset graindelay feedback amount
             ~ch[\grdelayLong].set(\fb, 0.5);
-            [10, 11].do{|id, idx| ~deltaTriggers[\sineGrain][idx].play( out: ~bus[\master], target: ~group[\mix] )}; //Külli sensors on
-            [13, 14].do{|id, idx| ~deltaTriggers[\em][idx].release(1)}; //rakesh off
+            //Külli sensors on
+            [10, 11].do{|id, idx| 
+                ~deltaTriggers[\sineGrain][idx].play(out: ~bus[\master], target: ~group[\mix] )
+            };
+            //rakesh sensors off
+            [13, 14].do{|id, idx| ~deltaTriggers[\em][idx].release(1)}; 
             120.wait;
 
             Pdef(\rainFaraway).play;
 
-            90.wait; // QUARTET
-
-            Pdef(\chatLow).play;
-
-            60.wait; // QUARTET
-
-            Pdef(\sine).play;
-
-            60.wait; // QUARTET
+            90.wait;
 
             Pdef(\rainFaraway).stop;
             Pdef(\rain).play;
+
+            60.wait;
+
+            Pdef(\sine).play;
+
+            60.wait;
+
+            Pdef(\chatLow).play;
 
             40.wait;
 
@@ -43,11 +47,6 @@
             20.wait;
 
             [10, 11].do{|id, idx| ~deltaTriggers[\sineGrain][idx].release(1)};
-            // [13, 14].do{|id, idx| ~deltatriggers[\em][idx].release(1)}; //rakesh off
-            // [10, 11].do{|id, idx| ~deltaTriggers[\chips][idx].release(1)}; //Külli off 
-            // [10, 11].do{|id, idx| ~deltaTriggers[\chew][idx].release(1)}; //Külli off
-            // [10, 11].do{|id, idx| ~deltaTriggers[\bubbles][idx].release(1)}; //Külli off
-            // [12].do{|id, idx| ~deltaTriggers[\water][idx].release(1)}; //Isabell off
 
             100.wait;
 
@@ -105,6 +104,8 @@
             90.wait;
 
             Pdef(\fmdrone).stop;
+            ~ch[\heartbeat].set(\gate, 1);
+            Pdef(\heartbeatHi).play(TempoClock(0.8));
 
             30.wait;
 
@@ -112,27 +113,19 @@
 
             40.wait;
 
-            ~ch[\heartbeat].set(\gate, 1);
-            Pdef(\heartbeatHi).play(TempoClock(0.8));
-
-            // 20.wait;
-
             Pdef(\rain).stop;
             Pdef(\rainLow).play;
 
-            70.wait;
-
-            // 40.wait;
+            40.wait;
 
             Pdef(\rainLow).stop;
             Pdef(\lullaby).stop;
-            
 
             10.wait;
 
             Pdef(\nasa_liftoff).stop;
 
-            50.wait;
+            80.wait;
 
             ~ch[\heartbeat].set(\gate, 0);
 

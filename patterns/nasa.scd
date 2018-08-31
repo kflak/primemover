@@ -33,7 +33,7 @@
             \hishelfdb, -12,
             \hipassfreq, 400,
             \pan, Pwhite(-1.0, 1.0, inf),
-            \db, -28,
+            \db, Pseq([Pseries.fromEndpoints(-60, -28, 10), Pwhite(-35, -28, inf)]),
             \ratio, 2,    
             \thresh, -12.dbamp,
             \fx1, ~bus[\jpverb],

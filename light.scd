@@ -61,7 +61,7 @@
 
 // NetAddr.langPort;
 
-// n = NetAddr("192.168.0.101");
+// n = NetAddr("192.168.0.100", 57120);
 // n = NetAddr("localhost", 57120);
 // n.sendMsg("/chat", "Hello!");
 // NetAddr.langPort;

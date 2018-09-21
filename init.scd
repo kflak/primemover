@@ -1,6 +1,6 @@
 (
     ~projectfolder = "/home/kf/sc/primemover/";
-    ~numSpeakers = 6;
+    ~numSpeakers = 2;
     ~numMics = 4;
     ~numSubs = 2;
     ~hasLaunchpad = false;

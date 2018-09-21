@@ -18,8 +18,9 @@
             80.wait;
 
             ~launchpadOut.control(176, 0, 0);
-            MIDIdef.noteOn(\launchpad, {});
-            MIDIdef.noteOff(\launchpadoff, {});
+            // MIDIdef.noteOn(\launchpad, {});
+            // MIDIdef.noteOff(\launchpadoff, {});
+            MIDIdef.freeAll;
             MIDIdef.noteOn(\text, {
                 arg val, note, channel, src;
                 if(channel==0){

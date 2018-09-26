@@ -88,7 +88,7 @@
                 [ 
                     \in, 0,
                     \amp, -6.dbamp,
-                    \out, 6 + idx,
+                    \out, ~subBus + idx,
                     \gate, 1,
                     \da, 2,
                 ], 

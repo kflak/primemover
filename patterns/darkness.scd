@@ -45,14 +45,16 @@
             \buf, Pxrand(~buffers[\vanaemaStory], inf),
             \group, ~group[\instr],
             \db, -15,
-            \dur, Pfunc({|ev| ev.buf.duration}),
-            \rel, Pkey(\dur) * 1.5,
+            // \amp, 1,
+            \rel, Pfunc({|ev| ev.buf.duration * exprand(0.1, 0.2)}),
+            \dur, Pkey(\rel) * 2,
+            // \rel, Pkey(\dur) * 1.5,
             \attack, Pkey(\dur) * 0.5,
             \ratio, 8,
-            \loop, 0,
+            \loop, 1,
             \gain, 9.dbamp,
             \thresh, -20.dbamp,
-            \rate, 1,
+            \rate, Pseq(-1!6 ++ [Pwrand([-1, 1], [0.8, 0.2], inf)]),
             \pan, Pwhite(-1.0, 1.0), 
             \hipassfreq, 600,
             \lopassfreq, 600,
@@ -137,6 +139,7 @@
         Pdef(\darknessBlips).stop;
     });
 )
+
 
 // (
 //     Tdef(\darkness).stop;

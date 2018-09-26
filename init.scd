@@ -3,6 +3,7 @@
     ~numSpeakers = 2;
     ~numMics = 4;
     ~numSubs = 2;
+    ~subBus = ~numSpeakers;
     ~hasLaunchpad = false;
     ~hasQmidiNet = false;
 
@@ -14,7 +15,7 @@
     Buffer.freeAll;
     s.quit;
     s.options.numInputBusChannels = ~numMics;
-    s.options.numOutputBusChannels = 8;
+    s.options.numOutputBusChannels = ~numSpeakers + ~numSubs;
     //make sure there's enough memory for the delay lines
     s.options.memSize = 65536;
     //make sure there's enough buffers

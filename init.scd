@@ -6,6 +6,7 @@
     ~subBus = ~numSpeakers;
     ~hasLaunchpad = false;
     ~hasQmidiNet = false;
+    ~inBus = ~numSpeakers + ~numSpeakers;
 
     MIDIClient.init;
     MIDIIn.connectAll;
@@ -15,7 +16,7 @@
     Buffer.freeAll;
     s.quit;
     s.options.numInputBusChannels = ~numMics;
-    s.options.numOutputBusChannels = ~numSpeakers + ~numSubs;
+    s.options.numOutputBusChannels = ~inBus;
     //make sure there's enough memory for the delay lines
     s.options.memSize = 65536;
     //make sure there's enough buffers

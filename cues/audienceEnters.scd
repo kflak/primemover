@@ -5,17 +5,36 @@
 
         ~audienceEntersCue = Routine {     
             
-            // s.record("~/sc/primemover/rehearsalfiles/audienceEnters.wav");
-
             ~ch[\heartbeat].set(\gate, 0);
 
             1.wait;
 
-            ~ch[\heartbeat].set(\attack, 240, \gate, 1);
-            ~ch[\mic2].set(\lvlout, 6.dbamp, \gate, 1, \fx1lvl, -20.dbamp, \fx2lvl, -20.dbamp, \f3lvl, -30.dbamp);
-            ~ch[\mic3].set(\lvlout, 6.dbamp, \gate, 1, \fx1lvl, -20.dbamp, \fx2lvl, -20.dbamp, \f3lvl, -30.dbamp);
+            ~ch[\heartbeat].set(
+                \attack, 240, 
+                \gate, 1
+            );
+            ~ch[\mic2].set(
+                \lvlout, 6.dbamp, 
+                \gate, 1, 
+                \fx1lvl, -20.dbamp, 
+                \fx2lvl, -20.dbamp, 
+                \f3lvl, -10.dbamp
+            );
+            ~ch[\mic3].set(
+                \lvlout, 6.dbamp, 
+                \gate, 1, 
+                \fx1lvl, -20.dbamp, 
+                \fx2lvl, -20.dbamp, 
+                \f3lvl, -10.dbamp
+            );
             
             Pdef(\heartbeat).play(TempoClock(0.8));
+
+            s.record(
+                ~projectfolder++"/audio/live/audience.wav", 
+                bus: ~inBus, 
+                numChannels: 2
+            );
 
             120.wait;
 
@@ -42,6 +61,21 @@
             Pdef(\aliinaCryBeginning).play;
 
             120.wait;
+
+            s.stopRecording;
+
+            ~ch[\mic2].set(
+                \lvlout, 6.dbamp, 
+                \fx1lvl, -20.dbamp, 
+                \fx2lvl, -20.dbamp, 
+                \f3lvl, -30.dbamp
+            );
+            ~ch[\mic3].set(
+                \lvlout, 6.dbamp, 
+                \fx1lvl, -20.dbamp, 
+                \fx2lvl, -20.dbamp, 
+                \f3lvl, -30.dbamp
+            );
 
             Pdef(\school_yard_fadein).play;
             Pdef(\celloBegin).stop;
@@ -84,14 +118,12 @@
             Pdef(\aliinaChatFaster).play;
             Pdef(\aliinaChat).stop;
 
-
             //comment out this after recording!
             // 120.wait; 
             // Pdef(\aliinaChatFaster).stop;
             // Pdef(\fastSecond).stop;
 
             // 15.wait;
-            // s.stopRecording;
 
         }.play;
     };

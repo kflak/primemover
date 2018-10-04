@@ -511,5 +511,5 @@
     );
 )
 
-// Pdef(\tensBirthday).play(TempoClock(2.0));
-// Pdef(\tensBirthday).stop;
+// Pdef(\tens).play(TempoClock(2.0));
+// Pdef(\tens).stop;

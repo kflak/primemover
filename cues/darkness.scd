@@ -4,16 +4,16 @@
 
             "darkness".postln;
 
-            ~ch[\mic0].set(\lvlout, -3.dbamp, \gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \f3lvl, -40.dbamp, \locut, 350);
-            ~ch[\mic1].set(\lvlout, -3.dbamp, \gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \f3lvl, -40.dbamp, \locut, 350);
-            ~ch[\mic2].set(\lvlin, 6.dbamp, \lvlout, 6.dbamp, \gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \f3lvl, -40.dbamp, \locut, 350);
-            ~ch[\mic3].set(\lvlin, 6.dbamp, \lvlout, 6.dbamp, \gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \f3lvl, -40.dbamp, \locut, 350);
+            ~ch[\mic0].set(\lvlout, 0.dbamp, \gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \fx3lvl, -40.dbamp, \locut, 350);
+            ~ch[\mic1].set(\lvlout, 0.dbamp, \gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \fx3lvl, -40.dbamp, \locut, 350);
+            ~ch[\mic2].set(\lvlin, 0.dbamp, \lvlout, 6.dbamp, \gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \fx3lvl, -40.dbamp, \locut, 350);
+            ~ch[\mic3].set(\lvlin, 0.dbamp, \lvlout, 6.dbamp, \gate, 1, \fx1lvl, -30.dbamp, \fx2lvl, -40.dbamp, \fx3lvl, -40.dbamp, \locut, 350);
 
             [12].do{|id, idx| ~deltaTriggers[\water][idx].release(1)}; //Isabell sensor off
 
             10.wait;
 
-            ~whispersynth = Synth(\cleanCirclePanGate, [\out, ~bus[\master], \buf, ~buffers[\translateEstonian][0], \amp, -8.dbamp, \da, 2]);
+            ~whispersynth = Synth(\cleanCirclePanGate, [\out, ~bus[\master], \buf, ~buffers[\translateEstonian][0], \amp, -20.dbamp, \da, 2]);
 
             80.wait;
 

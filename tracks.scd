@@ -186,3 +186,16 @@
         \locut, 40,
     );
 )
+
+// (
+//     ~ch[\mic0].set(\gate, 0);
+//     ~ch[\mic1].set(\gate, 0);
+//     ~ch[\mic2].set(\gate, 0);
+//     ~ch[\mic3].set(\gate, 0);
+// )
+// (
+//     ~ch[\mic0].set(\gate, 1);
+//     ~ch[\mic1].set(\gate, 1);
+//     ~ch[\mic2].set(\gate, 1);
+//     ~ch[\mic3].set(\gate, 1);
+// )

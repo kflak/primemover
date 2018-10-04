@@ -5,6 +5,7 @@
         "isaSensorOn.scd",
         "darkness.scd",
         "crunchyImpro.scd",
+        "swirl.scd",
     ];
 
     var titles = [
@@ -13,6 +14,7 @@
         "Isa finishes putting sensor on",
         "Talking starts",
         "Külli puts Kenneth down after singing",
+        "Kenneth and Isabell stops in front of Külli and Rakesh",
         "Post-performance beer"
     ];
 

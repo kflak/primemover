@@ -22,6 +22,7 @@
             \hipassfreq, Pseq([350, 120, 120, 200, 200, 200]),
             \hishelfdb, -9,
             \attack, Pseq([50, 10, 10, 10, 10, 10]),
+            \gain, 5,
             \ratio, 2,    
             \thresh, -12.dbamp,
             \out, ~bus[\master],

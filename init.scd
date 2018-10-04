@@ -1,6 +1,6 @@
 (
     ~projectfolder = "/home/kf/sc/primemover/";
-    ~numSpeakers = 2;
+    ~numSpeakers = 4;
     ~numMics = 4;
     ~numSubs = 2;
     ~subBus = ~numSpeakers;
@@ -30,16 +30,6 @@
                 this.executeFile((~projectfolder++"launchpad/setup.scd").standardizePath);
                 "Launchpad set up".postln;
             };
-            // s.meter;
-            //test the speakers
-            // fork{ var dur = 1;
-            //     ~numSpeakers.do{|i, idx| 
-            //         {Out.ar(idx, SinOsc.ar(880) * XLine.kr(0.1, 0.00001, dur, doneAction: 2))}.play;
-            //         dur.wait
-            //     };
-            //     // test subs, sum of headphone outputs. Hardwired to bus 6+7
-            //     {Out.ar(6, SinOsc.ar(88 ! 2) * XLine.kr(0.3, 0.00001, 4, doneAction: 2))}.play;
-            // };
 
             //load synthdefs
             this.executeFile((~projectfolder++"sdefs.scd").standardizePath);
@@ -105,7 +95,22 @@
 // (
 //     fork{ var dur = 1;
 //         ~numSpeakers.do{|i, idx| 
-//             {Out.ar(idx, SinOsc.ar(880) * XLine.kr(0.2, 0.00001, dur, doneAction: 2))}.play;
+//             {Out.ar(idx, SinOsc.ar(880) * XLine.kr(0.1, 0.00001, dur, doneAction: 2))}.play;
+//             dur.wait
+//         };
+//         // test subs, sum of headphone outputs. Hardwired to bus 6+7
+//         {Out.ar(4, SinOsc.ar(88) * XLine.kr(0.3, 0.00001, 4, doneAction: 2))}.play;
+//         1.wait;
+//         {Out.ar(5, SinOsc.ar(88) * XLine.kr(0.3, 0.00001, 4, doneAction: 2))}.play;
+//     };
+// )
+
+// (
+//     s.meter;
+//     // test the speakers
+//     fork{ var dur = 1;
+//         ~numSpeakers.do{|i, idx| 
+//             {Out.ar(idx, SinOsc.ar(880) * XLine.kr(0.1, 0.00001, dur, doneAction: 2))}.play;
 //             dur.wait
 //         };
 //         // test subs, sum of headphone outputs. Hardwired to bus 6+7

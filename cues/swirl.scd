@@ -1,6 +1,6 @@
 (
     {
-        ~swirlcue = Routine {     
+        ~swirlcue = Routine {
 
             "Swirl".postln;
 
@@ -9,7 +9,7 @@
             //Külli sensors off
             [10, 11].do{|id, idx| ~deltaTriggers[\sineGrain][idx].release(1) };
 
-            20.wait;
+            40.wait;
 
             Pdef(\rainFaraway).play;
 
@@ -22,7 +22,7 @@
 
             Pdef(\sine).play;
 
-            60.wait;
+            80.wait;
 
             Pdef(\chatLow).play;
 
@@ -94,6 +94,7 @@
             Pdef(\fmdrone).stop;
             ~ch[\heartbeat].set(\gate, 1);
             Pdef(\heartbeatHi).play(TempoClock(0.8));
+
             // 2.do{|i| 
             //     ~audienceSound[i] = Synth(
             //         \cleangate,
@@ -124,6 +125,7 @@
             20.wait;
 
             Pdef(\rainLow).stop;
+
             // 2.do{|i| ~audienceSound[i].set(\fx1lvl, 0, \gate, 0)};
 
             10.wait;
@@ -132,12 +134,16 @@
 
             80.wait;
 
-            Pdef(\chat2).play;
-            // ~ch[\heartbeat].set(\gate, 0);
+            // Pdef(\chat2).play;
+            ~ch[\heartbeat].set(\gate, 0);
 
             120.wait;
 
-            // Pdef(\heartbeatHi).stop;
+            Pdef(\heartbeatHi).stop;
         }.play;
     }
 )
+
+// Pdef(\chat2).stop;
+// ~swirlcue.stop;
+// Pdef(\rain).stop;

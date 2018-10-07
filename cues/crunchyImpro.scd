@@ -21,16 +21,33 @@
 
             //mic off
             ~ch[\mic2].set(\gate, 0);
-            //kill grdelay
-            ~ch[\grdelayLong].set(\fb, 0.4);
             //Külli sensors on
             [10, 11].do{|id, idx| ~deltaTriggers[\sineGrain][idx].play(out: ~bus[\master], target: ~group[\mix] ) };
             //rakesh sensors off
             [13, 14].do{|id, idx| ~deltaTriggers[\em][idx].release(1)}; 
 
+            ~ch[\grdelayLong].set(\fb, 0.58);
+            1.wait;
+            ~ch[\grdelayLong].set(\fb, 0.56);
+            1.wait;
+            ~ch[\grdelayLong].set(\fb, 0.54);
+            1.wait;
+            ~ch[\grdelayLong].set(\fb, 0.52);
+            1.wait;
+            ~ch[\grdelayLong].set(\fb, 0.50);
+            1.wait;
+            ~ch[\grdelayLong].set(\fb, 0.48);
+            1.wait;
+            ~ch[\grdelayLong].set(\fb, 0.46);
+            1.wait;
+            ~ch[\grdelayLong].set(\fb, 0.44);
+            1.wait;
+            ~ch[\grdelayLong].set(\fb, 0.42);
+            1.wait;
+            ~ch[\grdelayLong].set(\fb, 0.40);
+            1.wait;
+            ~ch[\grdelayLong].set(\fb, 0.38);
             10.wait;
-
-            //reset graindelay feedback amount
             ~ch[\grdelayLong].set(\fb, 0.5);
 
             //OLD VERSION:

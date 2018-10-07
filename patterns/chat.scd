@@ -60,12 +60,12 @@
             \buf, Pxrand(~buffers[\chat2], inf),
             \group, ~group[\instr],
             \type, Pwrand([\note, \rest], [0.5, 0.5], inf),
-            \db, Pwhite(-30, -20),
+            \db, Pwhite(-40, -30),
             \bufdur, Pfunc({|ev| ev.buf.duration}),
-            \rel, 0.8,
-            \attack, 2.5,
+            \rel, 0.1,
+            \attack, 3.5,
             \dur, Pfunc({|ev| if(ev.type==\note)
-                {ev.bufdur-ev.rel}
+                {ev.bufdur}
                 {rrand(3.0, 4.0)}
             }),
             \ratio, 8,
@@ -78,7 +78,7 @@
             \out, ~bus[\master],
             \fx1, ~bus[\jpverb], 
             // \fx1lvl, Pwhite(-10.dbamp, -5.dbamp),
-            \fx1lvl, -0.dbamp,
+            \fx1lvl, -20.dbamp,
             \fx2, ~bus[\grdelayMedium], 
             \fx2lvl, Pwhite(-20.dbamp, -15.dbamp),
         )
@@ -114,4 +114,4 @@
 )
 
 // Pdef(\chat2).play;
-Pdef(\chat2).stop;
+// Pdef(\chat2).stop;

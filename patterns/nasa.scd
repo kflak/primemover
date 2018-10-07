@@ -1,4 +1,24 @@
 (
+    Pdef(\nasaBeginning,
+        Pbind(
+            \instrument, \clean,
+            \group, ~group[\instr],
+            \dur, Pwhite(20, 30, inf),
+            \rate, 1,
+            \buf, ~buffers[\nasa][1],
+            \attack, Pkey(\dur) * 0.25,
+            \rel, Pkey(\dur) * 0.25,
+            \loop, 1,
+            \startpos, Pwhite(0, ~buffers[\nasa][1].numFrames, inf),
+            \hishelfdb, -12,
+            \pan, Pwhite(-1.0, 1.0, inf),
+            \db, -60,
+            \ratio, 2,    
+            \thresh, -12.dbamp,
+            \out, ~bus[\master],
+        )
+    );
+
     Pdef(\nasa, 
         Pbind(
             \instrument, \clean,

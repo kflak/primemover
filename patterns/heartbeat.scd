@@ -7,7 +7,7 @@
             \instrument, \sine,
             \group, ~group[\instr],
             \freq, Pseq([50, 50], inf),
-            \db, Pseq([-30, -35], inf),
+            \db, Pseq([-30, -35] - 6, inf),
             \dur, Pseq([0.2, 1], inf),
             \pan, Pwhite(-1.0, 1.0),
             \out, ~bus[\heartbeat],
@@ -23,6 +23,26 @@
             \group, ~group[\instr],
             \freq, Pseq([50, 50], inf),
             \db, Pseq([-28, -33] - 3, inf),
+            \dur, Pseq([0.2, 1], inf),
+            \pan, Pwhite(-1.0, 1.0),
+            \out, ~bus[\heartbeat],
+            // \midiout, Pfunc({
+            //     128.do{|i|~launchpadOut.noteOn(0, i, ~launchpadColor[\redhi])};
+            //     0.1.wait;
+            //     ~launchpadOut.control(176, 0, 0);
+            // }),
+            \attack, 0.1,
+            \rel, 0.3,
+            \da, 2,
+        )
+    );
+
+    Pdef(\heartbeatLo, 
+        Pbind(
+            \instrument, \sine,
+            \group, ~group[\instr],
+            \freq, Pseq([50, 50], inf),
+            \db, Pseq([-28, -33] - 19, inf),
             \dur, Pseq([0.2, 1], inf),
             \pan, Pwhite(-1.0, 1.0),
             \out, ~bus[\heartbeat],
@@ -47,8 +67,9 @@
     );
 )
 
-// Pdef(\heartbeat).play(~heartbeatclock);
-// Pdef(\heartbeat).stop;
+// Pdef(\heartbeatHi).play(TempoClock(0.8));
+// Pdef(\heartbeatHi).stop;
+
 
 
 // s.plotTree;

@@ -4,7 +4,7 @@
             \instrument, \clean,
             \buf, Prand(~buffers[\metro], inf),
             \group, ~group[\instr],
-            \db, -15,
+            \db, -18,
             \dur, Pexprand(5.0, 10.0),
             \rel, Pkey(\dur) * 1.5,
             \attack, Pkey(\dur) * 0.5,

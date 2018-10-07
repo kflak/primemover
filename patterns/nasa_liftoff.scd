@@ -18,7 +18,7 @@
             \pan, Pwhite(-1.0, 1.0, inf),
             \panspeed, 0.03,
             \width, ~numSpeakers,
-            \db, Pseq([-21, -12, -12, -12, -12, -18, -22]),
+            \db, Pseq([-26, -12, -12, -12, -12, -18, -22]),
             \hipassfreq, Pseq([350, 120, 120, 200, 200, 200]),
             \hishelfdb, -9,
             \attack, Pseq([50, 10, 10, 10, 10, 10]),

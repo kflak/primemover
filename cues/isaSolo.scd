@@ -11,8 +11,13 @@
                 this.executeFile((~projectfolder++"launchpad/isasolo.scd").standardizePath);
             };
 
+            Pdef(\aliinaChat).stop;
+            Pdef(\fastFirst).stop;
             Pdef(\fastSecond).stop;
             Pdef(\aliinaChatFaster).stop;
+            Pdef(\school_yard_fadein).stop;
+            Pdef(\fastNonRythmical).stop;
+            ~isaJoinsBreath.stop;
 
         }.play;    
     }

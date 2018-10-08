@@ -7,7 +7,7 @@
             \instrument, \sine,
             \group, ~group[\instr],
             \freq, Pseq([50, 50], inf),
-            \db, Pseq([-30, -35] - 6, inf),
+            \db, Pseq([-30, -35] - 3, inf),
             \dur, Pseq([0.2, 1], inf),
             \pan, Pwhite(-1.0, 1.0),
             \out, ~bus[\heartbeat],
@@ -26,6 +26,8 @@
             \dur, Pseq([0.2, 1], inf),
             \pan, Pwhite(-1.0, 1.0),
             \out, ~bus[\heartbeat],
+            //for that time when you want a launchpad to have a heart. 
+            //Not this show, unfortunately...
             // \midiout, Pfunc({
             //     128.do{|i|~launchpadOut.noteOn(0, i, ~launchpadColor[\redhi])};
             //     0.1.wait;

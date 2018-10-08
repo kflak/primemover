@@ -8,15 +8,15 @@
 
             Pdef(\tibetBellRev).play;
 
-            60.wait;
+            40.wait;
 
             Pdef(\celloBegin).play;
 
-            60.wait;
+            30.wait;
 
             Pdef(\sineGrainTrainEnv).play;
 
-            60.wait;
+            30.wait;
 
             Pdef(\nasaSaturn).play;
             Pdef(\nasaBeginning).stop;
@@ -29,7 +29,7 @@
 
             Pdef(\aliinaCryBeginning).play;
 
-            120.wait;
+            60.wait;
 
             // s.stopRecording;
 
@@ -39,7 +39,7 @@
             Pdef(\school_yard_fadein).play;
             Pdef(\celloBegin).stop;
 
-            120.wait;
+            60.wait;
 
             Pdef(\nasaSaturn).stop;
             Pdef(\pinkNoiseBreath).stop;

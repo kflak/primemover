@@ -1,6 +1,23 @@
 (
     var phrases = ();
 
+    phrases.put(\sine_quiet, 
+        Pbind(
+            \instrument, \sine,
+            \group, ~group[\instr],
+            \freq, 1200,
+            \db, -60,
+            \dur, 60,
+            \rel, Pkey(\dur),
+            \pan, Pwhite(-1.0, 1.0, 1),
+            \attack, 5,
+            \amfreq, 0.05,
+            \amdepth, 0.0,
+            \fx1lvl, -12.dbamp,
+            \out, ~bus[\master],
+        )
+    );
+
     phrases.put(\buf, 
         Pbind(
             \instrument, \clean,
@@ -476,7 +493,7 @@
                 Pseq([[\bufquiet, \countin, \reso, \klank, \click, \click_stove, \crashes]], 2),
                 Pseq([[\crash, \wind_end, \klang_end]], 1),
                 Pseq([\aliina_laugh_end], 1),
-                Pseq([[\breaths, \sine_quiet]], inf)
+                Pseq([[\breaths, \sine_quiet]], 1)
             ]), phrases
         ),
     );

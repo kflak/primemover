@@ -6,8 +6,10 @@
 
             ~ch[\mic0].set(\lvlout, 0.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 350);
             ~ch[\mic1].set(\lvlout, 0.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 350);
-            ~ch[\mic2].set(\lvlin, 0.dbamp, \lvlout, 6.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 350, \hishelfdb, -12);
-            ~ch[\mic3].set(\lvlin, 0.dbamp, \lvlout, 6.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 350, \hishelfdb, -12);
+            ~ch[\mic2].set(\lvlout, 0.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 350);
+            ~ch[\mic3].set(\lvlout, 0.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 350);
+            // ~ch[\mic2].set(\lvlin, 0.dbamp, \lvlout, 6.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 350, \hishelfdb, -12);
+            // ~ch[\mic3].set(\lvlin, 0.dbamp, \lvlout, 6.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 350, \hishelfdb, -12);
 
             [12].do{|id, idx| ~deltaTriggers[\water][idx].release(1)}; //Isabell sensor off
             // if(~hasQmidiNet){ ~light[\isaSolo].stop; };
@@ -17,7 +19,7 @@
 
             // if(~hasQmidiNet){ ~light[\isaSolo].reset; };
 
-            ~whispersynth = Synth(\cleanCirclePanGate, [\out, ~bus[\master], \buf, ~buffers[\translateEstonian][0], \amp, -25.dbamp, \da, 2]);
+            ~whispersynth = Synth(\cleanCirclePanGate, [\out, ~bus[\master], \buf, ~buffers[\translateEstonian][0], \amp, -25.dbamp, \da, 2, \loop, 1]);
 
             80.wait;
 
@@ -75,6 +77,7 @@
 
                         //kill Külli's sensors
                         ~deltaTriggers[\aliinaLaughIDs].do{|id, idx| ~deltaTriggers[\aliinaLaugh][idx].release(1)};
+                        Pdef(\tens).stop;
 
                         //QUARTET
                         60.wait;

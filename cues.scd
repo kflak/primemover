@@ -10,8 +10,8 @@
     ];
 
     var titles = [
-        "Audience enters.scd",
-        "Külli speaks in mic",
+        "Audience enters",
+        "Külli puts mic on table",
         "Isa gives launchpad to Kenneth",
         "Isa finishes putting sensor on",
         "Talking starts",

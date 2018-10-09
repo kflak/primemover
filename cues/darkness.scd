@@ -4,22 +4,27 @@
 
             "darkness".postln;
 
-            ~ch[\mic0].set(\lvlout, 0.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 350);
-            ~ch[\mic1].set(\lvlout, 0.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 350);
-            ~ch[\mic2].set(\lvlout, 0.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 350);
-            ~ch[\mic3].set(\lvlout, 0.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 350);
+            //Külli
+            ~ch[\mic0].set(\lvlin, -6.dbamp, \lvlout, -6.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 350, \hishelfdb, -12);
+            //Rakesh
+            ~ch[\mic1].set(\lvlin, -6.dbamp, \lvlout, -3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 350);
+            //Kenneth
+            ~ch[\mic2].set(\lvlin, 0.dbamp, \lvlout, 6.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 350);
+            //Isa
+            ~ch[\mic3].set(\lvlin, 0.dbamp, \lvlout, 9.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 350);
             // ~ch[\mic2].set(\lvlin, 0.dbamp, \lvlout, 6.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 350, \hishelfdb, -12);
             // ~ch[\mic3].set(\lvlin, 0.dbamp, \lvlout, 6.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 350, \hishelfdb, -12);
 
             [12].do{|id, idx| ~deltaTriggers[\water][idx].release(1)}; //Isabell sensor off
             // if(~hasQmidiNet){ ~light[\isaSolo].stop; };
             Pdef(\heartbeatLo).play(TempoClock(0.8));
+            ~ch[\heartbeat].set(\gate, 1, \attack, 30);
 
             10.wait;
 
             // if(~hasQmidiNet){ ~light[\isaSolo].reset; };
 
-            ~whispersynth = Synth(\cleanCirclePanGate, [\out, ~bus[\master], \buf, ~buffers[\translateEstonian][0], \amp, -25.dbamp, \da, 2, \loop, 1]);
+            ~whispersynth = Synth(\cleanCirclePanGate, [\out, ~bus[\master], \buf, ~buffers[\translateEstonian][0], \amp, -30.dbamp, \da, 2, \loop, 1]);
 
             80.wait;
 
@@ -85,7 +90,7 @@
                         "Kenneth starts singing".postln;
 
                         ~ch[\grdelayLong].set(\fb, 0.6);
-                        ~ch[\mic2].set( \gate, 1, \lvlout, -10.dbamp, \fx1lvl, -20.dbamp, \fx2lvl, -10.dbamp, \fx3lvl, 0.dbamp);
+                        ~ch[\mic2].set(\gate, 1, \lvlout, -10.dbamp, \fx1lvl, -20.dbamp, \fx2lvl, -10.dbamp, \fx3lvl, 0.dbamp);
 
                     }
                 };

@@ -217,7 +217,7 @@
                 threshold: 0.1,
                 minibeeID: id,
                 minAmp: -32.dbamp, 
-                maxAmp: 3.dbamp,
+                maxAmp: 0.dbamp,
                 function: { |outbus, dt, minAmp, maxAmp|
                     var release = dt.linlin(0.0, 1.0, 3.0, 5.0);
                     var attack = release * 0.3;

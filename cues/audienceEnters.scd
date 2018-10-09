@@ -10,8 +10,9 @@
             1.wait;
 
             ~ch[\heartbeat].set( \attack, 240, \gate, 1);
-            ~ch[\mic2].set( \lvlout, 6.dbamp, \gate, 1, \fx1lvl, -20.dbamp, \fx2lvl, -20.dbamp, \fx3lvl, -5.dbamp);
-            ~ch[\mic3].set( \lvlout, 6.dbamp, \gate, 1, \fx1lvl, -20.dbamp, \fx2lvl, -20.dbamp, \fx3lvl, -5.dbamp);
+            // ~ch[\mic1].set(\lvlin, -6.dbamp, \lvlout, -12.dbamp, \gate, 1, \fx1lvl, -20.dbamp, \fx2lvl, -20.dbamp, \fx3lvl, -5.dbamp);
+            ~ch[\mic2].set(\lvlin, 0.dbamp, \lvlout, 6.dbamp, \gate, 1, \fx1lvl, -20.dbamp, \fx2lvl, -20.dbamp, \fx3lvl, -5.dbamp);
+            ~ch[\mic3].set(\lvlin, 0.dbamp, \lvlout, 6.dbamp, \gate, 1, \fx1lvl, -20.dbamp, \fx2lvl, -20.dbamp, \fx3lvl, -5.dbamp);
             
             Pdef(\heartbeat).play(TempoClock(0.8));
 

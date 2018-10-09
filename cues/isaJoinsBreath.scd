@@ -5,23 +5,28 @@
 
         ~isaJoinsBreath = Routine {     
             
-
             Pdef(\tibetBellRev).play;
 
-            40.wait;
+            ~ch[\mic0].set(\gate, 0);
+            ~ch[\mic1].set(\gate, 0);
+            ~ch[\mic2].set(\gate, 0);
+            ~ch[\mic3].set(\gate, 0);
+
+            60.wait;
 
             Pdef(\celloBegin).play;
 
-            30.wait;
+            40.wait;
 
             Pdef(\sineGrainTrainEnv).play;
-
-            30.wait;
-
-            Pdef(\nasaSaturn).play;
             Pdef(\nasaBeginning).stop;
 
+            40.wait;
+
+            Pdef(\nasaSaturn).play;
+
             30.wait;
+
             Pdef(\pinkNoiseBreath).play;
             Pdef(\windBegin).play;
 
@@ -29,26 +34,26 @@
 
             Pdef(\aliinaCryBeginning).play;
 
-            60.wait;
+            100.wait;
 
             // s.stopRecording;
 
-            ~ch[\mic2].set( \lvlout, 6.dbamp, \fx1lvl, -20.dbamp, \fx2lvl, -20.dbamp, \fx3lvl, -30.dbamp, \gate, 1);
-            ~ch[\mic3].set( \lvlout, 6.dbamp, \fx1lvl, -20.dbamp, \fx2lvl, -20.dbamp, \fx3lvl, -30.dbamp, \gate, 1);
+            ~ch[\mic2].set(\lvlin, 0.dbamp, \lvlout, 0.dbamp, \fx1lvl, -20.dbamp, \fx2lvl, -20.dbamp, \fx3lvl, -30.dbamp, \gate, 1);
+            ~ch[\mic3].set(\lvlin, 0.dbamp, \lvlout, 0.dbamp, \fx1lvl, -20.dbamp, \fx2lvl, -20.dbamp, \fx3lvl, -30.dbamp, \gate, 1);
 
             Pdef(\school_yard_fadein).play;
             Pdef(\celloBegin).stop;
 
-            60.wait;
+            100.wait;
 
             Pdef(\nasaSaturn).stop;
             Pdef(\pinkNoiseBreath).stop;
 
-            30.wait;
+            20.wait;
 
             Pdef(\heartbeat).stop;
 
-            30.wait;
+            20.wait;
 
             Pdef(\windBegin).stop;
             Pdef(\tibetBellRev).stop;
@@ -56,7 +61,7 @@
             Pdef(\aliinaCryBeginning).stop;
             Pdef(\fastNonRythmical).play;
 
-            60.wait;
+            30.wait;
 
             ~ch[\heartbeat].set(\gate, 0);
 
@@ -77,16 +82,13 @@
             Pdef(\aliinaChatFaster).play;
             Pdef(\aliinaChat).stop;
 
-            //comment out this after recording!
-            // 120.wait; 
-            // Pdef(\aliinaChatFaster).stop;
-            // Pdef(\fastSecond).stop;
-
-            // 15.wait;
-
+            ~ch[\mic2].set(\gate, 0);
+            ~ch[\mic3].set(\gate, 0);
+            
         }.play;
     };
 )
 
+// Pdef(\fastFirst).stop;
 // Pdef(\fastSecond).stop;
 // Pdef(\aliinaChatFaster).stop;

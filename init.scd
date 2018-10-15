@@ -1,7 +1,7 @@
 (
     ~projectfolder = "/home/kf/sc/primemover/";
-    ~numSpeakers = 2;
-    // ~numSpeakers = 4;
+    // ~numSpeakers = 2;
+    ~numSpeakers = 4;
     ~numMics = 4;
     ~numSubs = 2;
     ~subBus = ~numSpeakers;

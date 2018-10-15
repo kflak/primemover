@@ -10,8 +10,8 @@
                 speedlim: 0.5, 
                 threshold: 0.07, 
                 minibeeID: id, 
-                minAmp: -70.dbamp, 
-                maxAmp: -46.dbamp,
+                minAmp: -60.dbamp, 
+                maxAmp: -34.dbamp,
                 function: { |outbus, dt, minAmp, maxAmp|
                     Synth(\sineGrainTrain,
                         [
@@ -216,8 +216,8 @@
                 speedlim: 0.5, 
                 threshold: 0.1,
                 minibeeID: id,
-                minAmp: -32.dbamp, 
-                maxAmp: 0.dbamp,
+                minAmp: -29.dbamp, 
+                maxAmp: 6.dbamp,
                 function: { |outbus, dt, minAmp, maxAmp|
                     var release = dt.linlin(0.0, 1.0, 3.0, 5.0);
                     var attack = release * 0.3;
@@ -454,8 +454,8 @@
                 speedlim: 0.5, 
                 threshold: 0.1, 
                 minibeeID: id,
-                minAmp: -44.dbamp, 
-                maxAmp: -18.dbamp,
+                minAmp: -38.dbamp, 
+                maxAmp: -12.dbamp,
                 function: {|outbus, dt, minAmp, maxAmp|
                     Synth(\clean, 
                         [

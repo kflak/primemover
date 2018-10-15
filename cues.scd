@@ -2,6 +2,7 @@
     var cues = [
         "audienceEnters.scd",
         "isaJoinsBreath.scd",
+        "beaverRise.scd",
         "isaSolo.scd",
         "isaSensorOn.scd",
         "darkness.scd",
@@ -12,6 +13,7 @@
     var titles = [
         "Audience enters",
         "Külli puts mic on table",
+        "Three beavers rise",
         "Isa gives launchpad to Kenneth",
         "Isa finishes putting sensor on",
         "Talking starts",

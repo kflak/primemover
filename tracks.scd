@@ -99,7 +99,7 @@
 
     //set additional synth args
     ~ch[\tens].set(
-        \compgain, 2.dbamp, 
+        \compgain, 9.dbamp, 
         \ratio, 2, 
         \limit, 0.dbamp, 
         \locut, 50

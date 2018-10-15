@@ -22,7 +22,7 @@
             \instrument, \sine,
             \group, ~group[\instr],
             \freq, Pseq([50, 50], inf),
-            \db, Pseq([-28, -33] - 3, inf),
+            \db, Pseq([-28, -33] - 6, inf),
             \dur, Pseq([0.2, 1], inf),
             \pan, Pwhite(-1.0, 1.0),
             \out, ~bus[\heartbeat],

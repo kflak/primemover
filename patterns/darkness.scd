@@ -21,7 +21,7 @@
         Pbind(
             \instrument, \fm,
             \group, ~group[\instr],
-            \db, -45,
+            \db, -51,
             \carfreq, 50,
             \modfreq, Pwhite(48, 52),
             \moddepth, Pexprand(5, 50),

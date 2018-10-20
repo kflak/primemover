@@ -3,6 +3,7 @@
     // ~numSpeakers = 2;
     ~numSpeakers = 4;
     ~numMics = 4;
+    ~micOffset = 4;
     ~numSubs = 2;
     ~subBus = ~numSpeakers;
     ~hasLaunchpad = false;

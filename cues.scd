@@ -31,7 +31,7 @@
     };
 
     cuelist.gui(
-        monitorInChannels: ~numMics,
+        monitorInChannels: ~numMics + ~micOffset;
         monitorOutChannels: s.options.numOutputBusChannels,
         options:(
             shortcuts:true,

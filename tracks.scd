@@ -60,7 +60,7 @@
             (\mic++idx).asSymbol,
             Synth(\soundin, 
                 [ 
-                    \in, idx,
+                    \in, idx + ~micOffset,
                     \lvlin, item[0],
                     \lvlout, item[1],
                     \out, item[2],

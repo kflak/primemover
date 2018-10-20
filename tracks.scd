@@ -54,13 +54,14 @@
 
     //microphones
     ~mic.do{|item, idx|
+        var inOffset = 4;
         postf("mic% %\n", idx, item);
         //create channel synths...
         ~ch.put(
             (\mic++idx).asSymbol,
             Synth(\soundin, 
                 [ 
-                    \in, idx,
+                    \in, idx + inOffset,
                     \lvlin, item[0],
                     \lvlout, item[1],
                     \out, item[2],

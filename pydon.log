@@ -317478,3 +317478,2655 @@ Done; goodbye
 exiting hive loop
 
 
+--------------------------------------------------------------------------------------
+
+
+MetaPydonHive - a universal client to communicate with the minibee network. version v0.40
+
+
+ --- to find out more about the startup options start with 'metapydonhive.py -h'
+
+
+ --- The client has been started with these options:
+
+
+{'verbose': False, 'apimode': True, 'ip': '0.0.0.0', 'xbeeerror': False, 'serial': '/dev/ttyACM0', 'port': 57600, 'createNewFiles': True, 'logdata': False, 'minibees': 20, 'program': 'osc', 'logdir': '.', 'autostart': False, 'hport': 57120, 'config': 'mb10-14.xml', 'baudrate': 57600, 'host': '127.0.0.1', 'mboffset': 1, 'name': 'pydonhive', 'loglevel': 'info', 'quiet': False, 'ignore': False, 'logname': 'pydon.log', 'clean': False}
+
+
+--------------------------------------------------------------------------------------
+
+
+('ignoring unknown minibees', False)
+
+
+('check for xbee errors', False)
+
+
+trying to open serial port
+
+
+('Opening serial port', '/dev/ttyACM0', True)
+
+
+initialising communication through serial port
+
+
+('create new files for unknown minibees', True)
+
+
+Created OSC listener at (0.0.0.0,57600) and OSC sender to (127.0.0.1,57120) and opened serial port at /dev/ttyACM0. Now waiting for messages.
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 10 is configured
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 10 is configured
+
+
+Send config message for MiniBee
+ 
+11
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+11
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+11
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 11 is configured
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 12 is configured
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 13 is configured
+
+
+Send config message for MiniBee
+ 
+14
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+14
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+14
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+14
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+14
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 14 is configured
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 12 is configured
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 10 is configured
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 10 is configured
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 12 is configured
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 10 is configured
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+11
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 13 is configured
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 11 is configured
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 10 is configured
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 12 is configured
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 13 is configured
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 10 is configured
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 12 is configured
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 10 is configured
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 10 is configured
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 10 is configured
+
+
+Waiting for Server-thread to finish
+
+
+Done; goodbye
+
+
+exiting hive loop
+
+
+--------------------------------------------------------------------------------------
+
+
+MetaPydonHive - a universal client to communicate with the minibee network. version v0.40
+
+
+ --- to find out more about the startup options start with 'metapydonhive.py -h'
+
+
+ --- The client has been started with these options:
+
+
+{'verbose': False, 'apimode': True, 'ip': '0.0.0.0', 'xbeeerror': False, 'serial': '/dev/ttyACM0', 'port': 57600, 'createNewFiles': True, 'logdata': False, 'minibees': 20, 'program': 'osc', 'logdir': '.', 'autostart': False, 'hport': 57120, 'config': 'mb10-14.xml', 'baudrate': 57600, 'host': '127.0.0.1', 'mboffset': 1, 'name': 'pydonhive', 'loglevel': 'info', 'quiet': False, 'ignore': False, 'logname': 'pydon.log', 'clean': False}
+
+
+--------------------------------------------------------------------------------------
+
+
+('ignoring unknown minibees', False)
+
+
+('check for xbee errors', False)
+
+
+trying to open serial port
+
+
+('Opening serial port', '/dev/ttyACM0', True)
+
+
+initialising communication through serial port
+
+
+('create new files for unknown minibees', True)
+
+
+Created OSC listener at (0.0.0.0,57600) and OSC sender to (127.0.0.1,57120) and opened serial port at /dev/ttyACM0. Now waiting for messages.
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+11
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+11
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+11
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 10 is configured
+
+
+Send config message for MiniBee
+ 
+11
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+11
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 11 is configured
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 12 is configured
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 13 is configured
+
+
+Send config message for MiniBee
+ 
+14
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 14 is configured
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 12 is configured
+
+
+Send config message for MiniBee
+ 
+11
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 11 is configured
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 10 is configured
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 12 is configured
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 12 is configured
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 13 is configured
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 12 is configured
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 13 is configured
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 13 is configured
+
+
+Waiting for Server-thread to finish
+
+
+Done; goodbye
+
+
+exiting hive loop
+
+
+--------------------------------------------------------------------------------------
+
+
+MetaPydonHive - a universal client to communicate with the minibee network. version v0.40
+
+
+ --- to find out more about the startup options start with 'metapydonhive.py -h'
+
+
+ --- The client has been started with these options:
+
+
+{'verbose': False, 'apimode': True, 'ip': '0.0.0.0', 'xbeeerror': False, 'serial': '/dev/ttyACM0', 'port': 57600, 'createNewFiles': True, 'logdata': False, 'minibees': 20, 'program': 'osc', 'logdir': '.', 'autostart': False, 'hport': 57120, 'config': 'mb10-14.xml', 'baudrate': 57600, 'host': '127.0.0.1', 'mboffset': 1, 'name': 'pydonhive', 'loglevel': 'info', 'quiet': False, 'ignore': False, 'logname': 'pydon.log', 'clean': False}
+
+
+--------------------------------------------------------------------------------------
+
+
+('ignoring unknown minibees', False)
+
+
+('check for xbee errors', False)
+
+
+trying to open serial port
+
+
+('Opening serial port', '/dev/ttyACM0', True)
+
+
+initialising communication through serial port
+
+
+('create new files for unknown minibees', True)
+
+
+Created OSC listener at (0.0.0.0,57600) and OSC sender to (127.0.0.1,57120) and opened serial port at /dev/ttyACM0. Now waiting for messages.
+
+
+Send config message for MiniBee
+ 
+11
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+11
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+11
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+11
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+11
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 11 is configured
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+12
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 12 is configured
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 13 is configured
+
+
+Send config message for MiniBee
+ 
+14
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+14
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 13 is configured
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 10 is configured
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 13 is configured
+
+
+Send config message for MiniBee
+ 
+14
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 13 is configured
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 10 is configured
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 10 is configured
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+10
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 10 is configured
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 13 is configured
+
+
+Send config message for MiniBee
+ 
+11
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+Send config message for MiniBee
+ 
+13
+ 
+, revision
+ 
+D
+
+
+Configuration:
+ 
+{'A5': 'TWIClock', 'A4': 'TWIData'}
+
+
+('confirmconfig', [1, 0, 50, 6, 0, 0, 0])
+
+
+minibee 13 is configured
+
+
+Waiting for Server-thread to finish
+
+
+Done; goodbye
+
+
+exiting hive loop
+
+

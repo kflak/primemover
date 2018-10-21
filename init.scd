@@ -1,7 +1,7 @@
 (
     ~projectfolder = "/home/kf/sc/primemover/";
-    // ~numSpeakers = 2;
-    ~numSpeakers = 4;
+    ~numSpeakers = 2;
+    // ~numSpeakers = 4;
     ~numMics = 4;
     ~numSubs = 2;
     ~subBus = ~numSpeakers;
@@ -9,10 +9,10 @@
     ~hasQmidiNet = false;
     ~inBus = ~numSpeakers + ~numSpeakers;
 
-    MIDIClient.init;
-    MIDIIn.connectAll;
-    if(MIDIClient.externalDestinations.asString.contains("Launchpad")){~hasLaunchpad = true};
-    if(MIDIClient.externalDestinations.asString.contains("QmidiNet")){~hasQmidiNet = true};
+    // MIDIClient.init;
+    // MIDIIn.connectAll;
+    // if(MIDIClient.externalDestinations.asString.contains("Launchpad")){~hasLaunchpad = true};
+    // if(MIDIClient.externalDestinations.asString.contains("QmidiNet")){~hasQmidiNet = true};
 
     Buffer.freeAll;
     s.quit;
@@ -74,10 +74,10 @@
             "mbCC.scd done".postln;
 
             // set up light
-            if(~hasQmidiNet){
-                this.executeFile((~projectfolder++"light.scd").standardizePath);
-                "light.scd done".postln;
-            };
+            // if(~hasQmidiNet){
+            //     this.executeFile((~projectfolder++"light.scd").standardizePath);
+            //     "light.scd done".postln;
+            // };
 
             // in the end, load the cues and pray that it works
             this.executeFile((~projectfolder++"cues.scd").standardizePath);

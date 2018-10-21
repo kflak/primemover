@@ -3,15 +3,14 @@
     MBDeltaTrig.mbData = ~mbData;
     MBDeltaTrig.numSpeakers = ~numSpeakers;
 
-    ~deltaTriggers.put(\sineGrainIDs, [10]);
     ~deltaTriggers.put(\sineGrain,
-        ~deltaTriggers[\sineGrainIDs].collect{|id|
+        ~mbIDs.collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
                 threshold: 0.07, 
                 minibeeID: id, 
                 minAmp: -50.dbamp, 
-                maxAmp: -26.dbamp,
+                maxAmp: -36.dbamp,
                 function: { |outbus, dt, minAmp, maxAmp|
                     Synth(\sineGrainTrain,
                         [
@@ -39,9 +38,8 @@
         }
     );
 
-    ~deltaTriggers.put(\ryuishIDs, [11]);
     ~deltaTriggers.put(\ryuish, 
-        ~deltaTriggers[\ryuishIDs].collect{|id|
+        ~mbIDs.collect{|id|
             MBDeltaTrig.new( 
                 speedlim: 0.5, 
                 threshold: 0.1, 
@@ -84,9 +82,8 @@
     );
 
     // ~deltaTriggers[\aliina];
-    ~deltaTriggers.put(\combdustIDs, [12]);
     ~deltaTriggers.put(\combdust, 
-        ~deltaTriggers[\combdustIDs].collect{|id|
+        ~mbIDs.collect{|id|
             MBDeltaTrig.new( 
                 speedlim: 0.5, 
                 threshold: 0.1, 
@@ -115,9 +112,8 @@
         }
     );
 
-    ~deltaTriggers.put(\dustIDs, [13]);
     ~deltaTriggers.put(\dust, 
-        ~deltaTriggers[\dustIDs].collect{|id|
+        ~mbIDs.collect{|id|
             MBDeltaTrig.new( 
                 speedlim: 0.5, 
                 threshold: 0.1, 
@@ -146,9 +142,8 @@
         }
     );
 
-    ~deltaTriggers.put(\nasaIDs, [14]);
     ~deltaTriggers.put(\nasa, 
-        ~deltaTriggers[\nasaIDs].collect{|id| 
+        ~mbIDs.collect{|id| 
             MBDeltaTrig.new( 
                 speedlim: 0.5, 
                 threshold: 0.1, 
@@ -177,9 +172,8 @@
         };
     );
 
-    ~deltaTriggers.put(\metroIDs, [10]);
     ~deltaTriggers.put(\metro,
-        ~deltaTriggers[\metroIDs].collect{|id|
+        ~mbIDs.collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
                 threshold: 0.1,
@@ -210,9 +204,8 @@
         };
     );
 
-    ~deltaTriggers.put(\emIDs, [11]);
     ~deltaTriggers.put(\em,
-        ~deltaTriggers[\emIDs].collect{|id|
+        ~mbIDs.collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
                 threshold: 0.1,
@@ -244,9 +237,8 @@
         }
     );
 
-    ~deltaTriggers.put(\windIDs, [12]);
     ~deltaTriggers.put(\wind,
-        ~deltaTriggers[\windIDs].collect{|id|
+        ~mbIDs.collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
                 threshold: 0.4, 
@@ -276,9 +268,8 @@
         }
     );
 
-    ~deltaTriggers.put(\sineIDs, [13]);
     ~deltaTriggers.put(\sine,
-        ~deltaTriggers[\sineIDs].collect{|id|
+        ~mbIDs.collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
                 threshold: 0.05, 
@@ -304,9 +295,8 @@
         }
     );
 
-    ~deltaTriggers.put(\boilingIDs, [14]);
     ~deltaTriggers.put(\boiling,
-        ~deltaTriggers[\boilingIDs].collect{|id|
+        ~mbIDs.collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
                 threshold: 0.1, 
@@ -334,9 +324,8 @@
         }
     );
 
-    ~deltaTriggers.put(\homeIDs, [10]);
     ~deltaTriggers.put(\home,
-        ~deltaTriggers[\homeIDs].collect{|id|
+        ~mbIDs.collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
                 threshold: 0.1, 
@@ -364,9 +353,8 @@
         }
     );
 
-    ~deltaTriggers.put(\sampIDs, [11]);
     ~deltaTriggers.put(\samp,
-        ~deltaTriggers[\sampIDs].collect{|id|
+        ~mbIDs.collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
                 threshold: 0.1, 
@@ -392,9 +380,8 @@
         }
     );
 
-    ~deltaTriggers.put(\rec_mb_playbackIDs, [12]);
     ~deltaTriggers.put(\rec_mb_playback,
-        ~deltaTriggers[\rec_mb_playbackIDs].collect{|id|
+        ~mbIDs.collect{|id|
             MBDeltaTrig.new(
                 speedlim: 2.5, 
                 threshold: 0.1, 
@@ -421,9 +408,8 @@
         }
     );
 
-    ~deltaTriggers.put(\birdieIDs, [13]);
     ~deltaTriggers.put(\birdie, 
-        ~deltaTriggers[\birdieIDs].collect{|id|
+        ~mbIDs.collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
                 threshold: 0.1, 
@@ -449,9 +435,8 @@
         }
     );
 
-    ~deltaTriggers.put(\waterIDs, [14]); 
     ~deltaTriggers.put(\water, 
-        ~deltaTriggers[\waterIDs].collect{|id|
+        ~mbIDs.collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
                 threshold: 0.1, 
@@ -484,9 +469,8 @@
         }
     );
 
-    ~deltaTriggers.put(\chewIDs, [10]); 
     ~deltaTriggers.put(\chew, 
-        ~deltaTriggers[\chewIDs].collect{|id|
+        ~mbIDs.collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
                 threshold: 0.07, 
@@ -513,9 +497,8 @@
         }
     );
 
-    ~deltaTriggers.put(\bubblesIDs, [11]); 
     ~deltaTriggers.put(\bubbles, 
-        ~deltaTriggers[\bubblesIDs].collect{|id|
+        ~mbIDs.collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
                 threshold: 0.07, 
@@ -544,9 +527,8 @@
         }
     );
 
-    ~deltaTriggers.put(\chipsIDs, [12]);
     ~deltaTriggers.put(\chips, 
-        ~deltaTriggers[\chipsIDs].collect{|id|
+        ~mbIDs.collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
                 threshold: 0.07, 
@@ -578,9 +560,8 @@
         }
     );
 
-    ~deltaTriggers.put(\aliina_cryIDs, [13]);
     ~deltaTriggers.put(\aliina_cry,
-        ~deltaTriggers[\aliina_cryIDs].collect{|id|
+        ~mbIDs.collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
                 threshold: 0.15, 
@@ -608,9 +589,8 @@
         }
     );
 
-    ~deltaTriggers.put(\aliinaLaughIDs, [14]);
     ~deltaTriggers.put(\aliinaLaugh,
-        ~deltaTriggers[\aliinaLaughIDs].collect{|id|
+        ~mbIDs.collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
                 threshold: 0.1, 
@@ -641,9 +621,8 @@
         }
     );
 
-    ~deltaTriggers.put(\aliinaIDs, [10]);
     ~deltaTriggers.put(\aliina,
-        ~deltaTriggers[\aliinaIDs].collect{|id|
+        ~mbIDs.collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
                 threshold: 0.1, 
@@ -672,9 +651,8 @@
         }
     );
 
-    ~deltaTriggers.put(\klangIDs, [11]);
     ~deltaTriggers.put(\klang,
-        ~deltaTriggers[\klangIDs].collect{|id|
+        ~mbIDs.collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
                 threshold: 0.1, 
@@ -700,9 +678,8 @@
         }
     );
 
-    ~deltaTriggers.put(\klankIDs, [12]);
     ~deltaTriggers.put(\klank,
-        ~deltaTriggers[\klankIDs].collect{|id|
+        ~mbIDs.collect{|id|
             MBDeltaTrig.new(
                 speedlim: 0.5, 
                 threshold: 0.1, 

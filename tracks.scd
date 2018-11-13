@@ -17,14 +17,6 @@
         // [\sub, 1.0, \mixToMono, ~subOut, \sub],
     ];
 
-    ~mic = [
-        // lvlin, lvlout, outbus 
-        [-6.dbamp, -6.dbamp, \master],
-        [-6.dbamp, -6.dbamp, \master],
-        [-6.dbamp, -6.dbamp, \master],
-        [-6.dbamp, -6.dbamp, \master],
-    ];
-
 
     //create audio bus dictionary
     ~bus = IdentityDictionary();
@@ -53,6 +45,14 @@
     };
 
     //microphones
+    ~mic = [
+        // lvlin, lvlout, outbus 
+        [-6.dbamp, -6.dbamp, \master],
+        [-6.dbamp, -6.dbamp, \master],
+        [-6.dbamp, -6.dbamp, \master],
+        [-6.dbamp, -6.dbamp, \master],
+    ];
+
     ~mic.do{|item, idx|
         postf("mic% %\n", idx, item);
         //create channel synths...
@@ -60,7 +60,7 @@
             (\mic++idx).asSymbol,
             Synth(\soundin, 
                 [ 
-                    \in, idx,
+                    \in, idx + ~micOffset,
                     \lvlin, item[0],
                     \lvlout, item[1],
                     \out, item[2],
@@ -178,13 +178,7 @@
         \mod_freq, 0.05, 
         \mod_depth, 0.1
     );
-    ~ch[\master].set(
-        \compgain, 8.dbamp, 
-        \ratio, 4, 
-        \limit, -0.3.dbamp, 
-        \thresh, -3.dbamp, 
-        \locut, 40,
-    );
+    ~ch[\master].set( \compgain, 5.dbamp, \ratio, 4, \limit, -0.3.dbamp, \thresh, -3.dbamp, \locut, 40, \hishelfdb, -3, \hishelffreq, 800);
 )
 
 // (

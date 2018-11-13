@@ -11,7 +11,7 @@
                 threshold: 0.07, 
                 minibeeID: id, 
                 minAmp: -60.dbamp, 
-                maxAmp: -34.dbamp,
+                maxAmp: -43.dbamp,
                 function: { |outbus, dt, minAmp, maxAmp|
                     Synth(\sineGrainTrain,
                         [
@@ -216,7 +216,7 @@
                 speedlim: 0.5, 
                 threshold: 0.1,
                 minibeeID: id,
-                minAmp: -29.dbamp, 
+                minAmp: -26.dbamp, 
                 maxAmp: 6.dbamp,
                 function: { |outbus, dt, minAmp, maxAmp|
                     var release = dt.linlin(0.0, 1.0, 3.0, 5.0);
@@ -455,7 +455,7 @@
                 threshold: 0.1, 
                 minibeeID: id,
                 minAmp: -38.dbamp, 
-                maxAmp: -12.dbamp,
+                maxAmp: -9.dbamp,
                 function: {|outbus, dt, minAmp, maxAmp|
                     Synth(\clean, 
                         [

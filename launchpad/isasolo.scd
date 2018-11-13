@@ -41,7 +41,7 @@
                 \rel, rel,
                 \modattack, attack * 2,
                 \modrelease, rel,
-                \amp, -30.dbamp,
+                \amp, -26.dbamp,
                 \amfreq, n + 1,
                 \amdepth, 2,
                 \fx1, ~bus[\grdelayMedium],

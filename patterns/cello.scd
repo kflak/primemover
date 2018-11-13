@@ -4,7 +4,6 @@
             \instrument, \clean,
             \group, ~group[\instr],
             \dur, Pexprand(1, 10),
-            // \rate, Prand([0.25, 0.5, 1], inf),
             \rate, 0.5,
             \loop, 1,
             \buf, Prand(~buffers[\cello_tiit], inf),

@@ -9,9 +9,9 @@
             //         channels: 0
             //     )
             // };
-            
+
             //clean up from previous cue
-            ~whispersynth.set(\gate, 0); 
+
             Pdef(\tens).stop;
             ~tenscue.stop;
 
@@ -25,6 +25,10 @@
             [10, 11].do{|id, idx| ~deltaTriggers[\sineGrain][idx].play(out: ~bus[\master], target: ~group[\mix] ) };
             //rakesh sensors off
             [13, 14].do{|id, idx| ~deltaTriggers[\em][idx].release(1)}; 
+
+            // Backup when no sensors
+            // Pdef(\sineGrainTrain).play;
+            // Pdef(\emSolo).stop;
 
             ~ch[\grdelayLong].set(\fb, 0.58);
             1.wait;

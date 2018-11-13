@@ -1,8 +1,10 @@
 (
     ~projectfolder = "/home/kf/sc/primemover/";
     ~numSpeakers = 4;
+    // ~numSpeakers = 2;
     ~numMics = 4;
     ~numSubs = 2;
+    ~micOffset = 4;
     ~subBus = ~numSpeakers;
     ~hasLaunchpad = false;
     ~hasQmidiNet = false;
@@ -15,7 +17,7 @@
 
     Buffer.freeAll;
     s.quit;
-    s.options.numInputBusChannels = ~numMics;
+    s.options.numInputBusChannels = ~numMics + ~micOffset;
     s.options.numOutputBusChannels = ~inBus;
     //make sure there's enough memory for the delay lines
     s.options.memSize = 65536;
@@ -99,8 +101,8 @@
 //             dur.wait
 //         };
 //         // test subs, sum of speaker outputs.
-//         {Out.ar(4, SinOsc.ar(88) * XLine.kr(0.3, 0.00001, 4, doneAction: 2))}.play;
+//         {Out.ar(~numSpeakers, SinOsc.ar(88) * XLine.kr(0.3, 0.00001, 4, doneAction: 2))}.play;
 //         1.wait;
-//         {Out.ar(5, SinOsc.ar(88) * XLine.kr(0.3, 0.00001, 4, doneAction: 2))}.play;
+//         {Out.ar(~numSpeakers + 1, SinOsc.ar(88) * XLine.kr(0.3, 0.00001, 4, doneAction: 2))}.play;
 //     };
 // )

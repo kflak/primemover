@@ -5,23 +5,27 @@
             "darkness".postln;
 
             //Külli
-            ~ch[\mic0].set(\lvlin, 8.dbamp, \lvlout, 6.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 550);
+            ~ch[\mic0].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 200, \width, ~numSpeakers);
             //Rakesh
-            ~ch[\mic1].set(\lvlin, 8.dbamp, \lvlout, 6.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 550);
+            ~ch[\mic1].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 200, \width, ~numSpeakers);
             //Kenneth
-            ~ch[\mic2].set(\lvlin, 6.dbamp, \lvlout, 6.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 550);
+            ~ch[\mic2].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 200, \width, ~numSpeakers);
             //Isa
-            ~ch[\mic3].set(\lvlin, 6.dbamp, \lvlout, 8.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 550);
+            ~ch[\mic3].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 200, \width, ~numSpeakers);
 
             [12].do{|id, idx| ~deltaTriggers[\water][idx].release(1)}; //Isabell sensor off
             Pdef(\heartbeatLo).play(TempoClock(0.8));
             ~ch[\heartbeat].set(\gate, 1, \attack, 30);
 
-            10.wait;
+            20.wait;
 
-            ~whispersynth = Synth(\cleanCirclePanGate, [\out, ~bus[\master], \buf, ~buffers[\translateEstonian][0], \amp, -24.dbamp, \da, 2, \loop, 1, \rate, -1]);
+            ~whispersynth = Synth(\cleanCirclePanGate, [\out, ~bus[\master], \buf, ~buffers[\translateEstonian][0], \amp, -16.dbamp, \hipassfreq, 400, \da, 2, \loop, 1, \rate, 1, \rel, 120]);
 
-            80.wait;
+            30.wait;
+
+            // ~whispersynth1 = Synth(\cleanCirclePanGate, [\out, ~bus[\master], \buf, ~buffers[\translateEstonian][0], \amp, -29.dbamp, \hipassfreq, 400, \da, 2, \loop, 1, \rate, 1, \rel, 120]);
+
+            40.wait;
 
             ~launchpadOut.control(176, 0, 0);
             MIDIdef.freeAll;
@@ -62,14 +66,18 @@
 
                         130.wait;
 
+                        ~whispersynth.set(\gate, 0); 
+                        // ~whispersynth1.set(\gate, 0); 
+
                         //Külli trigger Aliina laughs
                         ~deltaTriggers[\aliinaLaughIDs].do{|id, idx| ~deltaTriggers[\aliinaLaugh][idx].play(out: ~bus[\tens], target: ~group[\mix])};
 
                         60.wait;
 
-                        //QUARTET
                         "Rakesh solo".postln;
                         ~deltaTriggers[\emIDs].do{|id, idx| ~deltaTriggers[\em][idx].play(out: ~bus[\master], target: ~group[\mix])};
+                        // Backup when no sensor
+                        // Pdef(\emSolo).play;
 
                         60.wait;
 
@@ -77,13 +85,12 @@
                         ~deltaTriggers[\aliinaLaughIDs].do{|id, idx| ~deltaTriggers[\aliinaLaugh][idx].release(1)};
                         Pdef(\tens).stop;
 
-                        //QUARTET
                         60.wait;
 
                         "Kenneth starts singing".postln;
 
                         ~ch[\grdelayLong].set(\fb, 0.6);
-                        ~ch[\mic2].set(\gate, 1, \lvlin, 6.dbamp, \lvlout, -6.dbamp, \fx1lvl, -20.dbamp, \fx2lvl, -10.dbamp, \fx3lvl, 0.dbamp);
+                        ~ch[\mic2].set(\gate, 1, \lvlin, 0.dbamp, \lvlout, 0.dbamp, \fx1lvl, -20.dbamp, \fx2lvl, -10.dbamp, \fx3lvl, 0.dbamp);
 
                     }
                 };

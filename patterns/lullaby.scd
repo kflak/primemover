@@ -8,7 +8,7 @@
             \attack, 80, 
             \rel, 120, 
             \loop, 1,
-            \db, -36, 
+            \db, -40, 
             \hipassfreq, 500,
             \panspeed, 0.01, 
             \out, ~bus[\master],

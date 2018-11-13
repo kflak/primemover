@@ -8,6 +8,8 @@
 
             //Külli sensors off
             [10, 11].do{|id, idx| ~deltaTriggers[\sineGrain][idx].release(1) };
+            // Backup when no sensors
+            // Pdef(\sineGrainTrain).stop;
 
             40.wait;
 
@@ -95,20 +97,6 @@
             ~ch[\heartbeat].set(\gate, 1);
             Pdef(\heartbeatHi).play(TempoClock(0.8));
 
-            // 2.do{|i| 
-            //     ~audienceSound[i] = Synth(
-            //         \cleangate,
-            //         \gate, 1,
-            //         \buf, ~buffers[\audienceBuf][i],
-            //         \out, ~bus[\master],
-            //         \pan, i,
-            //         \attack, 20,
-            //         \rel, 100,
-            //         \fx1, ~bus[\grdelayLong],
-            //         \fx1lvl, -10.dbamp
-            //     )
-            // };
-
             30.wait;
 
             Pdef(\lullaby).play;
@@ -126,15 +114,12 @@
 
             Pdef(\rainLow).stop;
 
-            // 2.do{|i| ~audienceSound[i].set(\fx1lvl, 0, \gate, 0)};
-
             10.wait;
 
             Pdef(\nasa_liftoff).stop;
 
             80.wait;
 
-            // Pdef(\chat2).play;
             ~ch[\heartbeat].set(\gate, 0);
 
             120.wait;

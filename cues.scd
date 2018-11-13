@@ -33,7 +33,7 @@
     };
 
     cuelist.gui(
-        monitorInChannels: ~numMics,
+        monitorInChannels: s.options.numInputBusChannels,
         monitorOutChannels: s.options.numOutputBusChannels,
         options:(
             shortcuts:true,

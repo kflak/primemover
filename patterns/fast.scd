@@ -140,7 +140,7 @@
             \group, ~group[\instr],
             \freq, 75.midicps,
             \dur, Prand([0.1, 0.1, 0.2, 0.4], inf),
-            \db, Pwhite(-70, -50) + 6,
+            \db, Pwhite(-70, -50) + 9,
             \attack, 0.0, 
             \rel, Pwhite(1.5, 2.0),
             \spread, Pwhite(1.95, 2.05, inf),

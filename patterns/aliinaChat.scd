@@ -10,7 +10,7 @@
             \rel, Pexprand(4, 16),
             \attack, 0.05,
             \hipassfreq, 400,
-            \db, -22,
+            \db, -11,
             \pan, Pwhite(-1.0, 1.0, inf),
             \out, ~bus[\master],
             \fx1, ~bus[\jpverb],

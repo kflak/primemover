@@ -1,7 +1,6 @@
 (
     ~projectfolder = "/home/kf/sc/primemover/";
     ~numSpeakers = 4;
-    // ~numSpeakers = 2;
     ~numMics = 4;
     ~numSubs = 2;
     ~micOffset = 4;
@@ -107,10 +106,10 @@
 //     };
 // )
 // (
-//     ~ch[\mic0].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 200, \width, ~numSpeakers);
-//     ~ch[\mic1].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 200, \width, ~numSpeakers);
-//     ~ch[\mic2].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 200, \width, ~numSpeakers);
-//     ~ch[\mic3].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 200, \width, ~numSpeakers);
+//     ~ch[\mic0].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 150, \hishelffreq, 8000, \hishelfdb, 3, \width, ~numSpeakers); //külli
+//     ~ch[\mic1].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 150, \hishelffreq, 8000, \hishelfdb, 3, \width, ~numSpeakers); //rakesh
+//     ~ch[\mic2].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 150, \hishelffreq, 8000, \hishelfdb, 3, \width, ~numSpeakers); //kenneth
+//     ~ch[\mic3].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 150, \hishelffreq, 8000, \hishelfdb, 3, \width, ~numSpeakers); //isabell
 // )
 // (
 //     ~ch[\mic0].set(\gate, 0);

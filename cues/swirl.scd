@@ -128,7 +128,3 @@
         }.play;
     }
 )
-
-// Pdef(\chat2).stop;
-// ~swirlcue.stop;
-// Pdef(\rain).stop;

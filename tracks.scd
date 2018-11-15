@@ -8,6 +8,7 @@
         [\breath, 1.0, \chstrip_multi, \master, \mix], 
         [\cello, 1.0, \chstrip_multi, \master, \mix], 
         [\fm, 1.0, \chstrip_multi, \master, \mix], 
+        [\em, 1.0, \chstrip_multi, \master, \mix], 
         [\sineGrain, 1.0, \chstrip_multi, \master, \mix], 
         [\jpverb, 1.0, \jpverb,	\master, \fx], 
         [\grdelay, 1.0, \grdelay, \master, \fx], 
@@ -64,6 +65,7 @@
                     \lvlin, item[0],
                     \lvlout, item[1],
                     \out, item[2],
+                    \locut, 200,
                     \fx1, ~bus[\jpverb],
                     \fx1lvl, 0,
                     \fx2, ~bus[\grdelayMedium],
@@ -118,6 +120,13 @@
         \thresh, -5.dbamp, 
         \limit, 0.dbamp, 
         \locut, 100
+    );
+    ~ch[\em].set( 
+        \compgain, 9.dbamp, 
+        \ratio, 8, 
+        \limit, 0.3.dbamp, 
+        \thresh, -4.dbamp, 
+        \locut, 40
     );
     ~ch[\fm].set(
         \compgain, 0.dbamp, 

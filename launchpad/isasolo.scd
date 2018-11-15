@@ -144,7 +144,7 @@
                 \out, ~bus[\fm],
                 \attack, attack,
                 \rel, rel,
-                \amp, -14.dbamp,
+                \amp, -18.dbamp,
                 \fx1, ~bus[\jpverb],
                 \fx1lvl, -12.dbamp,
                 \fx2, ~bus[\grdelayMedium],

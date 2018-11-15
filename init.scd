@@ -106,3 +106,15 @@
 //         {Out.ar(~numSpeakers + 1, SinOsc.ar(88) * XLine.kr(0.3, 0.00001, 4, doneAction: 2))}.play;
 //     };
 // )
+// (
+//     ~ch[\mic0].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 200, \width, ~numSpeakers);
+//     ~ch[\mic1].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 200, \width, ~numSpeakers);
+//     ~ch[\mic2].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 200, \width, ~numSpeakers);
+//     ~ch[\mic3].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 200, \width, ~numSpeakers);
+// )
+// (
+//     ~ch[\mic0].set(\gate, 0);
+//     ~ch[\mic1].set(\gate, 0);
+//     ~ch[\mic2].set(\gate, 0);
+//     ~ch[\mic3].set(\gate, 0);
+// )

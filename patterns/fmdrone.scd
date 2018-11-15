@@ -3,10 +3,10 @@
         Pbind(
             \instrument, \fm,
             \group, ~group[\instr],
-            \db, -40,
+            \db, -34,
             \carfreq, 50,
             \modfreq, Pexprand(49, 52),
-            \moddepth, Pexprand(5, 130),
+            \moddepth, Pexprand(5, 140),
             \dur, Pwhite(8.0, 10.0),
             \rel, Pkey(\dur) * 3,
             \attack, Pkey(\dur),

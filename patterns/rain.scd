@@ -10,7 +10,7 @@
             \rel, 60,
             \attack, 120,
             \hipassfreq, 120,
-            \db, -20,
+            \db, -25,
             \pan, Pwhite(-1.0, 1.0, inf),
             \out, ~bus[\master],
         );

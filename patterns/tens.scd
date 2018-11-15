@@ -375,7 +375,7 @@
             \buf, ~buffers[\cello][9],
             \rel, 0.01,
             // \amp, 0.5,
-            \db, -6,
+            \db, -9,
             \pan, Pwhite(-1.0, 1.0, inf),
             \out, ~bus[\tens],
             \fx1, ~bus[\jpverb],

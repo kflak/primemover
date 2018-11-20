@@ -84,6 +84,8 @@
             "cues.scd done".postln;
 
             if(~hasLaunchpad){
+                this.executeFile((~projectfolder++"launchpad/isasolo.scd").standardizePath);
+                1.wait;
                 //turn off launchpad again
                 ~launchpadOut.control(176, 0, 0);
             }

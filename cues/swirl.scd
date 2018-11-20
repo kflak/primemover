@@ -3,11 +3,10 @@
         ~swirlcue = Routine {
 
             "Swirl".postln;
-
             ~ch[\heartbeat].set(\gate, 0, \attack, 120, \rel, 120);
-
             //Külli sensors off
             [10, 11].do{|id, idx| ~deltaTriggers[\sineGrain][idx].release(1) };
+
             // Backup when no sensors
             // Pdef(\sineGrainTrain).stop;
 
@@ -33,8 +32,6 @@
             Pdef(\cello).play;
             // Pdef(\chat).play;
             // Pdef(\chatLow).stop;
-
-            // 20.wait;
 
             100.wait;
 
@@ -93,11 +90,14 @@
 
             90.wait;
 
-            Pdef(\fmdrone).stop;
             ~ch[\heartbeat].set(\gate, 1);
             Pdef(\heartbeatHi).play(TempoClock(0.8));
 
-            30.wait;
+            5.wait;
+
+            Pdef(\fmdrone).stop;
+
+            25.wait;
 
             Pdef(\lullaby).play;
 

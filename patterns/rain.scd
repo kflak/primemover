@@ -44,7 +44,7 @@
             \rel, 60,
             \attack, 240,
             \hipassfreq, 120,
-            \db, -25,
+            \db, -31,
             \pan, Pwhite(-1.0, 1.0, inf),
             \width, ~numSpeakers,
             \out, ~bus[\master],

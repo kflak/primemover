@@ -5,6 +5,11 @@
 
         ~isaJoinsBreath = Routine {     
             
+            if(~hasLaunchpad){
+                //turn off launchpad again
+                ~launchpadOut.control(176, 0, 0);
+            };
+
             Pdef(\tibetBellRev).play;
 
             ~ch[\mic0].set(\gate, 0);
@@ -28,16 +33,16 @@
             30.wait;
 
             Pdef(\pinkNoiseBreath).play;
+            
+            15.wait;
+
             Pdef(\windBegin).play;
 
-            30.wait;
+            15.wait;
 
             Pdef(\aliinaCryBeginning).play;
 
             100.wait;
-
-            ~ch[\mic2].set(\lvlin, 0.dbamp, \lvlout, 0.dbamp, \fx1lvl, -20.dbamp, \fx2lvl, -20.dbamp, \fx3lvl, -30.dbamp, \gate, 1);
-            ~ch[\mic3].set(\lvlin, 0.dbamp, \lvlout, 0.dbamp, \fx1lvl, -20.dbamp, \fx2lvl, -20.dbamp, \fx3lvl, -30.dbamp, \gate, 1);
 
             Pdef(\school_yard_fadein).play;
             Pdef(\celloBegin).stop;

@@ -1,6 +1,38 @@
 !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
 !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
-!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
-!_TAG_PROGRAM_NAME	Exuberant Ctags	//
-!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
-!_TAG_PROGRAM_VERSION	5.8	//
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/45968eff/
+Authors	README.md	/^## Authors$/;"	s
+Code mentor	README.md	/^## Code mentor$/;"	s
+Dependencies	README.md	/^## Dependencies$/;"	s
+Sensors	README.md	/^## Sensors$/;"	s
+apimode	pydondefaults.ini	/^apimode = True$/;"	k	section:serial
+autostart	pydondefaults.ini	/^autostart = False$/;"	k	section:hive
+baudrate	pydondefaults.ini	/^baudrate = 57600$/;"	k	section:serial
+clean	pydondefaults.ini	/^clean = False$/;"	k	section:verbosity
+config	pydondefaults.ini	/^config = mb10-14.xml$/;"	k	section:hive
+createnewfiles	pydondefaults.ini	/^createnewfiles = True$/;"	k	section:hive
+hive	pydondefaults.ini	/^[hive]$/;"	s
+host	pydondefaults.ini	/^host = 127.0.0.1$/;"	k	section:osc
+hport	pydondefaults.ini	/^hport = 57120$/;"	k	section:osc
+ignore	pydondefaults.ini	/^ignore = False$/;"	k	section:hive
+ip	pydondefaults.ini	/^ip = 0.0.0.0$/;"	k	section:osc
+logdata	pydondefaults.ini	/^logdata = False$/;"	k	section:hive
+logdir	pydondefaults.ini	/^logdir = .$/;"	k	section:verbosity
+loglevel	pydondefaults.ini	/^loglevel = info$/;"	k	section:verbosity
+logname	pydondefaults.ini	/^logname = pydon.log$/;"	k	section:verbosity
+mboffset	pydondefaults.ini	/^mboffset = 1$/;"	k	section:hive
+minibees	pydondefaults.ini	/^minibees = 20$/;"	k	section:hive
+name	pydondefaults.ini	/^name = pydonhive$/;"	k	section:osc
+osc	pydondefaults.ini	/^[osc]$/;"	s
+port	pydondefaults.ini	/^port = 57600$/;"	k	section:osc
+program	pydondefaults.ini	/^program = osc$/;"	k	section:osc
+quiet	pydondefaults.ini	/^quiet = False$/;"	k	section:verbosity
+serial	pydondefaults.ini	/^[serial]$/;"	s
+serial	pydondefaults.ini	/^serial = \/dev\/ttyACM0$/;"	k	section:serial
+verbose	pydondefaults.ini	/^verbose = False$/;"	k	section:verbosity
+verbosity	pydondefaults.ini	/^[verbosity]$/;"	s
+xbeeerror	pydondefaults.ini	/^xbeeerror = False$/;"	k	section:hive

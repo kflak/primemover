@@ -3,6 +3,41 @@
     MBDeltaTrig.mbData = ~mbData;
     MBDeltaTrig.numSpeakers = ~numSpeakers;
 
+    ~deltaTriggers.put(\rec, 
+        ~mbIDs.collect{|id| 
+            MBDeltaTrig.new( 
+                speedlim: 0.5, 
+                threshold: 0.1, 
+                minibeeID: id, 
+                minAmp: -32.dbamp, 
+                maxAmp: 0.dbamp,
+                function: { |outbus, dt, minAmp, maxAmp|
+                    var buf = ~buffers[\rec][~mbIDs.indexOf(id)].choose;
+                    var bufdur = buf.duration;
+                    var release = dt.linlin(0.0, 1.0, bufdur * 0.1, bufdur);
+                    var attack = release * 0.3;
+                    Synth(\clean, 
+                        [
+                            \buf, buf,
+                            \amp, dt.linlin(0.0, 1.0, minAmp, maxAmp),
+                            \attack, attack,
+                            \loop, 0,
+                            \rel, release,
+                            \rate, rrand(0.5, 2.0),
+                            \pan, rrand(-1.0, 1.0), 
+                            \out, outbus,
+                            \fx1, ~bus[\jpverb],
+                            \fx1lvl, rrand(-30, 0).dbamp,
+                            \fx2, ~bus[\grdelayMedium],
+                            \fx2lvl, rrand(-30, 0).dbamp
+                        ], 
+                        ~group[\instr]
+                    );
+                };
+            )
+        };
+    );
+
     ~deltaTriggers.put(\sineGrain,
         ~mbIDs.collect{|id|
             MBDeltaTrig.new(

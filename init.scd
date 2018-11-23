@@ -6,13 +6,15 @@
     ~numSubs = 2;
     ~subBus = ~numSpeakers;
     ~hasLaunchpad = false;
+    ~hasLaunchControl = false;
     ~hasQmidiNet = false;
     ~inBus = ~numSpeakers + ~numSpeakers;
 
-    // MIDIClient.init;
-    // MIDIIn.connectAll;
-    // if(MIDIClient.externalDestinations.asString.contains("Launchpad")){~hasLaunchpad = true};
-    // if(MIDIClient.externalDestinations.asString.contains("QmidiNet")){~hasQmidiNet = true};
+    MIDIClient.init;
+    MIDIIn.connectAll;
+    if(MIDIClient.externalDestinations.asString.contains("Launchpad")){~hasLaunchpad = true};
+    if(MIDIClient.externalDestinations.asString.contains("Launch Control")){~hasLaunchControl = true};
+    if(MIDIClient.externalDestinations.asString.contains("QmidiNet")){~hasQmidiNet = true};
 
     Buffer.freeAll;
     s.quit;
@@ -73,6 +75,10 @@
             this.executeFile((~projectfolder++"minibee/mbCC.scd").standardizePath);
             "mbCC.scd done".postln;
 
+            //recording buffers
+            ~buffers.put(\rec, List.newClear(0) ! ~mbIDs.size);
+            "recording buffers done".postln;
+
             // set up light
             // if(~hasQmidiNet){
             //     this.executeFile((~projectfolder++"light.scd").standardizePath);
@@ -86,7 +92,12 @@
             if(~hasLaunchpad){
                 //turn off launchpad again
                 ~launchpadOut.control(176, 0, 0);
-            }
+            };
+
+            if(~hasLaunchControl){
+                this.executeFile((~projectfolder++"launchpad/recorder.scd").standardizePath);
+                "cues.scd done".postln;
+            }   
         }
     );
 )

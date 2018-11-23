@@ -54,7 +54,7 @@
 
     //microphones
     ~mic.do{|item, idx|
-        var inOffset = 4;
+        var inOffset = 0;
         postf("mic% %\n", idx, item);
         //create channel synths...
         ~ch.put(

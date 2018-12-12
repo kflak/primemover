@@ -28,4 +28,5 @@
             metronome: false,
         )
     );
+HelpBrowser
 )

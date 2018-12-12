@@ -1,6 +1,6 @@
 (
     ~projectfolder = "/home/kf/sc/primemover/";
-    ~numSpeakers = 4;
+    ~numSpeakers = 2;
     ~numMics = 4;
     ~numSubs = 2;
     ~micOffset = 4;
@@ -10,9 +10,16 @@
     ~inBus = ~numSpeakers + ~numSpeakers;
 
     MIDIClient.init;
-    MIDIIn.connectAll;
-    if(MIDIClient.externalDestinations.asString.contains("Launchpad")){~hasLaunchpad = true};
-    if(MIDIClient.externalDestinations.asString.contains("QmidiNet")){~hasQmidiNet = true};
+    // MIDIIn.connectAll;
+    MIDIClient.sources.do{|device, idx|
+        if(device.name.contains("Launchpad")){
+            MIDIIn.connect(idx, device);
+            "% connected\n".postf(device.name);
+            ~hasLaunchpad = true;
+        }
+    };
+    // if(MIDIClient.externalDestinations.asString.contains("Launchpad")){~hasLaunchpad = true};
+    // if(MIDIClient.externalDestinations.asString.contains("QmidiNet")){~hasQmidiNet = true};
 
     Buffer.freeAll;
     s.quit;
@@ -24,7 +31,7 @@
     s.options.numBuffers = 2048;
     //make sure there's enough internal buffers
     s.options.numWireBufs = 256;
-    s.latency  = 0.01;
+    s.latency  = 0.02;
     s.waitForBoot(
         {
             if(~hasLaunchpad){

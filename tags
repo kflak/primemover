@@ -32,7 +32,7 @@ port	pydondefaults.ini	/^port = 57600$/;"	k	section:osc
 program	pydondefaults.ini	/^program = osc$/;"	k	section:osc
 quiet	pydondefaults.ini	/^quiet = False$/;"	k	section:verbosity
 serial	pydondefaults.ini	/^[serial]$/;"	s
-serial	pydondefaults.ini	/^serial = \/dev\/ttyACM0$/;"	k	section:serial
+serial	pydondefaults.ini	/^serial = \/dev\/ttyUSB0$/;"	k	section:serial
 verbose	pydondefaults.ini	/^verbose = False$/;"	k	section:verbosity
 verbosity	pydondefaults.ini	/^[verbosity]$/;"	s
 xbeeerror	pydondefaults.ini	/^xbeeerror = False$/;"	k	section:hive

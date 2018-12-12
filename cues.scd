@@ -1,28 +1,17 @@
 (
     var cues = [
-        "audienceEnters.scd",
-        "isaJoinsBreath.scd",
-        "isaSolo.scd",
-        "isaSensorOn.scd",
-        "darkness.scd",
-        "crunchyImpro.scd",
-        "swirl.scd",
-    ];
-
-    var titles = [
-        "Audience enters",
-        "Külli puts mic on table",
-        "Isa gives launchpad to Kenneth",
-        "Isa finishes putting sensor on",
-        "Talking starts",
-        "Külli puts Kenneth down after singing",
-        "Kenneth and Isabell stops in front of Külli and Rakesh",
-        "Post-performance beer"
+        "audienceEnters.scd", // 1
+        "isaJoinsBreath.scd", // 2
+        "beaverRise.scd",     // 3
+        "isaSolo.scd",        // 4
+        "isaSensorOn.scd",    // 5
+        "darkness.scd",       // 6
+        "heartdialog.scd",    // 7
+        "crunchyImpro.scd",   // 8
+        "swirl.scd",          // 9
     ];
 
     var cuelist = CuePlayer.new;
-
-    // cuelist.hook = {|c| text.string = "Next cue:\n"++titles[c.current+1]};
 
     cues.do{ |item| 
         var file = PathName.new("~/sc/primemover/cues/"++item).fullPath;
@@ -31,7 +20,7 @@
     };
 
     cuelist.gui(
-        monitorInChannels: ~numMics + ~micOffset;
+        monitorInChannels: s.options.numInputBusChannels,
         monitorOutChannels: s.options.numOutputBusChannels,
         options:(
             shortcuts:true,
@@ -39,6 +28,5 @@
             metronome: false,
         )
     );
-
-    // cuelist.midiTriggerVelocity(note: 60, channel: 16);
+HelpBrowser
 )

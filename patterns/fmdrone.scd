@@ -3,10 +3,10 @@
         Pbind(
             \instrument, \fm,
             \group, ~group[\instr],
-            \db, -26,
+            \db, -34,
             \carfreq, 50,
             \modfreq, Pexprand(49, 52),
-            \moddepth, Pexprand(5, 150),
+            \moddepth, Pexprand(5, 140),
             \dur, Pwhite(8.0, 10.0),
             \rel, Pkey(\dur) * 3,
             \attack, Pkey(\dur),
@@ -17,7 +17,6 @@
             \fx1, ~bus[\jpverb], 
             \fx1lvl, Pwhite(-10.dbamp, -5.dbamp),
             \fx2, ~bus[\grdelayMedium],
-            // \fx2lvl, Pwhite(-10.dbamp, -5.dbamp),
             \fx2lvl, -5.dbamp,
         )
     );

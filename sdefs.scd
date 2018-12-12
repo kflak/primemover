@@ -62,10 +62,18 @@
 
     SynthDef(\soundin, {
         arg in=0, out=0, gate=0, da=2, lvlin=0.2, lvlout=0.2, pan=0, width=2.0,
+        locut=20, loshelffreq=200, loshelfdb=0, 
+        hishelffreq=1500, hishelfdb=0, hicut=20000, 
+        peakfreq=600, peakrq=1, peakdb=0, 
         fx1, fx2, fx1lvl=0, fx2lvl=0, fx3, fx3lvl=0, fx4, fx4lvl=0;
         var sig, env;
         env = EnvGen.kr(Env.asr(0.01, 1.0, 0.01), gate, doneAction: da);
         sig = SoundIn.ar(in, mul: lvlin);
+        sig = BLowShelf.ar(sig, loshelffreq, db: loshelfdb);
+        sig = BHiShelf.ar(sig, hishelffreq, db: hishelfdb);
+        sig = BHiPass.ar(sig, locut);
+        sig = BLowPass.ar(sig, hicut);
+        sig = BPeakEQ.ar(sig, peakfreq, peakrq, peakdb);
         sig = sig * env * lvlout;
         sig = PanAz.ar(~numSpeakers, sig, pan, width: width);
         Out.ar(out, sig);

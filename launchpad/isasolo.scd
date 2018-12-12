@@ -1,8 +1,8 @@
 (
     // MIDIdef.all;
     var notes = [0, 2, 3, 5, 7, 9, 10, 12];
-    var srcID = MIDIClient.sources.indexOf("Launchpad");
-    srcID.postln;
+    // var srcID = MIDIClient.sources.indexOf("Launchpad");
+    // srcID.postln;
 
     ~lpsynth = nil ! 127;
 
@@ -41,7 +41,7 @@
                 \rel, rel,
                 \modattack, attack * 2,
                 \modrelease, rel,
-                \amp, -30.dbamp,
+                \amp, -26.dbamp,
                 \amfreq, n + 1,
                 \amdepth, 2,
                 \fx1, ~bus[\grdelayMedium],
@@ -84,14 +84,14 @@
             ], target: ~group[\instr];
         );
         ~launchpadOut.noteOn(0, note, ~launchpadColor[\greenhi])
-    }, noteNum: (16..23), chan: 0, srcID: srcID);
+    }, noteNum: (16..23), chan: 0);
 
     MIDIdef.noteOff(\launchpadFMOff, {
         arg val, note, channel, src;
         ~lpsynth[note].set(\gate, 0);
         ~lpsynth[note] = nil;
         ~launchpadOut.noteOn(0, note, ~launchpadColor[\greenlo])
-    }, noteNum: (16..23), chan: 0, srcID: srcID);
+    }, noteNum: (16..23), chan: 0);
 
     //third row, fm grains
     MIDIdef.noteOn(\launchpadFMGrains, {
@@ -111,7 +111,7 @@
                 \out, ~bus[\fm],
                 \attack, attack,
                 \rel, rel,
-                \amp, -32.dbamp,
+                \amp, -26.dbamp,
                 \fx1, ~bus[\jpverb],
                 \fx1lvl, -24.dbamp,
                 \fx2, ~bus[\grdelayMedium],
@@ -119,14 +119,14 @@
             ], target: ~group[\instr];
         );
         ~launchpadOut.noteOn(0, note, ~launchpadColor[\redhi])       
-    }, noteNum: (32..39), chan: 0, srcID: srcID);
+    }, noteNum: (32..39), chan: 0);
 
     MIDIdef.noteOff(\launchpadFMGrainsOff, {
         arg val, note, channel, src;
         ~lpsynth[note].set(\gate, 0);
         ~lpsynth[note] = nil;
         ~launchpadOut.noteOn(0, note, ~launchpadColor[\redlo])
-    }, noteNum: (32..39), chan: 0, srcID: srcID);
+    }, noteNum: (32..39), chan: 0);
 
     //fourth row, sine grains
     MIDIdef.noteOn(\launchpadSineGrains, {
@@ -144,7 +144,7 @@
                 \out, ~bus[\fm],
                 \attack, attack,
                 \rel, rel,
-                \amp, -20.dbamp,
+                \amp, -18.dbamp,
                 \fx1, ~bus[\jpverb],
                 \fx1lvl, -12.dbamp,
                 \fx2, ~bus[\grdelayMedium],
@@ -152,14 +152,14 @@
             ], target: ~group[\instr];
         );
         ~launchpadOut.noteOn(0, note, ~launchpadColor[\amberhi])       
-    }, noteNum: (48..55), chan: 0, srcID: srcID);
+    }, noteNum: (48..55), chan: 0);
 
     MIDIdef.noteOff(\launchpadSineGrainsOff, {
         arg val, note, channel, src;
         ~lpsynth[note].set(\gate, 0);
         ~lpsynth[note] = nil;
         ~launchpadOut.noteOn(0, note, ~launchpadColor[\amberlo])
-    }, noteNum: (48..55), chan: 0, srcID: srcID);
+    }, noteNum: (48..55), chan: 0);
 
     //fifth row, stoveperc
     MIDIdef.noteOn(\launchpadStoveperc, {
@@ -172,7 +172,7 @@
                 \out, ~bus[\fm],
                 \attack, attack,
                 \rel, rel,
-                \amp, -24.dbamp,
+                \amp, -18.dbamp,
                 \hipassfreq, 200,
                 \fx1, ~bus[\jpverb],
                 \fx1lvl, -12.dbamp,
@@ -181,14 +181,14 @@
             ], target: ~group[\instr];
         );
         ~launchpadOut.noteOn(0, note, ~launchpadColor[\greenhi])       
-    }, noteNum: (64..71), chan: 0, srcID: srcID);
+    }, noteNum: (64..71), chan: 0);
 
     MIDIdef.noteOff(\launchpadStovepercOff, {
         arg val, note, channel, src;
         ~lpsynth[note].set(\gate, 0);
         ~lpsynth[note] = nil;
         ~launchpadOut.noteOn(0, note, ~launchpadColor[\greenlo])
-    }, noteNum: (64..71), chan: 0, srcID: srcID);
+    }, noteNum: (64..71), chan: 0);
 
     //sixth row, treeperc
     MIDIdef.noteOn(\launchpadTreeperc, {
@@ -201,7 +201,7 @@
                 \out, ~bus[\fm],
                 \attack, attack,
                 \rel, rel,
-                \amp, -14.dbamp,
+                \amp, -12.dbamp,
                 \hipassfreq, 200,
                 \fx1, ~bus[\jpverb],
                 \fx1lvl, -12.dbamp,
@@ -210,14 +210,14 @@
             ], target: ~group[\instr];
         );
         ~launchpadOut.noteOn(0, note, ~launchpadColor[\redhi])       
-    }, noteNum: (80..87), chan: 0, srcID: srcID);
+    }, noteNum: (80..87), chan: 0);
 
     MIDIdef.noteOff(\launchpadTreepercOff, {
         arg val, note, channel, src;
         ~lpsynth[note].set(\gate, 0);
         ~lpsynth[note] = nil;
         ~launchpadOut.noteOn(0, note, ~launchpadColor[\redlo])
-    }, noteNum: (80..87), chan: 0, srcID: srcID);
+    }, noteNum: (80..87), chan: 0);
 
     //seventh row, broken piano
     MIDIdef.noteOn(\launchpadBrokenPiano, {
@@ -232,7 +232,7 @@
                 \out, ~bus[\fm],
                 \attack, attack,
                 \rel, rel,
-                \amp, -20.dbamp,
+                \amp, -14.dbamp,
                 \fx1, ~bus[\jpverb],
                 \fx1lvl, 0.dbamp,
                 \fx2, ~bus[\grdelayMedium],
@@ -240,14 +240,14 @@
             ], target: ~group[\instr];
         );
         ~launchpadOut.noteOn(0, note, ~launchpadColor[\amberhi])       
-    }, noteNum: (96..103), chan: 0, srcID: srcID);
+    }, noteNum: (96..103), chan: 0);
 
     MIDIdef.noteOff(\launchpadBrokenPianoOff, {
         arg val, note, channel, src;
         ~lpsynth[note].set(\gate, 0);
         ~lpsynth[note] = nil;
         ~launchpadOut.noteOn(0, note, ~launchpadColor[\amberlo])
-    }, noteNum: (96..103), chan: 0, srcID: srcID);
+    }, noteNum: (96..103), chan: 0);
 
     //eight row, cello
     MIDIdef.noteOn(\launchpadCello, {
@@ -262,7 +262,7 @@
                 \out, ~bus[\fm],
                 \attack, attack,
                 \rel, rel,
-                \amp, -16.dbamp,
+                \amp, -10.dbamp,
                 \hipassfreq, 200,
                 \fx1, ~bus[\jpverb],
                 \fx1lvl, -12.dbamp,
@@ -271,12 +271,12 @@
             ], target: ~group[\instr];
         );
         ~launchpadOut.noteOn(0, note, ~launchpadColor[\greenhi])       
-    }, noteNum: (112..119), chan: 0, srcID: srcID);
+    }, noteNum: (112..119), chan: 0);
 
     MIDIdef.noteOff(\launchpadCelloOff, {
         arg val, note, channel, src;
         ~lpsynth[note].set(\gate, 0);
         ~lpsynth[note] = nil;
         ~launchpadOut.noteOn(0, note, ~launchpadColor[\greenlo])
-    }, noteNum: (112..119), chan: 0, srcID: srcID);
+    }, noteNum: (112..119), chan: 0);
 )

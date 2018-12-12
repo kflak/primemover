@@ -18,17 +18,15 @@
             \pan, Pwhite(-1.0, 1.0, inf),
             \panspeed, 0.03,
             \width, ~numSpeakers,
-            \db, Pseq([-26, -12, -12, -12, -12, -18, -22]),
-            \hipassfreq, Pseq([350, 120, 120, 200, 200, 200]),
+            \db, Pseq([-26, -14, -14, -14, -20, -22, -27]),
+            \hipassfreq, Pseq([450, 220, 220, 220, 220, 220]),
             \hishelfdb, -9,
             \attack, Pseq([50, 10, 10, 10, 10, 10]),
             \gain, 5,
-            \ratio, 2,    
-            \thresh, -12.dbamp,
+            \ratio, 8,    
+            \thresh, -8.dbamp,
             \out, ~bus[\master],
         )
     );
 
-    // Pdef(\nasa_liftoff).play;
-    // Pdef(\nasa_liftoff).stop;
 )

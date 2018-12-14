@@ -1,6 +1,7 @@
 (
     //  [track, initial_amplitude, synth, outbus, target_group]
     ~tr = [	
+        [\master, 1.0, \chstrip_multi, 0, \master], 
         [\fast, 1.0, \chstrip_multi, \master, \mix], 
         [\tens, 1.0, \chstrip_multi, \master, \mix], 
         [\crunchy, 1.0, \chstrip_multi, \master, \mix], 
@@ -14,7 +15,6 @@
         [\grdelay, 1.0, \grdelay, \master, \fx], 
         [\grdelayMedium, -6.dbamp, \grdelay, \master, \fx], 
         [\grdelayLong, -6.dbamp, \grdelay, \master, \fx], 
-        [\master, 1.0, \chstrip_multi, 0, \master], 
         // [\sub, 1.0, \mixToMono, ~subOut, \sub],
     ];
 
@@ -112,7 +112,7 @@
     ~ch[\grdelay].set( \lo_cut, 40, \density, 20, \grain_size, 0.001, \grain_size_rand, 0.3, \min_delay, 0.3, \max_delay, 1.5, \fb, 0.05, \mod_freq, 0.05, \mod_depth, 0.1);
     ~ch[\grdelayMedium].set( \lo_cut, 40, \density, 10, \grain_size, 1.0, \grain_size_rand, 0.3, \min_delay, 1.0, \max_delay, 4.0, \fb, 0.3, \mod_freq, 0.05, \mod_depth, 0.1);
     ~ch[\grdelayLong].set( \lo_cut, 40, \density, 10, \grain_size, 1.0, \grain_size_rand, 0.3, \min_delay, 1.0, \max_delay, 4.0, \fb, 0.5, \mod_freq, 0.05, \mod_depth, 0.1);
-    ~ch[\master].set( \compgain, 5.dbamp, \ratio, 4, \limit, -0.3.dbamp, \thresh, -3.dbamp, \locut, 40, \hishelfdb, -3, \hishelffreq, 800);
+    ~ch[\master].set( \compgain, 2.dbamp, \ratio, 4, \limit, -0.3.dbamp, \thresh, -3.dbamp, \locut, 40, \hishelfdb, -3, \hishelffreq, 800);
 )
 
 // (

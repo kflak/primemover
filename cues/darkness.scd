@@ -15,7 +15,7 @@
 
             20.wait;
 
-            ~whispersynth = Synth(\cleanCirclePanGate, [\out, ~bus[\master], \buf, ~buffers[\translateEstonian][0], \amp, 9.dbamp, \hipassfreq, 400, \da, 2, \loop, 1, \rate, -1, \rel, 300]);
+            ~whispersynth = Synth(\cleanCirclePanGate, [\out, ~bus[\master], \buf, ~buffers[\translateEstonian][0], \amp, 9.dbamp, \hipassfreq, 400, \da, 2, \loop, 1, \rate, -1, \rel, 420]);
 
             70.wait;
 

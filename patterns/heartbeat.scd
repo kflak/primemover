@@ -7,7 +7,7 @@
             \instrument, \sine,
             \group, ~group[\instr],
             \freq, Pseq([50, 50], inf),
-            \db, Pseq([-30, -35] + 6, inf),
+            \db, Pseq([-30, -35] + 1, inf),
             \dur, Pseq([0.2, 1], inf),
             \pan, Pwhite(-1.0, 1.0),
             \out, ~bus[\heartbeat],

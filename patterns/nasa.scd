@@ -12,7 +12,7 @@
             \startpos, Pwhite(0, ~buffers[\nasa][1].numFrames, inf),
             \hishelfdb, -12,
             \pan, Pwhite(-1.0, 1.0, inf),
-            \db, -44,
+            \db, -40,
             \ratio, 2,    
             \thresh, -12.dbamp,
             \out, ~bus[\master],

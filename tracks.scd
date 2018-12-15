@@ -100,7 +100,7 @@
     };
 
     //set additional synth args
-    ~ch[\tens].set( \compgain, 8.dbamp, \ratio, 2, \limit, 0.1.dbamp, \locut, 50);
+    ~ch[\tens].set( \compgain, 6.dbamp, \ratio, 2, \limit, 0.1.dbamp, \locut, 50);
     ~ch[\fast].set( \compgain, 12.dbamp, \ratio, 16, \thresh, -10.dbamp, \limit, 0.dbamp, \locut, 50);
     ~ch[\crunchy].set( \compgain, 7.dbamp, \ratio, 8, \hishelfdb, -6, \thresh, -5.dbamp, \limit, 0.dbamp, \locut, 100);
     ~ch[\em].set( \compgain, 3.dbamp, \ratio, 8, \limit, 0.3.dbamp, \thresh, -4.dbamp, \locut, 40);
@@ -112,7 +112,7 @@
     ~ch[\grdelay].set( \lo_cut, 40, \density, 20, \grain_size, 0.001, \grain_size_rand, 0.3, \min_delay, 0.3, \max_delay, 1.5, \fb, 0.05, \mod_freq, 0.05, \mod_depth, 0.1);
     ~ch[\grdelayMedium].set( \lo_cut, 40, \density, 10, \grain_size, 1.0, \grain_size_rand, 0.3, \min_delay, 1.0, \max_delay, 4.0, \fb, 0.3, \mod_freq, 0.05, \mod_depth, 0.1);
     ~ch[\grdelayLong].set( \lo_cut, 40, \density, 10, \grain_size, 1.0, \grain_size_rand, 0.3, \min_delay, 1.0, \max_delay, 4.0, \fb, 0.5, \mod_freq, 0.05, \mod_depth, 0.1);
-    ~ch[\master].set( \compgain, 2.dbamp, \ratio, 4, \limit, -0.3.dbamp, \thresh, -3.dbamp, \locut, 40, \hishelfdb, -3, \hishelffreq, 800);
+    ~ch[\master].set( \compgain, 2.dbamp, \ratio, 2, \limit, -0.3.dbamp, \thresh, -3.dbamp, \locut, 40, \hishelfdb, -3, \hishelffreq, 800);
 )
 
 // (

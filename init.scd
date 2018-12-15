@@ -1,6 +1,6 @@
 (
     ~projectfolder = "/home/kf/sc/primemover/";
-    ~numSpeakers = 2;
+    ~numSpeakers = 4;
     ~numMics = 4;
     ~numSubs = 2;
     ~micOffset = 4;
@@ -110,16 +110,17 @@
 //         };
 //         // test subs, sum of speaker outputs.
 //         {Out.ar(~numSpeakers, SinOsc.ar(88) * XLine.kr(0.3, 0.00001, 4, doneAction: 2))}.play;
-//         1.wait;
+//         dur.wait;
 //         {Out.ar(~numSpeakers + 1, SinOsc.ar(88) * XLine.kr(0.3, 0.00001, 4, doneAction: 2))}.play;
 //     };
 // )
-// (
-//     ~ch[\mic0].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 150, \hishelffreq, 8000, \hishelfdb, 3, \width, ~numSpeakers); //külli
-//     ~ch[\mic1].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 150, \hishelffreq, 8000, \hishelfdb, 3, \width, ~numSpeakers); //rakesh
-//     ~ch[\mic2].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 150, \hishelffreq, 8000, \hishelfdb, 3, \width, ~numSpeakers); //kenneth
-//     ~ch[\mic3].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 150, \hishelffreq, 8000, \hishelfdb, 3, \width, ~numSpeakers); //isabell
-// )
+//(
+//    //soundcheck mics
+//    ~ch[\mic0].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 150, \hishelffreq, 8000, \hishelfdb, 3, \width, ~numSpeakers); //külli
+//    ~ch[\mic1].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 150, \hishelffreq, 8000, \hishelfdb, 3, \width, ~numSpeakers); //rakesh
+//    ~ch[\mic2].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 150, \hishelffreq, 8000, \hishelfdb, 3, \width, ~numSpeakers); //kenneth
+//    ~ch[\mic3].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 150, \hishelffreq, 8000, \hishelfdb, 3, \width, ~numSpeakers); //isabell
+//)
 // (
 //     ~ch[\mic0].set(\gate, 0);
 //     ~ch[\mic1].set(\gate, 0);

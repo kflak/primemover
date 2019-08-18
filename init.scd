@@ -31,7 +31,7 @@
     s.options.numBuffers = 2048;
     //make sure there's enough internal buffers
     s.options.numWireBufs = 256;
-    s.latency  = 0.02;
+    s.latency  = 0.04;
     s.waitForBoot(
         {
             if(~hasLaunchpad){
@@ -48,11 +48,12 @@
             ~buffers = Dictionary.new;
             PathName((~projectfolder++"audio").standardizePath).folders.do({|folder| 
                 ~buffers.add(folder.folderName.asSymbol -> folder.entries.collect({|file|
-                    s.sync;
+                    // s.sync;
                     Buffer.readChannel(s, file.fullPath, channels: 0);
                 }));
             });
             "Buffers read".postln;
+            s.sync;
 
             //set up groups
             this.executeFile((~projectfolder++"groups.scd").standardizePath);

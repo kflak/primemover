@@ -40,7 +40,7 @@
             60.wait;
 
             "Rakesh solo".postln;
-            ~deltaTriggers[\emIDs].do{|id, idx| ~deltaTriggers[\em][idx].play(out: ~bus[\em], target: ~group[\mix])};
+            ~deltaTriggers[\emIDs].do{|id, idx| ~deltaTriggers[\em][idx].play(out: ~bus[\em])};
             // Backup when no sensor
             // Pdef(\emSolo).play;
 

@@ -13,6 +13,8 @@ MBData {
     }
 
     init {
+        data = [0.0, 0.0, 0.0];
+        prevData = [0.0, 0.0, 0.0];
         this.createOscFunc;
         this.createTask;
     }
@@ -37,13 +39,12 @@ MBData {
     }
 
     calcDelta {
-        if(prevData.notNil) {
+        // if(prevData.notNil) {
             delta = (data - prevData).abs.sum/3;
             prevData = data.copy;
             ^delta;
-        }{
-            prevData = data.copy;
-        };
+        // }{
+        //     prevData = data.copy;
+        // };
     }
-
 }

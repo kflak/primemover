@@ -185,7 +185,7 @@
 
     MIDIdef.noteOff(\launchpadStovepercOff, {
         arg val, note, channel, src;
-        ~lpsynth[note].set(\gate, 0);
+        // ~lpsynth[note].set(\gate, 0);
         ~lpsynth[note] = nil;
         ~launchpadOut.noteOn(0, note, ~launchpadColor[\greenlo])
     }, noteNum: (64..71), chan: 0);
@@ -214,7 +214,7 @@
 
     MIDIdef.noteOff(\launchpadTreepercOff, {
         arg val, note, channel, src;
-        ~lpsynth[note].set(\gate, 0);
+        // ~lpsynth[note].set(\gate, 0);
         ~lpsynth[note] = nil;
         ~launchpadOut.noteOn(0, note, ~launchpadColor[\redlo])
     }, noteNum: (80..87), chan: 0);
@@ -244,7 +244,7 @@
 
     MIDIdef.noteOff(\launchpadBrokenPianoOff, {
         arg val, note, channel, src;
-        ~lpsynth[note].set(\gate, 0);
+        // ~lpsynth[note].set(\gate, 0);
         ~lpsynth[note] = nil;
         ~launchpadOut.noteOn(0, note, ~launchpadColor[\amberlo])
     }, noteNum: (96..103), chan: 0);
@@ -275,7 +275,7 @@
 
     MIDIdef.noteOff(\launchpadCelloOff, {
         arg val, note, channel, src;
-        ~lpsynth[note].set(\gate, 0);
+        // ~lpsynth[note].set(\gate, 0);
         ~lpsynth[note] = nil;
         ~launchpadOut.noteOn(0, note, ~launchpadColor[\greenlo])
     }, noteNum: (112..119), chan: 0);

@@ -1,0 +1,20 @@
+includePaths:
+    -   /home/kf/sc/primemover/classes
+    -   /home/kf/sc/DMX-master
+    -   /home/kf/.local/share/SuperCollider/downloaded-quarks/BatLib
+    -   /home/kf/.local/share/SuperCollider/downloaded-quarks/CuePlayer
+    -   /home/kf/.local/share/SuperCollider/downloaded-quarks/Feedback
+    -   /home/kf/.local/share/SuperCollider/downloaded-quarks/JITLibExtensions
+    -   /home/kf/.local/share/SuperCollider/downloaded-quarks/MathLib
+    -   /home/kf/.local/share/SuperCollider/downloaded-quarks/cruciallib
+    -   /home/kf/.local/share/SuperCollider/downloaded-quarks/dewdrop_lib
+    -   /home/kf/.local/share/SuperCollider/downloaded-quarks/UGenPatterns
+    -   /home/kf/.local/share/SuperCollider/downloaded-quarks/Vowel
+    -   /home/kf/.local/share/SuperCollider/downloaded-quarks/Dirt-Samples
+    -   /home/kf/.local/share/SuperCollider/downloaded-quarks/SuperDirt
+    -   /home/kf/.local/share/SuperCollider/downloaded-quarks/ddwPatterns
+    -   /home/kf/.config/nvim/plugged/scnvim/sc/Classes
+
+excludePaths:
+    []
+postInlineWarnings: false

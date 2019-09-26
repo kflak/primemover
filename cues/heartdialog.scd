@@ -2,7 +2,7 @@
     {
         ~heartdialog = Routine {
 
-            "Heart dialog".postln;
+            "Heart dialog ends".postln;
 
             ~darknesscue.stop;
 

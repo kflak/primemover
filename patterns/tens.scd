@@ -253,6 +253,24 @@
         );	
     );
 
+    phrases.put(\aliina_laugh_dist, 
+        Pbind(
+            \instrument, \clean,
+            \group, ~group[\instr],
+            \dur, 0.5,
+            \buf, Prand(~buffers[\aliina_laugh], inf),
+            \rel, 0.5,
+            \rate, 0.5,
+            \amp, Pseq([ 0.25, 0.16, 0.16, 0.25, 0.16, 0.16, 0.25, 0.16, 0.16, 0.16] * 0.8),
+            \pan, Pwhite(-1.0, 1.0, inf),
+            \out, ~bus[\tens],
+            \fx1, ~bus[\jpverb],
+            \fx1lvl, Pwhite(-70.dbamp, -30.dbamp, inf),
+            \fx2, ~bus[\grdelay],
+            \fx2lvl, Pwhite(0.2, 0.6),
+        );
+    );		
+
     phrases.put(\aliina_laugh, 
         Pbind(
             \instrument, \clean,
@@ -518,7 +536,7 @@
                 Pseq([[\sine_boom, \countinquiet, \click, \click_stove, \aliina_laugh]], 3),
                 Pseq([[\sine_boom, \countin, \click, \click_stove, \buf]], 4),
                 Pseq([[\countin, \click, \buf, \click_stove, \klang]], 4),
-                Pseq([Prand([[\reso, \buf, \klang], [\reso, \aliina_laugh, \klank, \klang]])], 2), 
+                Pseq([Prand([[\reso, \buf, \klang], [\reso, \aliina_laugh_dist, \klank, \klang]])], 2), 
                 Pseq([[\bufquiet, \countin, \reso, \klank, \click, \click_stove, \crashes]], 2),
                 Pseq([[\crash, \wind_end, \klang_end]], 1),
                 Pseq([\aliina_laugh_end], 1),

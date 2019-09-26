@@ -4,10 +4,75 @@
 !_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
-!_TAG_PROGRAM_VERSION	0.0.0	/45968eff/
+!_TAG_PROGRAM_VERSION	0.0.0	/3fdf28bc/
+1	mb10-14.xml	/^      <twi device="ADXL345" id="1" name="accelero"\/>$/;"	i
+1	mb10-14.xml	/^    <configuration id="1" message_interval="50" name="accelero" redundancy="3" rssi="False" samp/;"	i
+1	newconfig_2019_Sep_26_14-13-31.xml	/^      <twi device="ADXL345" id="1" name="accelero"\/>$/;"	i
+1	newconfig_2019_Sep_26_14-13-31.xml	/^    <configuration id="1" message_interval="50" name="accelero" redundancy="3" samples_per_messa/;"	i
+10	mb10-14.xml	/^    <minibee caps="7" configuration="1" id="10" libversion="7" name="" revision="D" serial="0013/;"	i
+10	newconfig_2019_Sep_26_14-13-31.xml	/^    <minibee caps="7" configuration="1" id="10" libversion="7" name="" revision="D" serial="0013/;"	i
+11	mb10-14.xml	/^    <minibee caps="7" configuration="1" id="11" libversion="7" name="" revision="D" serial="0013/;"	i
+11	newconfig_2019_Sep_26_14-13-31.xml	/^    <minibee caps="7" configuration="1" id="11" libversion="7" name="" revision="D" serial="0013/;"	i
+12	mb10-14.xml	/^    <minibee caps="7" configuration="1" id="12" libversion="7" name="" revision="D" serial="0013/;"	i
+12	newconfig_2019_Sep_26_14-13-31.xml	/^    <minibee caps="7" configuration="1" id="12" libversion="7" name="" revision="D" serial="0013/;"	i
+13	mb10-14.xml	/^    <minibee caps="7" configuration="1" id="13" libversion="7" name="" revision="D" serial="0013/;"	i
+13	newconfig_2019_Sep_26_14-13-31.xml	/^    <minibee caps="7" configuration="1" id="13" libversion="7" name="" revision="D" serial="0013/;"	i
+14	mb10-14.xml	/^    <minibee caps="7" configuration="1" id="14" libversion="7" name="" revision="D" serial="0013/;"	i
+14	newconfig_2019_Sep_26_14-13-31.xml	/^    <minibee caps="7" configuration="1" id="14" libversion="7" name="" revision="D" serial="0013/;"	i
+2	mb10-14.xml	/^    <configuration id="2" message_interval="50" name="expee" redundancy="3" rssi="False" samples/;"	i
+2	newconfig_2019_Sep_26_14-13-31.xml	/^    <configuration id="2" message_interval="50" name="expee" redundancy="3" samples_per_message=/;"	i
+3	mb10-14.xml	/^    <configuration id="3" message_interval="50" name="expree" redundancy="3" rssi="False" sample/;"	i
+3	newconfig_2019_Sep_26_14-13-31.xml	/^    <configuration id="3" message_interval="50" name="expree" redundancy="3" samples_per_message/;"	i
+9	mb10-14.xml	/^    <minibee caps="7" configuration="1" id="9" libversion="7" name="" revision="D" serial="0013A/;"	i
+9	newconfig_2019_Sep_26_14-13-31.xml	/^    <minibee caps="7" configuration="1" id="9" libversion="7" name="" revision="D" serial="0013A/;"	i
+A0	mb10-14.xml	/^      <pin config="AnalogIn10bit" id="A0" name="analog0"\/>$/;"	i
+A0	newconfig_2019_Sep_26_14-13-31.xml	/^      <pin config="AnalogIn10bit" id="A0" name="analog0"\/>$/;"	i
+A1	mb10-14.xml	/^      <pin config="AnalogIn10bit" id="A1" name="analog1"\/>$/;"	i
+A1	newconfig_2019_Sep_26_14-13-31.xml	/^      <pin config="AnalogIn10bit" id="A1" name="analog1"\/>$/;"	i
+A2	mb10-14.xml	/^      <pin config="AnalogIn10bit" id="A2" name="analog2"\/>$/;"	i
+A2	newconfig_2019_Sep_26_14-13-31.xml	/^      <pin config="AnalogIn10bit" id="A2" name="analog2"\/>$/;"	i
+A3	mb10-14.xml	/^      <pin config="AnalogIn10bit" id="A3" name="analog3"\/>$/;"	i
+A3	newconfig_2019_Sep_26_14-13-31.xml	/^      <pin config="AnalogIn10bit" id="A3" name="analog3"\/>$/;"	i
+A4	mb10-14.xml	/^      <pin config="TWIData" id="A4" name="None"\/>$/;"	i
+A4	newconfig_2019_Sep_26_14-13-31.xml	/^      <pin config="TWIData" id="A4" name="None"\/>$/;"	i
+A5	mb10-14.xml	/^      <pin config="TWIClock" id="A5" name="None"\/>$/;"	i
+A5	newconfig_2019_Sep_26_14-13-31.xml	/^      <pin config="TWIClock" id="A5" name="None"\/>$/;"	i
+A6	mb10-14.xml	/^      <pin config="AnalogIn10bit" id="A6" name="analog4"\/>$/;"	i
+A6	newconfig_2019_Sep_26_14-13-31.xml	/^      <pin config="AnalogIn10bit" id="A6" name="analog4"\/>$/;"	i
+A7	mb10-14.xml	/^      <pin config="AnalogIn10bit" id="A7" name="analog5"\/>$/;"	i
+A7	newconfig_2019_Sep_26_14-13-31.xml	/^      <pin config="AnalogIn10bit" id="A7" name="analog5"\/>$/;"	i
 Authors	README.md	/^## Authors$/;"	s
 Code mentor	README.md	/^## Code mentor$/;"	s
+D10	mb10-14.xml	/^      <pin config="AnalogOut" id="D10" name="led1"\/>$/;"	i
+D10	mb10-14.xml	/^      <pin config="DigitalIn" id="D10" name="digitaal6"\/>$/;"	i
+D10	newconfig_2019_Sep_26_14-13-31.xml	/^      <pin config="AnalogOut" id="D10" name="led1"\/>$/;"	i
+D10	newconfig_2019_Sep_26_14-13-31.xml	/^      <pin config="DigitalIn" id="D10" name="digitaal6"\/>$/;"	i
+D11	mb10-14.xml	/^      <pin config="AnalogOut" id="D11" name="led2"\/>$/;"	i
+D11	mb10-14.xml	/^      <pin config="DigitalIn" id="D11" name="digitaal7"\/>$/;"	i
+D11	newconfig_2019_Sep_26_14-13-31.xml	/^      <pin config="AnalogOut" id="D11" name="led2"\/>$/;"	i
+D11	newconfig_2019_Sep_26_14-13-31.xml	/^      <pin config="DigitalIn" id="D11" name="digitaal7"\/>$/;"	i
+D3	mb10-14.xml	/^      <pin config="AnalogOut" id="D3" name="led3"\/>$/;"	i
+D3	mb10-14.xml	/^      <pin config="DigitalIn" id="D3" name="digitaal0"\/>$/;"	i
+D3	newconfig_2019_Sep_26_14-13-31.xml	/^      <pin config="AnalogOut" id="D3" name="led3"\/>$/;"	i
+D3	newconfig_2019_Sep_26_14-13-31.xml	/^      <pin config="DigitalIn" id="D3" name="digitaal0"\/>$/;"	i
+D5	mb10-14.xml	/^      <pin config="AnalogOut" id="D5" name="led4"\/>$/;"	i
+D5	mb10-14.xml	/^      <pin config="DigitalIn" id="D5" name="digitaal1"\/>$/;"	i
+D5	newconfig_2019_Sep_26_14-13-31.xml	/^      <pin config="AnalogOut" id="D5" name="led4"\/>$/;"	i
+D5	newconfig_2019_Sep_26_14-13-31.xml	/^      <pin config="DigitalIn" id="D5" name="digitaal1"\/>$/;"	i
+D6	mb10-14.xml	/^      <pin config="AnalogOut" id="D6" name="led5"\/>$/;"	i
+D6	mb10-14.xml	/^      <pin config="DigitalIn" id="D6" name="digitaal2"\/>$/;"	i
+D6	newconfig_2019_Sep_26_14-13-31.xml	/^      <pin config="AnalogOut" id="D6" name="led5"\/>$/;"	i
+D6	newconfig_2019_Sep_26_14-13-31.xml	/^      <pin config="DigitalIn" id="D6" name="digitaal2"\/>$/;"	i
+D7	mb10-14.xml	/^      <pin config="DigitalIn" id="D7" name="digitaal3"\/>$/;"	i
+D7	newconfig_2019_Sep_26_14-13-31.xml	/^      <pin config="DigitalIn" id="D7" name="digitaal3"\/>$/;"	i
+D8	mb10-14.xml	/^      <pin config="DigitalIn" id="D8" name="digitaal4"\/>$/;"	i
+D8	newconfig_2019_Sep_26_14-13-31.xml	/^      <pin config="DigitalIn" id="D8" name="digitaal4"\/>$/;"	i
+D9	mb10-14.xml	/^      <pin config="AnalogOut" id="D9" name="led0"\/>$/;"	i
+D9	mb10-14.xml	/^      <pin config="DigitalIn" id="D9" name="digitaal5"\/>$/;"	i
+D9	newconfig_2019_Sep_26_14-13-31.xml	/^      <pin config="AnalogOut" id="D9" name="led0"\/>$/;"	i
+D9	newconfig_2019_Sep_26_14-13-31.xml	/^      <pin config="DigitalIn" id="D9" name="digitaal5"\/>$/;"	i
 Dependencies	README.md	/^## Dependencies$/;"	s
+Prime Mover	README.md	/^# Prime Mover$/;"	c
 Sensors	README.md	/^## Sensors$/;"	s
 apimode	pydondefaults.ini	/^apimode = True$/;"	k	section:serial
 autostart	pydondefaults.ini	/^autostart = False$/;"	k	section:hive
@@ -15,6 +80,8 @@ baudrate	pydondefaults.ini	/^baudrate = 57600$/;"	k	section:serial
 clean	pydondefaults.ini	/^clean = False$/;"	k	section:verbosity
 config	pydondefaults.ini	/^config = mb10-14.xml$/;"	k	section:hive
 createnewfiles	pydondefaults.ini	/^createnewfiles = True$/;"	k	section:hive
+gui	pydondefaults.ini	/^[gui]$/;"	s
+gui_ip	pydondefaults.ini	/^gui_ip = 127.0.0.1$/;"	k	section:gui
 hive	pydondefaults.ini	/^[hive]$/;"	s
 host	pydondefaults.ini	/^host = 127.0.0.1$/;"	k	section:osc
 hport	pydondefaults.ini	/^hport = 57120$/;"	k	section:osc
@@ -29,7 +96,7 @@ minibees	pydondefaults.ini	/^minibees = 20$/;"	k	section:hive
 name	pydondefaults.ini	/^name = pydonhive$/;"	k	section:osc
 osc	pydondefaults.ini	/^[osc]$/;"	s
 port	pydondefaults.ini	/^port = 57600$/;"	k	section:osc
-program	pydondefaults.ini	/^program = osc$/;"	k	section:osc
+program	pydondefaults.ini	/^program = \/minibee\/*$/;"	k	section:osc
 quiet	pydondefaults.ini	/^quiet = False$/;"	k	section:verbosity
 serial	pydondefaults.ini	/^[serial]$/;"	s
 serial	pydondefaults.ini	/^serial = \/dev\/ttyUSB0$/;"	k	section:serial

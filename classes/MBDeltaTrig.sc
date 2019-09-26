@@ -4,17 +4,17 @@ MBDeltaTrig {
     classvar <>resamplingFreq = 20;
     classvar <>numSpeakers = 2;
 
-    var <>speedlim=0.5, <>threshold=0.1;
-    var <>minibeeID=10;
-    var <>minAmp=0.0, <>maxAmp=0.3;
+    var <>speedlim, <>threshold;
+    var <>minibeeID;
+    var <>minAmp, <>maxAmp;
     var <>function;
     var <>channelParameters;
 
     var <bus, <task;
     var <deltaFunc, <synth;
 
-    *new { arg speedlim, threshold, minibeeID, minAmp, maxAmp, function, numSpeakers, channelParameters;
-        ^super.newCopyArgs( speedlim, threshold, minibeeID, minAmp, maxAmp, function, numSpeakers, channelParameters ).init;
+    *new { arg speedlim=0.5, threshold=0.1, minibeeID=10, minAmp=0.0, maxAmp=1.0, function, channelParameters;
+        ^super.newCopyArgs( speedlim, threshold, minibeeID, minAmp, maxAmp, function, channelParameters ).init;
     }
 
     init {
@@ -40,14 +40,15 @@ MBDeltaTrig {
         });
     }
 
-    play { arg out, target, server;
+    play { arg out;
+    // play { arg out, target, server;
         deltaFunc = mbData[minibeeID];
-        server = server ? Server.default;
-        bus = Bus.audio(server, numSpeakers);
+        // server = server ? Server.default;
+        // bus = Bus.audio(server, numSpeakers);
         if (task.isNil){
             this.createTask;
-            // make channel strip synth
-            synth = Synth.new(\chstrip_multi, [\in, bus, \out, out, \da, 2] ++ channelParameters, target);
+        //     // make channel strip synth
+        //     synth = Synth.new(\chstrip_multi, [\in, bus, \out, out, \da, 2] ++ channelParameters, target);
             task.play;
         }{
             "Task is playing. Stop it first".postln;
@@ -56,19 +57,19 @@ MBDeltaTrig {
 
     // gentle stop
     release{ |releaseTime=1|
-        synth.release(releaseTime);
+        // synth.release(releaseTime);
         SystemClock.sched(releaseTime, { 
             task.stop; 
             task = nil; 
-            bus.free
+            // bus.free
         });
     }
 
     // emergency stop
     stop{
-        synth.free;
+        // synth.free;
         task.stop;
         task = nil;
-        bus.free;
+        // bus.free;
     }
 }

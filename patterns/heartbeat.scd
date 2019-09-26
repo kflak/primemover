@@ -4,14 +4,15 @@
 
     Pdef(\heartbeat, 
         Pbind(
-            \instrument, \sine,
+            \instrument, \sineGate,
             \group, ~group[\instr],
             \freq, Pseq([50, 50], inf),
             \db, Pseq([-30, -35] + 1, inf),
-            \dur, Pseq([0.2, 1], inf),
+            \dur, Pseq([0.2, 0.2, Rest(0.8)], inf),
             \pan, Pwhite(-1.0, 1.0),
             \out, ~bus[\heartbeat],
             \attack, 0.01,
+            \legato, 0.4,
             \rel, 0.2,
             \da, 2,
         )
@@ -19,13 +20,15 @@
 
     Pdef(\heartbeatHi, 
         Pbind(
-            \instrument, \sine,
+            \instrument, \sineGate,
             \group, ~group[\instr],
             \freq, Pseq([50, 50], inf),
             \db, Pseq([-28, -33] - 0, inf),
-            \dur, Pseq([0.2, 1], inf),
+            // \dur, Pseq([0.2, 1], inf),
+            \dur, Pseq([0.2, 0.2, Rest(0.8)], inf),
             \pan, Pwhite(-1.0, 1.0),
             \out, ~bus[\heartbeat],
+            \legato, 0.4,
             //for that time when you want a launchpad to have a heart. 
             //Not this show, unfortunately...
             // \midiout, Pfunc({
@@ -41,13 +44,15 @@
 
     Pdef(\heartbeatLo, 
         Pbind(
-            \instrument, \sine,
+            \instrument, \sineGate,
             \group, ~group[\instr],
             \freq, Pseq([50, 50], inf),
             \db, Pseq([-28, -33] - 15, inf),
-            \dur, Pseq([0.2, 1], inf),
+            // \dur, Pseq([0.2, 1], inf),
+            \dur, Pseq([0.2, 0.2, Rest(0.8)], inf),
             \pan, Pwhite(-1.0, 1.0),
             \out, ~bus[\heartbeat],
+            \legato, 0.4,
             \attack, 0.1,
             \rel, 0.3,
             \da, 2,

@@ -21,7 +21,7 @@
         ~ch[\mic2].set(\gate, 0);
         ~ch[\mic3].set(\gate, 0);
         //Külli sensors on
-        [10, 11].do{|id, idx| ~deltaTriggers[\sineGrain][idx].play(out: ~bus[\master]) };
+        [10, 11].do{|id, idx| ~deltaTriggers[\sineGrain][idx].play() };
         //rakesh sensors off
         [13, 14].do{|id, idx| ~deltaTriggers[\em][idx].release(1)}; 
 

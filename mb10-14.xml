@@ -1,6 +1,11 @@
 <?xml version="1.0" ?>
 <xml>
   <hive name="myprojectname">
+    <minibee caps="7" configuration="1" id="9" libversion="7" name="" revision="D" serial="0013A20040BB363F">
+      <!--the id given inside the minibee tag is the unique id or number of the minibee-->
+      <!--the configutaion inside the minibee tag is the unique id of the configuration that is used. It has to match one of the configuration id's that are defined in this file.-->
+      <!--This minibee has no configuration yet! Change it to use one of the configurations in this file.-->
+    </minibee>
     <minibee caps="7" configuration="1" id="10" libversion="7" name="" revision="D" serial="0013A20040C1849C">
       <!--the id given inside the minibee tag is the unique id or number of the minibee-->
       <!--the configutaion inside the minibee tag is the unique id of the configuration that is used. It has to match one of the configuration id's that are defined in this file.-->

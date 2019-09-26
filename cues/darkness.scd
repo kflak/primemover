@@ -9,7 +9,7 @@
             ~ch[\mic2].set(\lvlin, 0.dbamp, \lvlout, -3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 150, \hishelffreq, 8000, \hishelfdb, 3, \width, ~numSpeakers); //kenneth
             ~ch[\mic3].set(\lvlin, 0.dbamp, \lvlout, -3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 150, \hishelffreq, 8000, \hishelfdb, 3, \width, ~numSpeakers); //isabell
 
-            [12].do{|id, idx| ~deltaTriggers[\water][idx].release(1)}; //Isabell sensor off
+            [9, 12].do{|id, idx| ~deltaTriggers[\water][idx].release(1)}; //Isabell sensor off
             Pdef(\heartbeatLo).play(TempoClock(0.8));
             ~ch[\heartbeat].set(\gate, 1, \attack, 30);
 

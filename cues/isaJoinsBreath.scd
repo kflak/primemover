@@ -52,9 +52,9 @@
             Pdef(\nasaSaturn).stop;
             Pdef(\pinkNoiseBreath).stop;
 
-            20.wait;
+            // 20.wait;
 
-            Pdef(\heartbeat).stop;
+            // Pdef(\heartbeat).stop;
         }.play;
     };
 )

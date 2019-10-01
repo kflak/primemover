@@ -11,7 +11,6 @@
     ~inBus = ~numSpeakers + ~numSpeakers;
 
     MIDIClient.init;
-    // MIDIIn.connectAll;
     MIDIClient.sources.do{|device, idx|
         if(device.name.contains("Launchpad")){
             MIDIIn.connect(idx, device);
@@ -19,8 +18,6 @@
             ~hasLaunchpad = true;
         }
     };
-    // if(MIDIClient.externalDestinations.asString.contains("Launchpad")){~hasLaunchpad = true};
-    // if(MIDIClient.externalDestinations.asString.contains("QmidiNet")){~hasQmidiNet = true};
 
     Buffer.freeAll;
     s.quit;
@@ -49,12 +46,11 @@
             ~buffers = Dictionary.new;
             PathName((~projectfolder++"audio").standardizePath).folders.do({|folder| 
                 ~buffers.add(folder.folderName.asSymbol -> folder.entries.collect({|file|
-                    // s.sync;
                     Buffer.readChannel(s, file.fullPath, channels: 0);
                 }));
             });
-            "Buffers read".postln;
             s.sync;
+            "Buffers read".postln;
 
             //set up groups
             this.executeFile((~projectfolder++"groups.scd").standardizePath);
@@ -81,12 +77,6 @@
             // set up mbCCs
             this.executeFile((~projectfolder++"minibee/mbCC.scd").standardizePath);
             "mbCC.scd done".postln;
-
-            // set up light
-            // if(~hasQmidiNet){
-            //     this.executeFile((~projectfolder++"light.scd").standardizePath);
-            //     "light.scd done".postln;
-            // };
 
             // in the end, load the cues and pray that it works
             this.executeFile((~projectfolder++"cues.scd").standardizePath);

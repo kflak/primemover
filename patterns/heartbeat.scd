@@ -11,8 +11,8 @@
             \dur, Pseq([0.2, 0.2, Rest(0.8)], inf),
             \pan, Pwhite(-1.0, 1.0),
             \out, ~bus[\heartbeat],
-            \attack, 0.01,
-            \legato, 0.4,
+            \attack, 0.004,
+            \legato, 0.1,
             \rel, 0.2,
             \da, 2,
         )
@@ -28,7 +28,7 @@
             \dur, Pseq([0.2, 0.2, Rest(0.8)], inf),
             \pan, Pwhite(-1.0, 1.0),
             \out, ~bus[\heartbeat],
-            \legato, 0.4,
+            \legato, 0.1,
             //for that time when you want a launchpad to have a heart. 
             //Not this show, unfortunately...
             // \midiout, Pfunc({
@@ -36,7 +36,8 @@
             //     0.1.wait;
             //     ~launchpadOut.control(176, 0, 0);
             // }),
-            \attack, 0.1,
+            // \attack, 0.1,
+            \attack, 0.004,
             \rel, 0.3,
             \da, 2,
         )
@@ -52,30 +53,18 @@
             \dur, Pseq([0.2, 0.2, Rest(0.8)], inf),
             \pan, Pwhite(-1.0, 1.0),
             \out, ~bus[\heartbeat],
-            \legato, 0.4,
-            \attack, 0.1,
+            \legato, 0.1,
+            // \attack, 0.1,
+            \attack, 0.004,
             \rel, 0.3,
             \da, 2,
         )
     );
 
-    Pdef(\heartbeat10, 
-        Pbind(
-            \instrument, \sineGate,
-            \group, ~group[\instr],
-            \freq, Pseq([50, 36, 33, 50, 35, 30, 48, 35, 30, 30], inf),
-            \db, Pseq([-22, -25, -28, -22, -25, -30, -23, -30, -32, -35], inf),
-            \dur, 0.2,
-            \pan, Pwhite(-1.0, 1.0),
-            \out, ~bus[\master],
-            \attack, 0.01,
-            \rel, 0.3
-        )
-    );
 )
 
-// Pdef(\heartbeatHi).play(TempoClock(0.8));
-// Pdef(\heartbeatHi).stop;
+// Pdef(\heartbeat).play(TempoClock(0.8));
+// Pdef(\heartbeat).stop;
 
 
 

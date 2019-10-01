@@ -30,8 +30,6 @@
             90.wait;
 
             Pdef(\aliinaChat).play;
-            //just in case the previous cue is still running...
-            // Pdef(\school_yard_fadein).stop;
 
             90.wait;
 

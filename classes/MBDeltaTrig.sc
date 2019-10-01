@@ -28,7 +28,7 @@ MBDeltaTrig {
                 if(free) {
                     if(dt > threshold){
                         function.value(bus, dt, minAmp, maxAmp);
-                        [dt, minibeeID, minAmp, maxAmp, bus].postln;
+                        [dt, minibeeID].postln;
                         free = false;
                         SystemClock.sched(speedlim,{
                             free = true;

@@ -606,8 +606,9 @@
         fx1=0, fx1lvl=0, fx2=0, fx2lvl=0, fx3, fx3lvl=0, fx4, fx4lvl=0;
         var sig, env;
         sig = SinOsc.ar(freq); 
-        env = EnvGen.kr(Env.asr(attack, amp, rel), gate: gate, doneAction: da);
+        env = EnvGen.kr(Env.asr(attack, 1, rel), gate: gate, doneAction: da);
         sig = sig * env * AmpCompA.kr(freq) * SinOsc.kr(amfreq, amdepth);
+        sig = sig * amp;
         sig = PanAz.ar(~numSpeakers, sig, pan, width: width);
         Out.ar(out, sig);
         Out.ar(fx1, sig * fx1lvl);

@@ -24,7 +24,7 @@
         monitorOutChannels: s.options.numOutputBusChannels,
         options:(
             shortcuts:true,
-            largeDisplay: false,
+            largeDisplay: true,
             metronome: false,
         )
     );

@@ -3,7 +3,7 @@
         ~swirlcue = Routine {
 
             "Swirl".postln;
-            ~ch[\heartbeat].set(\gate, 0, \attack, 120, \rel, 120, \amp, -5.dbamp);
+            ~ch[\heartbeat].set(\gate, 0, \attack, 100, \rel, 120, \amp, -7.dbamp);
             //Külli sensors off
             [10, 11].do{|id, idx| ~deltaTriggers[\sineGrain][idx].release(1) };
 
@@ -127,4 +127,4 @@
             Pdef(\heartbeatHi).stop;
         }.play;
     }
-)
+) 

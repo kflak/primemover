@@ -4,10 +4,10 @@
 
             "darkness".postln;
 
-            ~ch[\mic0].set(\lvlin, 0.dbamp, \lvlout, -3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 150, \hishelffreq, 8000, \hishelfdb, 3, \width, ~numSpeakers); //külli
-            ~ch[\mic1].set(\lvlin, 0.dbamp, \lvlout, -3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 150, \hishelffreq, 8000, \hishelfdb, 3, \width, ~numSpeakers); //rakesh
-            ~ch[\mic2].set(\lvlin, 0.dbamp, \lvlout, -3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 150, \hishelffreq, 8000, \hishelfdb, 3, \width, ~numSpeakers); //kenneth
-            ~ch[\mic3].set(\lvlin, 0.dbamp, \lvlout, -3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 150, \hishelffreq, 8000, \hishelfdb, 3, \width, ~numSpeakers); //isabell
+            ~ch[\mic0].set(\lvlin, -3.dbamp, \lvlout, -0.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 150, \hishelffreq, 8000, \hishelfdb, 3, \width, ~numSpeakers); //külli
+            ~ch[\mic1].set(\lvlin, -3.dbamp, \lvlout, -0.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 150, \hishelffreq, 8000, \hishelfdb, 3, \width, ~numSpeakers); //rakesh
+            ~ch[\mic2].set(\lvlin, -3.dbamp, \lvlout, -0.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 150, \hishelffreq, 8000, \hishelfdb, 3, \width, ~numSpeakers); //kenneth
+            ~ch[\mic3].set(\lvlin, -3.dbamp, \lvlout, -0.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 150, \hishelffreq, 8000, \hishelfdb, 3, \width, ~numSpeakers); //isabell
 
             [9, 12].do{|id, idx| ~deltaTriggers[\water][idx].release(1)}; //Isabell sensor off
             Pdef(\heartbeatLo).play(TempoClock(0.8));

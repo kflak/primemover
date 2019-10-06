@@ -4,7 +4,7 @@
         "audience enters".postln;
 
         ~audienceEntersCue = Routine {     
-            
+
             //clean up from Swirl
             ~swirlcue.stop;
             Pdef(\rainFaraway).stop;
@@ -25,6 +25,11 @@
             Pdef(\lullaby).stop;
             ~ch[\heartbeat].set(\gate, 0);
 
+            //clean up from sensor test
+            [13, 14].do{|id, idx| ~deltaTriggers[\em][idx].release(1)}; 
+            [10, 11].do{|id, idx| ~deltaTriggers[\sineGrain][idx].release(1) };
+            [9, 12].do{|id, idx| ~deltaTriggers[\water][idx].release() };
+
             1.wait;
 
             ~ch[\heartbeat].set( \attack, 240, \gate, 1, \rel, 30);
@@ -32,7 +37,7 @@
             ~ch[\mic1].set(\gate, 0);
             ~ch[\mic2].set(\lvlin, 0.dbamp, \lvlout, 0.dbamp, \gate, 1, \fx1lvl, -20.dbamp, \fx2lvl, -20.dbamp, \fx3lvl, -5.dbamp, \width, ~numSpeakers);
             ~ch[\mic3].set(\lvlin, 0.dbamp, \lvlout, 0.dbamp, \gate, 1, \fx1lvl, -20.dbamp, \fx2lvl, -20.dbamp, \fx3lvl, -5.dbamp, \width, ~numSpeakers);
-            
+
             Pdef(\heartbeat).play(TempoClock(0.8));
 
             Pdef(\nasaBeginning).play;
@@ -51,3 +56,4 @@
 // ~ch[\mic3].set(\gate, 0)
 // Pdef(\heartbeat).stop;
 // Pdef(\nasaBeginning).stop;
+

@@ -1,7 +1,6 @@
 (
     ~projectfolder = "/home/kf/sc/primemover/";
-    ~numSpeakers = 2;
-    // ~numSpeakers = 4;
+    ~numSpeakers = 4;
     ~numMics = 4;
     ~numSubs = 2;
     ~micOffset = 4;
@@ -49,8 +48,8 @@
                     Buffer.readChannel(s, file.fullPath, channels: 0);
                 }));
             });
-            s.sync;
             "Buffers read".postln;
+            s.sync;
 
             //set up groups
             this.executeFile((~projectfolder++"groups.scd").standardizePath);
@@ -87,35 +86,13 @@
                 1.wait;
                 //turn off launchpad again
                 ~launchpadOut.control(176, 0, 0);
-            }
+            };
+
+            // sensortest
+            [9, 12].do{|id, idx| ~deltaTriggers[\water][idx].play() };
+            [13, 14].do{|id, idx| ~deltaTriggers[\em][idx].play()};
+            [10, 11].do{|id, idx| ~deltaTriggers[\sineGrain][idx].play() };
         }
     );
 )
 
-
-
-// (
-//     fork{ var dur = 1;
-//         ~numSpeakers.do{|i, idx| 
-//             {Out.ar(idx, SinOsc.ar(880) * XLine.kr(0.1, 0.00001, dur, doneAction: 2))}.play;
-//             dur.wait
-//         };
-//         // test subs, sum of speaker outputs.
-//         {Out.ar(~numSpeakers, SinOsc.ar(88) * XLine.kr(0.3, 0.00001, 4, doneAction: 2))}.play;
-//         dur.wait;
-//         {Out.ar(~numSpeakers + 1, SinOsc.ar(88) * XLine.kr(0.3, 0.00001, 4, doneAction: 2))}.play;
-//     };
-// )
-//(
-//    //soundcheck mics
-//    ~ch[\mic0].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 150, \hishelffreq, 8000, \hishelfdb, 3, \width, ~numSpeakers); //külli
-//    ~ch[\mic1].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 150, \hishelffreq, 8000, \hishelfdb, 3, \width, ~numSpeakers); //rakesh
-//    ~ch[\mic2].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 150, \hishelffreq, 8000, \hishelfdb, 3, \width, ~numSpeakers); //kenneth
-//    ~ch[\mic3].set(\lvlin, 0.dbamp, \lvlout, 3.dbamp, \gate, 1, \fx1lvl, 0, \fx2lvl, 0, \fx3lvl, 0, \locut, 150, \hishelffreq, 8000, \hishelfdb, 3, \width, ~numSpeakers); //isabell
-//)
-// (
-//     ~ch[\mic0].set(\gate, 0);
-//     ~ch[\mic1].set(\gate, 0);
-//     ~ch[\mic2].set(\gate, 0);
-//     ~ch[\mic3].set(\gate, 0);
-// )

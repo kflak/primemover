@@ -113,7 +113,7 @@
             \dur, Prand([0.2, 0.2, 0.2, Rest(0.2), Rest(0.4)], inf),
             // \dur, Prand([0.2, 0.4, 0.6], inf),
             \legato, 0.03,
-            \db, Pwhite(-30, -25),
+            \db, Pwhite(-30, -25) + 3,
             // \db, Pwhite(-30, -25) - 10,
             \attack, 0.00, 
             \rel, Pwhite(0.4, 0.6),

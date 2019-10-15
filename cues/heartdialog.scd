@@ -42,7 +42,7 @@
             "Rakesh solo".postln;
             ~deltaTriggers[\emIDs].do{|id, idx| ~deltaTriggers[\em][idx].play(out: ~bus[\em])};
             // Backup when no sensor
-            Pdef(\emSolo).play;
+            // Pdef(\emSolo).play;
 
             "Kenneth mics on, prepare for song".postln;
 

@@ -42,12 +42,13 @@
             "Rakesh solo".postln;
             ~deltaTriggers[\emIDs].do{|id, idx| ~deltaTriggers[\em][idx].play(out: ~bus[\em])};
             // Backup when no sensor
-            // Pdef(\emSolo).play;
+            Pdef(\emSolo).play;
 
             "Kenneth mics on, prepare for song".postln;
 
             ~ch[\grdelayLong].set(\fb, 0.6);
-            ~ch[\mic2].set(\gate, 1, \lvlin, -6.dbamp, \lvlout, -0.dbamp, \fx1lvl, -20.dbamp, \fx2lvl, -10.dbamp, \fx3lvl, 0.dbamp, \hishelffreq, 500, \hishelfdb, -3);
+            ~ch[\mic2].set(\gate, 1, \lvlout, -14.dbamp, \fx1lvl, -20.dbamp, \fx2lvl, -10.dbamp, \fx3lvl, 0.dbamp, \hishelffreq, 500, \hishelfdb, -3);
+
             60.wait;
 
             Pdef(\tens).stop;

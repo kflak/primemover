@@ -27,7 +27,7 @@
 
         // Backup when no sensors
         // Pdef(\sineGrainTrain).play;
-        // Pdef(\emSolo).stop;
+        Pdef(\emSolo).stop;
 
         fork{
             10.do{|i|

@@ -1,8 +1,8 @@
 (
     ~projectfolder = "/home/kf/sc/primemover/";
-    ~numSpeakers = 4;
+    ~numSpeakers = 3;
     ~numMics = 4;
-    ~numSubs = 2;
+    ~numSubs = 1;
     ~micOffset = 4;
     ~subBus = ~numSpeakers;
     ~hasLaunchpad = false;
@@ -48,8 +48,9 @@
                     Buffer.readChannel(s, file.fullPath, channels: 0);
                 }));
             });
-            "Buffers read".postln;
+            "Reading buffers...".postln;
             s.sync;
+            "Buffers read".postln;
 
             //set up groups
             this.executeFile((~projectfolder++"groups.scd").standardizePath);

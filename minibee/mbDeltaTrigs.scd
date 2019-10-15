@@ -10,8 +10,8 @@
                 speedlim: 0.5, 
                 threshold: 0.1, 
                 minibeeID: id,
-                minAmp: -38.dbamp, 
-                maxAmp: -9.dbamp,
+                minAmp: -68.dbamp, 
+                maxAmp: -3.dbamp,
                 function: {|outbus, dt, minAmp, maxAmp|
                     Synth(\clean, 
                         [
@@ -22,14 +22,14 @@
                             \pan, rrand(-1.0, 1.0), 
                             \rate, rrand(0.5, 1.2),
                             \ratio, 4,
-                            \hishelfdb, -6,
+                            \hishelfdb, -9,
                             \out, outbus,
                             \fx1, ~bus[\jpverb], 
-                            \fx1lvl, rrand(-12, 0).dbamp,
+                            \fx1lvl, rrand(-22, -3).dbamp,
                             \fx2, ~bus[\grdelayMedium], 
-                            \fx2lvl, rrand(-24, -12).dbamp,
+                            \fx2lvl, rrand(-24, -15).dbamp,
                             \fx3, ~bus[\grdelayLong], 
-                            \fx3lvl, rrand(-24, -12).dbamp,
+                            \fx3lvl, rrand(-24, -15).dbamp,
                         ], 
                         ~group[\instr]
                     );
@@ -45,7 +45,7 @@
                 speedlim: 0.5, 
                 threshold: 0.1,
                 minibeeID: id,
-                minAmp: -26.dbamp, 
+                minAmp: -46.dbamp, 
                 maxAmp: 8.dbamp,
                 function: { |outbus, dt, minAmp, maxAmp|
                     var release = dt.linlin(0.0, 1.0, 3.0, 5.0);
@@ -80,7 +80,7 @@
                 threshold: 0.07, 
                 minibeeID: id, 
                 minAmp: -60.dbamp, 
-                maxAmp: -43.dbamp,
+                maxAmp: -40.dbamp,
                 function: { |outbus, dt, minAmp, maxAmp|
                     Synth(\sineGrainTrain,
                         [

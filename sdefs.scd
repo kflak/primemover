@@ -61,7 +61,7 @@
     }).add;
 
     SynthDef(\soundin, {
-        arg in=0, out=0, gate=0, da=2, lvlin=0.2, lvlout=0.2, pan=0, width=2.0,
+        arg in=0, out=0, gate=0, da=2, lvlin=1, lvlout=0.2, pan=0, width=2.0,
         locut=20, loshelffreq=200, loshelfdb=0, 
         hishelffreq=1500, hishelfdb=0, hicut=20000, 
         peakfreq=600, peakrq=1, peakdb=0, 

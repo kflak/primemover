@@ -3,7 +3,7 @@
         Pbind(
             \instrument, \fm,
             \group, ~group[\instr],
-            \db, -29,
+            \db, -33,
             \carfreq, 50,
             \modfreq, Pexprand(49, 52),
             \moddepth, Pexprand(5, 140),

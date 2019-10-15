@@ -42,8 +42,8 @@
             \instrument, \clean,
             \buf, Prand(~buffers[\em], inf),
             \group, ~group[\instr],
-            \db, Pwhite(-20, -6),
-            \dur, Pexprand(0.5, 8.0),
+            \db, Pwhite(-20, -2).trace,
+            \dur, Pexprand(0.8, 8.0),
             \rel, Pkey(\dur),
             \attack, Pkey(\dur) * 0.3,
             \rate, Pexprand(0.25, 0.75),
@@ -56,3 +56,5 @@
         )
     );
 )
+
+

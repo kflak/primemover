@@ -48,10 +48,10 @@
     //microphones
     ~mic = [
         // lvlin, lvlout, outbus 
-        [-6.dbamp, -6.dbamp, \master],
-        [-6.dbamp, -6.dbamp, \master],
-        [-6.dbamp, -6.dbamp, \master],
-        [-6.dbamp, -6.dbamp, \master],
+        [-0.dbamp, -6.dbamp, \master],
+        [-0.dbamp, -6.dbamp, \master],
+        [-0.dbamp, -6.dbamp, \master],
+        [-0.dbamp, -6.dbamp, \master],
     ];
 
     ~mic.do{|item, idx|
@@ -64,7 +64,7 @@
                     \in, idx + ~micOffset,
                     \lvlin, item[0],
                     \lvlout, item[1],
-                    \out, item[2],
+                    \out, ~bus[item[2]],
                     \locut, 200,
                     \fx1, ~bus[\jpverb],
                     \fx1lvl, 0,
@@ -112,7 +112,7 @@
     ~ch[\grdelay].set( \lo_cut, 40, \density, 20, \grain_size, 0.001, \grain_size_rand, 0.3, \min_delay, 0.3, \max_delay, 1.5, \fb, 0.05, \mod_freq, 0.05, \mod_depth, 0.1);
     ~ch[\grdelayMedium].set( \lo_cut, 40, \density, 10, \grain_size, 1.0, \grain_size_rand, 0.3, \min_delay, 1.0, \max_delay, 4.0, \fb, 0.3, \mod_freq, 0.05, \mod_depth, 0.1);
     ~ch[\grdelayLong].set( \lo_cut, 40, \density, 10, \grain_size, 1.0, \grain_size_rand, 0.3, \min_delay, 1.0, \max_delay, 4.0, \fb, 0.5, \mod_freq, 0.05, \mod_depth, 0.1);
-    ~ch[\master].set( \compgain, 2.dbamp, \ratio, 2, \limit, -0.3.dbamp, \thresh, -3.dbamp, \locut, 40, \hishelfdb, -3, \hishelffreq, 800);
+    ~ch[\master].set( \compgain, 2.dbamp, \ratio, 2, \limit, -0.3.dbamp, \thresh, -3.dbamp, \locut, 80, \hishelfdb, -3, \hishelffreq, 800);
 )
 
 // (

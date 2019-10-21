@@ -8,6 +8,7 @@ SuperCollider code for the sound score of the contemporary dance performance Pri
 - CuePlayer.quark
 - pydoncli.py (for Minibees)
 - ddwPatterns.quark
+- [MiniBeeUtils](https://gitlab.com/kflak/supercollider-quarks/tree/master/MiniBeeUtils)
 
 ## Sensors
 
@@ -15,7 +16,7 @@ In the performance we use [SenseStage](https://sensestage.eu) MiniBee accelerome
 
 ## Authors
 Kenneth Flak - Külli Roosna
-[Roosna & Flak](https://.roosnaflak.com)
+[Roosna & Flak](https://roosnaflak.com)
 
 ## Code mentor
 Marije Baalman

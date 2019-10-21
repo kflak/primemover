@@ -1,7 +1,7 @@
 (
     ~deltaTriggers = IdentityDictionary.new;
     MBDeltaTrig.mbData = ~mbData;
-    MBDeltaTrig.numSpeakers = ~numSpeakers;
+    // MBDeltaTrig.numSpeakers = ~numSpeakers;
 
     ~deltaTriggers.put(\waterIDs, [9, 12]); 
     ~deltaTriggers.put(\water, 
